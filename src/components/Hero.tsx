@@ -22,12 +22,7 @@ export function Hero() {
   return (
     <section id="top" className="dark-ground relative isolate overflow-hidden bg-navy text-white">
       <div className="absolute inset-0 -z-10">
-        <motion.div
-          className="absolute inset-0"
-          initial={reduce ? false : { scale: 1 }}
-          animate={reduce ? undefined : { scale: 1.09 }}
-          transition={{ duration: 22, ease: "linear" }}
-        >
+        {reduce ? (
           <Image
             src="/assets/original/4a78eb_0966783f6b7f410c8b449e03b283f615.png"
             alt="Finished home with a gray shingle roof and a standing seam metal roof over the front entry, in Texas open country"
@@ -36,7 +31,19 @@ export function Hero() {
             sizes="100vw"
             className="object-cover object-[60%_50%]"
           />
-        </motion.div>
+        ) : (
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/assets/video/hero-loop.mp4"
+            poster="/assets/video/hero-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label="Drone footage over finished roofs in Denton and Collin County neighborhoods"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/25 md:to-navy/10" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-navy/40" />
         {/* diagonal corner cuts carried over from the old site banners */}
