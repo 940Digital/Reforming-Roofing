@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #042d58;
+  --red: #b42335;
+  --blue: #095798;
+  --cream: #fffdf2;
+  --paper: #f3eedf;
+  --ink: #1a1a1a;
+  --tint: #e5f0fe;
+  --slant: clamp(28px, 5vw, 76px);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-rubik), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@layer components {
+  .h-display {
+    @apply font-display uppercase tracking-wide leading-[1.02];
+  }
+  /* Recurrence 2: diagonal corner cut, from the old banners */
+  .cut {
+    clip-path: polygon(26px 0, 100% 0, 100% 100%, 0 100%, 0 26px);
+  }
+  .cut-br {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%);
+  }
+  /* Recurrence 3: slanted section seams. --prev is the colour of the section above. */
+  .slant {
+    position: relative;
+    padding-top: calc(var(--slant) + 4rem);
+  }
+  .slant::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: var(--slant);
+    background: var(--prev);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+  .slant-r::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+  /* Recurrence 1: red shingle-course marker before each eyebrow */
+  .eyebrow {
+    @apply font-display uppercase tracking-[0.18em] text-[0.95rem] flex items-center gap-3;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 12px;
+    background: var(--marker, var(--red));
+    transform: skewX(-32deg);
+    flex: none;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-display uppercase tracking-[0.1em] text-[1.05rem] px-7 py-4 transition-colors duration-200;
+    clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  }
+  .btn-red { @apply bg-red text-white hover:bg-[#8f1a2a]; }
+  .btn-line { @apply bg-white/10 text-white border-0 hover:bg-white/20; box-shadow: inset 0 0 0 2px rgba(255,255,255,.85); }
+  .btn-navy { @apply bg-navy text-white hover:bg-blue; }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+  .dark-ground :focus-visible { outline-color: #fff; }
+}

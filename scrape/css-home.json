@@ -1,0 +1,250 @@
+{
+ "h": [
+  {
+   "t": "ONE ROOF AT A TIME",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "65px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "YOUR ROOFING COMPANY",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "49px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "QUALITY ROOFING SERVICES WITH INTEGIRTY",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "49px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "THE ROOFING PROJECTS WE TAKE ON",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "49px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "STRONG ROOFS, STRONG FAITH, UNMATCHED QU",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "49px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "Real Reviews From\nReal Satisfied Clients",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "49px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  }
+ ],
+ "btn": [
+  {
+   "t": "Skip to Main Content",
+   "color": "rgb(17, 109, 255)",
+   "bg": "rgb(255, 255, 255)",
+   "font": "Helvetica, Arial, メイリオ, meiryo, \"ヒラギノ角ゴ pro w3\", \"hiragino kaku gothic pro\", sans-serif",
+   "size": "14px",
+   "weight": "400",
+   "radius": "24px",
+   "tt": "none"
+  },
+  {
+   "t": "",
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "font": "Arial",
+   "size": "13.3333px",
+   "weight": "400",
+   "radius": "50%",
+   "tt": "none"
+  },
+  {
+   "t": "",
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "font": "Arial",
+   "size": "13.3333px",
+   "weight": "400",
+   "radius": "50%",
+   "tt": "none"
+  },
+  {
+   "t": "HOME",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "ABOUT US",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "SERVICES",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  }
+ ],
+ "body": [
+  {
+   "t": "Call Today!",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "18px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "469.321.5201",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "22px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "REFORMING ROOFS. REFLECTING CHRIST.",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "25px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "PROUDLY SERVING DENTON & COLLIN COUNTIES",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "25px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "SERVING DENTON, MCKINNEY, FRISCO, PROSPE",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "30px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "At Roofing Reformation, we provide top-t",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "rubik-v2, sans-serif",
+   "size": "16px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  }
+ ],
+ "nav": [
+  {
+   "t": "HOME",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "ABOUT US",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "SERVICES",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "BENEFITS",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "BOOK ONLINE",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgb(255, 255, 255)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "50%",
+   "tt": "none"
+  }
+ ]
+}

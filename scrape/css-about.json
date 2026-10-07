@@ -1,0 +1,240 @@
+{
+ "h": [
+  {
+   "t": "SEE OUR ROOFS IN YOUR NEIGHBORHOOD",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "65px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "MEET OUR TEAM",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "65px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "ROB VAUGHAN",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "22px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "JEREMY MORPHIS",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "22px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "ROBERT HINES",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "22px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "ABOUT ROOFING REFORMATION",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "49px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  }
+ ],
+ "btn": [
+  {
+   "t": "Skip to Main Content",
+   "color": "rgb(17, 109, 255)",
+   "bg": "rgb(255, 255, 255)",
+   "font": "Helvetica, Arial, メイリオ, meiryo, \"ヒラギノ角ゴ pro w3\", \"hiragino kaku gothic pro\", sans-serif",
+   "size": "14px",
+   "weight": "400",
+   "radius": "24px",
+   "tt": "none"
+  },
+  {
+   "t": "",
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "13.3333px",
+   "weight": "400",
+   "radius": "50%",
+   "tt": "none"
+  },
+  {
+   "t": "",
+   "color": "rgb(0, 0, 0)",
+   "bg": "rgb(255, 255, 255)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "13.3333px",
+   "weight": "400",
+   "radius": "50%",
+   "tt": "none"
+  },
+  {
+   "t": "HOME",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "ABOUT US",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "SERVICES",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  }
+ ],
+ "body": [
+  {
+   "t": "Call Today!",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "18px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "469.321.5201",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "22px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "FAITH. INTEGRITY. EXCELLENCE.",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "25px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "Click Each Staff Member to Learn More",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "18px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "Together, these three form the foundatio",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "rubik-v2, sans-serif",
+   "size": "14px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "Your Local, Trusted Roofing Company",
+   "color": "rgb(26, 26, 26)",
+   "bg": "rgba(0, 0, 0, 0)",
+   "font": "anton, sans-serif",
+   "size": "18px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  }
+ ],
+ "nav": [
+  {
+   "t": "HOME",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "ABOUT US",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "SERVICES",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "BENEFITS",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  },
+  {
+   "t": "BOOK ONLINE",
+   "color": "rgb(0, 0, 238)",
+   "bg": "rgba(247, 247, 247, 0)",
+   "font": "Arial, Helvetica, sans-serif",
+   "size": "10px",
+   "weight": "400",
+   "radius": "0px",
+   "tt": "none"
+  }
+ ]
+}
