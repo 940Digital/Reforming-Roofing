@@ -72,7 +72,7 @@ export function Services() {
             <Reveal as="li" key={s.slug} delay={(i % 4) * 0.06}>
               <a
                 href={`/roofing-services/${s.slug}`}
-                className="cut group flex h-full flex-col bg-tint p-6 transition-colors duration-200 hover:bg-navy hover:text-white"
+                className="group flex h-full flex-col bg-tint p-6 transition-colors duration-200 hover:bg-navy hover:text-white"
               >
                 <span className="grid h-14 w-14 place-items-center bg-white group-hover:bg-white">
                   <Image src={s.icon} alt="" width={36} height={36} />

@@ -40,7 +40,7 @@ export function Team() {
         <ul className="mt-12 grid gap-6 md:grid-cols-3">
           {people.map((p, i) => (
             <Reveal as="li" key={p.name} delay={i * 0.08}>
-              <article className="cut h-full bg-white">
+              <article className="h-full bg-white">
                 <div className="relative aspect-square w-full bg-navy">
                   <Image src={p.src} alt={p.alt} fill sizes="(min-width:768px) 30vw, 100vw" className="object-cover" />
                 </div>

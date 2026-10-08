@@ -38,7 +38,7 @@ export function Neighborhood() {
         <ul className="mt-6 grid gap-4 sm:grid-cols-3">
           {gallery.map((g, i) => (
             <Reveal as="li" key={g.src} delay={i * 0.08}>
-              <div className="cut-br relative aspect-square bg-blue">
+              <div className="relative aspect-square bg-blue">
                 <Image src={g.src} alt={g.alt} fill sizes="(min-width:640px) 33vw, 100vw" className="object-cover" />
               </div>
             </Reveal>

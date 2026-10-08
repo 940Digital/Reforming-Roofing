@@ -26,7 +26,7 @@ export function Area() {
         </div>
 
         <Reveal>
-          <div className="cut relative aspect-[1920/875] w-full bg-navy">
+          <div className="relative aspect-[1920/875] w-full bg-navy">
             <Image
               src="/assets/original/860db2_38168d8edfe041ec9374b91f4d7da446.jpeg"
               alt="Aerial view of a two-story home and its gray shingle roof in a Texas neighborhood, shown in navy tone"

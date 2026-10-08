@@ -20,7 +20,7 @@ export function Process() {
               Free estimate and inspection come first. Everything after that is explained before it happens.
             </p>
           </Reveal>
-          <Wipe className="cut relative mt-8 aspect-[820/565] w-full max-w-md bg-blue">
+          <Wipe className="relative mt-8 aspect-[820/565] w-full max-w-md bg-blue">
             <Image
               src="/assets/original/78fd08_ce8780ab4bd54a3cbc14efa7d6c23a02.png"
               alt="A hand holding a magnifying glass over a worn gray shingle on a roof during an inspection"

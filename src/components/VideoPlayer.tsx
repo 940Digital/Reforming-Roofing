@@ -6,7 +6,7 @@ import { useState } from "react";
 export function VideoPlayer({ src, poster, posterAlt }: { src: string; poster: string; posterAlt: string }) {
   const [playing, setPlaying] = useState(false);
   return (
-    <div className="cut relative aspect-video w-full bg-black">
+    <div className="relative aspect-video w-full bg-black">
       {playing ? (
         <video className="absolute inset-0 h-full w-full" src={src} poster={poster} controls autoPlay playsInline preload="auto" />
       ) : (
