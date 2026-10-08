@@ -4,7 +4,7 @@ import { Reveal, Wipe } from "./Reveal";
 const ideas = [
   {
     h: "What we do",
-    p: "We repair, replace and install roofs on homes and commercial buildings. Shingle, tile, metal and commercial systems. Residential roof replacement in Denton, TX is our most common call, and we work across Collin County too.",
+    p: "We repair, replace and install roofs on homes and commercial buildings. Shingle, tile, metal and commercial systems. That includes residential roof replacement in Denton, TX and across Collin County.",
   },
   {
     h: "Why us",
