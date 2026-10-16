@@ -15,7 +15,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 84px;
+  scroll-padding-top: 120px;
 }
 
 body {
@@ -96,4 +96,38 @@ body {
   .btn-navy { @apply bg-navy text-white hover:bg-blue; }
   :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
   .dark-ground :focus-visible { outline-color: #fff; }
+}
+
+/* Option 2 (Shaker). Class names prefixed where they would collide with Option 1. */
+@layer components {
+  .section { @apply py-24 md:py-36; }
+  .wrap { @apply mx-auto max-w-6xl px-5 md:px-10; }
+  .h2 { @apply font-serif text-[2.1rem] leading-[1.15] md:text-[3.2rem]; }
+  .lede { @apply max-w-[38rem] text-lg leading-relaxed text-navy/80 md:text-xl; }
+  .peg-label {
+    @apply flex items-center gap-3 text-[0.78rem] font-medium uppercase tracking-[0.22em] text-navy/70;
+  }
+  .peg-label::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--peg, var(--red));
+    flex: none;
+  }
+  .frame { position: relative; }
+  .frame::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(255, 253, 242, 0.7);
+    pointer-events: none;
+  }
+  .sbtn {
+    @apply inline-flex items-center justify-center px-7 py-4 text-[0.95rem] font-medium tracking-wide transition-colors duration-300;
+  }
+  .sbtn-red { @apply bg-red text-white hover:bg-[#8f1a2a]; }
+  .sbtn-ghost { @apply text-white ring-1 ring-inset ring-white/70 hover:bg-white hover:text-navy; }
+  .sbtn-ghost-dark { @apply text-navy ring-1 ring-inset ring-navy/40 hover:bg-navy hover:text-cream; }
+  .link { @apply text-blue underline decoration-1 underline-offset-4 hover:text-navy; }
 }

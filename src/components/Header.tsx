@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <>
-    <header className="dark-ground fixed inset-x-0 top-0 z-50 bg-navy/95 backdrop-blur text-white border-b-4 border-red">
+    <header className="dark-ground fixed inset-x-0 top-9 z-50 bg-navy/95 backdrop-blur text-white border-b-4 border-red">
       <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-5 md:px-8">
         <a href="#top" className="flex items-center gap-3" aria-label={`${business.name}, back to top`}>
           <Image src="/assets/original/c72b01_46a448f2d9f347c19be6000df92bccdd.png" alt="" width={44} height={42} priority />
@@ -62,7 +62,7 @@ export function Header() {
       <div
         id="mobile-menu"
         hidden={!open}
-        className="dark-ground fixed inset-x-0 bottom-0 top-[72px] z-40 overflow-y-auto bg-navy px-6 py-8 text-white xl:hidden"
+        className="dark-ground fixed inset-x-0 bottom-0 top-[108px] z-40 overflow-y-auto bg-navy px-6 py-8 text-white xl:hidden"
       >
         <ul className="flex flex-col">
           {navLinks.map((l) => (

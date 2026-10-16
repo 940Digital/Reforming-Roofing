@@ -2,3 +2,4 @@ node_modules
 .next
 tools/node_modules
 scrape/heavy-originals
+*.tsbuildinfo

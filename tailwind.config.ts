@@ -12,10 +12,12 @@ const config: Config = {
         paper: "#F3EEDF",
         ink: "#1A1A1A",
         tint: "#E5F0FE",
+        rule: "rgba(4,45,88,0.15)",
       },
       fontFamily: {
         display: ["var(--font-anton)", "Impact", "sans-serif"],
         body: ["var(--font-rubik)", "system-ui", "sans-serif"],
+        serif: ["var(--font-caslon)", "Georgia", "serif"],
       },
     },
   },
