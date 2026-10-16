@@ -1,10 +1,11 @@
 const options = [
   { href: "/", label: "Option 1" },
   { href: "/option-2", label: "Option 2" },
+  { href: "/option-3", label: "Option 3" },
 ];
 
 /** Review-only bar for flipping between design options. Remove before launch. */
-export function OptionSwitcher({ current }: { current: 1 | 2 }) {
+export function OptionSwitcher({ current }: { current: 1 | 2 | 3 }) {
   return (
     <div className="fixed inset-x-0 top-0 z-[70] flex h-9 items-center justify-center gap-1 bg-[#111] font-body text-[0.8rem] text-white/70">
       <span className="mr-2 hidden sm:inline">Design options:</span>
