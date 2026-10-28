@@ -9,6 +9,7 @@ import { navLinks } from "@/config/nav";
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const inSection = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -33,9 +34,26 @@ export function Header() {
 
         <nav aria-label="Primary" className="hidden xl:flex items-center gap-7">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} aria-current={pathname === l.href || pathname.startsWith(`${l.href}/`) ? "page" : undefined} className="whitespace-nowrap font-display uppercase tracking-[0.12em] text-[0.95rem] text-white/90 hover:text-white hover:underline aria-[current=page]:underline decoration-red decoration-2 underline-offset-8">
-              {l.label}
-            </a>
+            <div key={l.href} className="group relative">
+              <a href={l.href} aria-current={inSection(l.href) ? "page" : undefined} className="whitespace-nowrap font-display uppercase tracking-[0.12em] text-[0.95rem] text-white/90 hover:text-white hover:underline aria-[current=page]:underline decoration-red decoration-2 underline-offset-8">
+                {l.label}
+                {l.children && <span aria-hidden className="ml-1.5 inline-block text-[0.7em] text-white/70">&#9662;</span>}
+              </a>
+              {l.children && (
+                // Opens on hover and on keyboard focus; the top padding bridges the gap so the menu stays open on the way down.
+                <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <ul className="min-w-56 border-t-4 border-red bg-navy py-2 shadow-xl">
+                    {l.children.map((c) => (
+                      <li key={c.href}>
+                        <a href={c.href} aria-current={pathname === c.href ? "page" : undefined} className="block whitespace-nowrap px-5 py-2.5 font-display uppercase tracking-[0.12em] text-[0.95rem] text-white/90 hover:bg-blue hover:text-white aria-[current=page]:text-white aria-[current=page]:underline decoration-red decoration-2 underline-offset-8">
+                          {c.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           ))}
         </nav>
 
@@ -69,9 +87,20 @@ export function Header() {
         <ul className="flex flex-col">
           {navLinks.map((l) => (
             <li key={l.href} className="border-b border-white/15">
-              <a href={l.href} aria-current={pathname === l.href || pathname.startsWith(`${l.href}/`) ? "page" : undefined} onClick={() => setOpen(false)} className="block py-4 font-display text-3xl uppercase tracking-wide">
+              <a href={l.href} aria-current={inSection(l.href) ? "page" : undefined} onClick={() => setOpen(false)} className="block py-4 font-display text-3xl uppercase tracking-wide">
                 {l.label}
               </a>
+              {l.children && (
+                <ul className="-mt-1 mb-4 ml-1 border-l-4 border-red pl-4">
+                  {l.children.map((c) => (
+                    <li key={c.href}>
+                      <a href={c.href} aria-current={pathname === c.href ? "page" : undefined} onClick={() => setOpen(false)} className="block py-2 font-display text-xl uppercase tracking-wide text-white/85">
+                        {c.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>

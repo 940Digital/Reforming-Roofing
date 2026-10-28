@@ -17,7 +17,16 @@ export function Footer() {
           <ul className="mt-4 space-y-2">
             <li><a href="/" className="text-white/90 hover:underline">Home</a></li>
             {navLinks.map((l) => (
-              <li key={l.href}><a href={l.href} className="text-white/90 hover:underline">{l.label}</a></li>
+              <li key={l.href}>
+                <a href={l.href} className="text-white/90 hover:underline">{l.label}</a>
+                {l.children && (
+                  <ul className="mt-2 space-y-2 border-l-2 border-red pl-4">
+                    {l.children.map((c) => (
+                      <li key={c.href}><a href={c.href} className="text-white/75 hover:underline">{c.label}</a></li>
+                    ))}
+                  </ul>
+                )}
+              </li>
             ))}
           </ul>
         </nav>

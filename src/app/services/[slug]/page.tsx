@@ -5,9 +5,10 @@ import { InfoSection } from "@/components/InfoSection";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
+import { ServiceCard } from "@/components/ServiceCard";
 import { business } from "@/config/business";
 import { pageMeta } from "@/config/meta";
-import { serviceBySlug, serviceGroups, serviceHref, services } from "@/config/services";
+import { categoryHref, serviceBySlug, serviceGroups, serviceHref, services } from "@/config/services";
 
 export const dynamicParams = false;
 
@@ -51,7 +52,12 @@ export default async function ServicePage(props: Props) {
   return (
     <PageShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <PageHero eyebrow={`${group.name} services`} title={s.name} intro={s.summary} />
+      <PageHero
+        crumbs={[{ href: "/services", label: "Services" }, { href: categoryHref(group.id), label: group.name }]}
+        eyebrow={`${group.noun} services`}
+        title={s.name}
+        intro={s.summary}
+      />
 
       <InfoSection eyebrow="What to know" title={`About ${s.name.toLowerCase()}`} bg="cream" prev="#042d58">
         <div className="grid gap-6 md:grid-cols-2">
@@ -72,20 +78,12 @@ export default async function ServicePage(props: Props) {
         <ul className="grid gap-5 md:grid-cols-3">
           {related.map((r, i) => (
             <Reveal as="li" key={r.slug} delay={i * 0.06}>
-              <a
-                href={serviceHref(r.slug)}
-                className="group flex h-full flex-col bg-tint p-6 transition-colors duration-200 hover:bg-navy hover:text-white"
-              >
-                <h3 className="font-display text-2xl uppercase leading-tight tracking-wide">{r.name}</h3>
-                <p className="mt-3 flex-1 leading-relaxed">{r.card}</p>
-                <span className="mt-5 font-display text-sm uppercase tracking-[0.14em] text-red group-hover:text-[#ff9aa7]">
-                  See this service &rarr;
-                </span>
-              </a>
+              <ServiceCard service={r} />
             </Reveal>
           ))}
         </ul>
-        <Reveal className="mt-8">
+        <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href={categoryHref(group.id)} className="btn btn-navy">All {group.noun.toLowerCase()} services &rarr;</a>
           <a href="/services" className="btn btn-navy">All services &rarr;</a>
         </Reveal>
       </InfoSection>

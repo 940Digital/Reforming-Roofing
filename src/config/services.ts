@@ -7,9 +7,50 @@
 const ico = (id: string) => `/assets/original/9a58ba_${id}.png`;
 
 export const serviceGroups = [
-  { id: "roofing", name: "Roofing", intro: "Residential and commercial roofing, from free inspections to full replacements." },
-  { id: "gutters", name: "Gutters", intro: "Gutters that move water away from your roof, siding and foundation." },
-  { id: "skylights", name: "Skylights", intro: "Skylight repair and replacement, with the flashing and seals done right." },
+  {
+    id: "roofing",
+    name: "Roofing",
+    /** Singular form, for "Roofing services", "Gutter services". */
+    noun: "Roofing",
+    intro: "Residential and commercial roofing, from free inspections to full replacements.",
+    title: "Roofing services in Denton and Collin Counties",
+    lead: "Inspections, repairs and full replacements for homes and businesses. Shingle, tile and commercial roofs, with the owners overseeing every job.",
+    meta: "Roof inspection, roof repair, storm damage repair and roof replacement for homes and businesses in Denton and Collin Counties. Shingle, tile and commercial roofing.",
+    faqs: [
+      ["Do you work on homes and businesses?", "Yes. We do residential roofing and commercial roofing for offices, retail centers, warehouses and other businesses."],
+      ["What roofing materials do you work with?", "Asphalt shingles from manufacturers including Atlas, GAF, Malarkey and CertainTeed, tile roofing and commercial roofing systems."],
+      ["How do I know if I need a repair or a new roof?", "The free inspection tells you. We explain what we found and what your options are. If a repair will do the job, we tell you."],
+      ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],
+    ],
+  },
+  {
+    id: "gutters",
+    name: "Gutters",
+    noun: "Gutter",
+    intro: "Gutters that move water away from your roof, siding and foundation.",
+    title: "Gutter services",
+    lead: "Gutters move rainwater away from your roof, siding and foundation. We install new gutters, replace failing ones and clean clogged ones.",
+    meta: "Gutter installation, gutter replacement and gutter cleaning in Denton and Collin Counties from Roofing Reformation.",
+    faqs: [
+      ["Do I need gutters?", "If water pours off your roof edge onto walkways or flower beds, or soil is washing out along the foundation, gutters help. They move water away from your roof edge, siding and foundation."],
+      ["Install, replace or clean: which do I need?", "No gutters means installation. Sagging, rusted or pulling-away gutters usually need replacing. Gutters that are sound but overflowing usually just need cleaning."],
+      ["Can you do gutters along with a new roof?", "Yes. We have replaced roofs and gutters together."],
+    ],
+  },
+  {
+    id: "skylights",
+    name: "Skylights",
+    noun: "Skylight",
+    intro: "Skylight repair and replacement, with the flashing and seals done right.",
+    title: "Skylight services",
+    lead: "A skylight brings in natural light, but it is also an opening in your roof. We repair leaking skylights and replace ones that are past saving.",
+    meta: "Skylight repair and skylight replacement in Denton and Collin Counties. Leaks, failed seals, cracked glass and worn flashing fixed.",
+    faqs: [
+      ["Should I repair or replace my skylight?", "If the unit is old, cloudy or cracked, replacement usually makes more sense. If only the seal or flashing has failed, a repair may be all it needs."],
+      ["Why does my skylight leak?", "Often it is worn flashing or a failed seal around the unit, not the glass itself."],
+      ["Should I replace my skylight when I replace my roof?", "It is often a good time, since the area around the skylight is already being worked on."],
+    ],
+  },
 ] as const;
 
 export type ServiceGroup = (typeof serviceGroups)[number]["id"];
@@ -493,3 +534,5 @@ export const services: Service[] = [
 
 export const serviceBySlug = (slug: string) => services.find((s) => s.slug === slug);
 export const serviceHref = (slug: string) => `/services/${slug}`;
+export const categoryHref = (id: ServiceGroup) => `/services/${id}`;
+export const servicesIn = (id: ServiceGroup) => services.filter((s) => s.group === id);
