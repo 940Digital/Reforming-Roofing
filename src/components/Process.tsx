@@ -8,9 +8,9 @@ const steps = [
   { h: "Clean-up and warranty", p: "We clean up after ourselves. The work is warranty-backed, and we stay reachable after the job is done." },
 ];
 
-export function Process() {
+export function Process({ prev = "#f3eedf" }: { prev?: string } = {}) {
   return (
-    <section id="how-it-works" className="dark-ground slant bg-navy pb-0 text-white" style={{ ["--prev" as string]: "#f3eedf" }}>
+    <section id="how-it-works" className="dark-ground slant bg-navy pb-0 text-white" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 md:px-8 md:pb-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div>
           <Reveal>

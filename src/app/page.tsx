@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
-import { Services, services } from "@/components/Services";
+import { Services } from "@/components/Services";
 import { Process } from "@/components/Process";
 import { Why } from "@/components/Why";
 import { Reviews } from "@/components/Reviews";
@@ -11,6 +11,16 @@ import { Team } from "@/components/Team";
 import { FinalCta } from "@/components/FinalCta";
 import { Footer } from "@/components/Footer";
 import { business } from "@/config/business";
+import { getCategory } from "@/config/services";
+import { pageMeta } from "@/config/seo";
+
+const services = getCategory("roofing-services")!.services;
+
+export const metadata = pageMeta(
+  "/",
+  "Roofing Contractor in Denton, TX | Roofing Reformation",
+  "Veteran-owned residential and commercial roofing in Denton and Collin Counties. Repair, replacement, installation and inspection. The owners oversee every job. Free estimate.",
+);
 
 // Unresolved fields (address, hours, email, unconfirmed phone, social) are left out on purpose.
 const jsonLd = {
