@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { MoreLink, type SectionProps } from "./MoreLink";
 import { business } from "@/config/business";
 
 const reviews = [
@@ -17,9 +18,9 @@ const reviews = [
   },
 ];
 
-export function Reviews() {
+export function Reviews({ prev = "#fffdf2", more = false }: SectionProps = {}) {
   return (
-    <section id="reviews" className="slant bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: "#fffdf2" }}>
+    <section id="reviews" className="slant bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal className="max-w-3xl">
           <p className="eyebrow text-red">Proof</p>
@@ -48,6 +49,7 @@ export function Reviews() {
           </Reveal>
         )}
 
+        {more && <MoreLink href="/reviews" label="More from our clients" />}
         <Reveal className="mt-14 flex justify-center">
           <Image src="/assets/original/c72b01_46a448f2d9f347c19be6000df92bccdd.png" alt="" width={96} height={91} />
         </Reveal>

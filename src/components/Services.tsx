@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { MoreLink, type SectionProps } from "./MoreLink";
 
 const ico = (id: string) => `/assets/original/9a58ba_${id}.png`;
 
@@ -55,9 +56,9 @@ export const services = [
   },
 ];
 
-export function Services() {
+export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) {
   return (
-    <section id="services" className="slant slant-r bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: "#fffdf2" }}>
+    <section id="services" className="slant slant-r bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal className="max-w-3xl">
           <p className="eyebrow text-red">Residential and commercial</p>
@@ -92,6 +93,7 @@ export function Services() {
             <strong className="font-display uppercase tracking-wide text-navy">Also offered:</strong> siding, gutters and skylights.
           </p>
         </Reveal>
+        {more && <MoreLink href="/services" label="See all services" />}
       </div>
     </section>
   );

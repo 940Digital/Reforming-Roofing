@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { business } from "@/config/business";
 import { navLinks } from "@/config/nav";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -22,7 +24,7 @@ export function Header() {
     <>
     <header className="dark-ground fixed inset-x-0 top-0 z-50 bg-navy/95 backdrop-blur text-white border-b-4 border-red">
       <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-5 md:px-8">
-        <a href="#top" className="flex items-center gap-3" aria-label={`${business.name}, back to top`}>
+        <a href="/" className="flex items-center gap-3" aria-label={`${business.name}, home`}>
           <Image src="/assets/original/c72b01_46a448f2d9f347c19be6000df92bccdd.png" alt="" width={44} height={42} priority />
           <span className="font-display text-xl uppercase tracking-[0.08em] leading-none">
             Roofing Reformation
@@ -31,7 +33,7 @@ export function Header() {
 
         <nav aria-label="Primary" className="hidden xl:flex items-center gap-7">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} className="whitespace-nowrap font-display uppercase tracking-[0.12em] text-[0.95rem] text-white/90 hover:text-white hover:underline decoration-red decoration-2 underline-offset-8">
+            <a key={l.href} href={l.href} aria-current={pathname === l.href ? "page" : undefined} className="whitespace-nowrap font-display uppercase tracking-[0.12em] text-[0.95rem] text-white/90 hover:text-white hover:underline aria-[current=page]:underline decoration-red decoration-2 underline-offset-8">
               {l.label}
             </a>
           ))}
@@ -67,7 +69,7 @@ export function Header() {
         <ul className="flex flex-col">
           {navLinks.map((l) => (
             <li key={l.href} className="border-b border-white/15">
-              <a href={l.href} onClick={() => setOpen(false)} className="block py-4 font-display text-3xl uppercase tracking-wide">
+              <a href={l.href} aria-current={pathname === l.href ? "page" : undefined} onClick={() => setOpen(false)} className="block py-4 font-display text-3xl uppercase tracking-wide">
                 {l.label}
               </a>
             </li>

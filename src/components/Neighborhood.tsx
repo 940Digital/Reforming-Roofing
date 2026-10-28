@@ -8,9 +8,9 @@ const gallery = [
   { src: "/assets/original/9a58ba_c7219f7c60f847f88647c1bb1cea2964.png", alt: "Close aerial view of a complex gabled roof with dormers and chimneys covered in charcoal shingles" },
 ];
 
-export function Neighborhood() {
+export function Neighborhood({ prev = "#f3eedf" }: { prev?: string } = {}) {
   return (
-    <section id="neighborhood" className="dark-ground slant slant-r relative isolate overflow-hidden bg-navy pb-20 text-white md:pb-28" style={{ ["--prev" as string]: "#f3eedf" }}>
+    <section id="neighborhood" className="dark-ground slant slant-r relative isolate overflow-hidden bg-navy pb-20 text-white md:pb-28" style={{ ["--prev" as string]: prev }}>
       <Image
         src="/assets/original/9a58ba_f387f819adc940ce912b509041efda28.jpg"
         alt=""

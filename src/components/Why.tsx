@@ -16,9 +16,9 @@ const promises = [
   ["Stay accountable", "We stand by our work, offer a warranty and answer the phone after the job."],
 ];
 
-export function Why() {
+export function Why({ prev = "#042d58" }: { prev?: string } = {}) {
   return (
-    <section id="why-us" className="slant slant-r bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: "#042d58" }}>
+    <section id="why-us" className="slant slant-r bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal className="max-w-3xl">
           <p className="eyebrow text-red">Why Roofing Reformation</p>

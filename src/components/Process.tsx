@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal, Wipe } from "./Reveal";
+import { MoreLink, type SectionProps } from "./MoreLink";
 
 const steps = [
   { h: "Free inspection", p: "Call us. We come out, look at the roof and give you an honest assessment of its condition." },
@@ -8,9 +9,9 @@ const steps = [
   { h: "Clean-up and warranty", p: "We clean up after ourselves. The work is warranty-backed, and we stay reachable after the job is done." },
 ];
 
-export function Process() {
+export function Process({ prev = "#f3eedf", more = false }: SectionProps = {}) {
   return (
-    <section id="how-it-works" className="dark-ground slant bg-navy pb-0 text-white" style={{ ["--prev" as string]: "#f3eedf" }}>
+    <section id="how-it-works" className="dark-ground slant bg-navy pb-0 text-white" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 md:px-8 md:pb-28 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div>
           <Reveal>
@@ -29,6 +30,7 @@ export function Process() {
               className="object-cover"
             />
           </Wipe>
+          {more && <MoreLink href="/how-it-works" label="More on how it works" dark />}
         </div>
 
         <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2">

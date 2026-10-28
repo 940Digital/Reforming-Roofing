@@ -2,9 +2,9 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { business } from "@/config/business";
 
-export function FinalCta() {
+export function FinalCta({ prev = "#f3eedf" }: { prev?: string } = {}) {
   return (
-    <section id="contact" className="dark-ground slant slant-r relative isolate overflow-hidden bg-navy pb-24 text-white md:pb-32" style={{ ["--prev" as string]: "#f3eedf" }}>
+    <section id="contact" className="dark-ground slant slant-r relative isolate overflow-hidden bg-navy pb-24 text-white md:pb-32" style={{ ["--prev" as string]: prev }}>
       <Image
         src="/assets/original/860db2_0f7ef833b12c4c22aebffb57abce12b9.jpeg"
         alt=""

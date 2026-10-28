@@ -47,14 +47,14 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Process />
+        <About more />
+        <Services more />
+        <Process more />
         <Why />
-        <Reviews />
+        <Reviews more />
         <Neighborhood />
-        <Area />
-        <Team />
+        <Area more />
+        <Team more />
         <FinalCta />
       </main>
       <Footer />

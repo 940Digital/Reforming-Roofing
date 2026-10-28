@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Anton, Rubik } from "next/font/google";
 import "./globals.css";
 import { business } from "@/config/business";
+import { ogImage } from "@/config/meta";
 
 const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton", display: "swap" });
 const rubik = Rubik({ subsets: ["latin"], variable: "--font-rubik", display: "swap" });
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     type: "website",
     url: business.siteUrl,
     siteName: business.name,
-    images: [{ url: "/assets/original/6d4007_8798622589aa43a1862229d8f051180f.jpg", width: 763, height: 700, alt: "Roofing Reformation logo, a red Luther rose with a blue heart and the letter R, above the company name" }],
+    images: [ogImage],
   },
 };
 

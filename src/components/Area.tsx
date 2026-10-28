@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { MoreLink, type SectionProps } from "./MoreLink";
 import { business } from "@/config/business";
 
-export function Area() {
+export function Area({ prev = "#042d58", more = false }: SectionProps = {}) {
   return (
-    <section id="service-area" className="slant slant-r bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: "#042d58" }}>
+    <section id="service-area" className="slant slant-r bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto grid max-w-7xl gap-10 px-5 md:px-8 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-16">
         <div>
           <Reveal>
@@ -23,6 +24,7 @@ export function Area() {
               ))}
             </ul>
           </Reveal>
+          {more && <MoreLink href="/service-area" label="See our service area" />}
         </div>
 
         <Reveal>

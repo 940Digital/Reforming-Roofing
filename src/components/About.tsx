@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal, Wipe } from "./Reveal";
+import { MoreLink, type SectionProps } from "./MoreLink";
 
 const ideas = [
   {
@@ -12,7 +13,7 @@ const ideas = [
   },
   {
     h: "Proof",
-    p: "Veteran-owned and serving homeowners and businesses since 2019. Every job is warranty-backed. The reviews further down are real, and so are the roofs.",
+    p: "Veteran-owned and serving homeowners and businesses since 2019. Every job is warranty-backed. The reviews on this site are real, and so are the roofs.",
   },
 ];
 
@@ -22,9 +23,9 @@ const stats = [
   { n: "Owners", l: "On every project" },
 ];
 
-export function About() {
+export function About({ prev = "#042d58", more = false }: SectionProps = {}) {
   return (
-    <section id="about" className="slant bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: "#042d58" }}>
+    <section id="about" className="slant bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <div>
           <Reveal>
@@ -43,6 +44,7 @@ export function About() {
               </Reveal>
             ))}
           </ol>
+          {more && <MoreLink href="/about" label="More about us" />}
         </div>
 
         <div className="flex flex-col gap-6">

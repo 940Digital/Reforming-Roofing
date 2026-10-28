@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { MoreLink, type SectionProps } from "./MoreLink";
 
 const people = [
   {
@@ -25,9 +26,9 @@ const people = [
   },
 ];
 
-export function Team() {
+export function Team({ prev = "#fffdf2", more = false }: SectionProps = {}) {
   return (
-    <section id="team" className="slant bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: "#fffdf2" }}>
+    <section id="team" className="slant bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <Reveal className="max-w-3xl">
           <p className="eyebrow text-red">The team</p>
@@ -53,6 +54,7 @@ export function Team() {
             </Reveal>
           ))}
         </ul>
+        {more && <MoreLink href="/team" label="Meet the team" />}
       </div>
     </section>
   );

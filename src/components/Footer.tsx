@@ -13,8 +13,9 @@ export function Footer() {
           <p className="mt-2 text-white/80">Residential and commercial roofing in Denton and Collin Counties, Texas.</p>
         </div>
         <nav aria-label="Footer">
-          <h2 className="eyebrow text-white [--marker:#b42335]">On this page</h2>
+          <h2 className="eyebrow text-white [--marker:#b42335]">Pages</h2>
           <ul className="mt-4 space-y-2">
+            <li><a href="/" className="text-white/90 hover:underline">Home</a></li>
             {navLinks.map((l) => (
               <li key={l.href}><a href={l.href} className="text-white/90 hover:underline">{l.label}</a></li>
             ))}
