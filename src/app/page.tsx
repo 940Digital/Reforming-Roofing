@@ -1,7 +1,7 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
-import { Services, services } from "@/components/Services";
+import { Services } from "@/components/Services";
 import { Process } from "@/components/Process";
 import { Why } from "@/components/Why";
 import { Reviews } from "@/components/Reviews";
@@ -11,6 +11,7 @@ import { Team } from "@/components/Team";
 import { FinalCta } from "@/components/FinalCta";
 import { Footer } from "@/components/Footer";
 import { business } from "@/config/business";
+import { services, serviceHref } from "@/config/services";
 
 // Unresolved fields (address, hours, email, unconfirmed phone, social) are left out on purpose.
 const jsonLd = {
@@ -35,7 +36,7 @@ const jsonLd = {
     name: "Roofing services",
     itemListElement: services.map((s) => ({
       "@type": "Offer",
-      itemOffered: { "@type": "Service", name: s.name, url: `${business.siteUrl}/roofing-services/${s.slug}` },
+      itemOffered: { "@type": "Service", name: s.name, url: `${business.siteUrl}${serviceHref(s.slug)}` },
     })),
   },
 };

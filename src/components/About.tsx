@@ -5,7 +5,7 @@ import { MoreLink, type SectionProps } from "./MoreLink";
 const ideas = [
   {
     h: "What we do",
-    p: "We repair, replace and install roofs on homes and commercial buildings. Shingle, tile, metal and commercial systems. That includes residential roof replacement in Denton, TX and across Collin County.",
+    p: "We repair, replace and install roofs on homes and commercial buildings. Shingle, tile and commercial roofs, plus gutters and skylights. That includes residential roof replacement in Denton, TX and across Collin County.",
   },
   {
     h: "Why us",

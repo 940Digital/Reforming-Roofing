@@ -1,6 +1,6 @@
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
-import { Services } from "@/components/Services";
+import { ServiceCatalog } from "@/components/ServiceCatalog";
 import { InfoSection } from "@/components/InfoSection";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
@@ -10,7 +10,7 @@ import { pageMeta } from "@/config/meta";
 export const metadata = pageMeta(
   "/services",
   "Roofing Services in Denton & Collin County | Roofing Reformation",
-  "Roof repair, replacement, installation and free inspections. Shingle, tile, metal and commercial roofing in Denton and Collin Counties.",
+  "Roof inspection, repair and replacement, storm damage repair, shingle, tile and commercial roofing, plus gutters and skylights in Denton and Collin Counties.",
 );
 
 const signs = [
@@ -49,9 +49,9 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Roofing services for homes and businesses"
-        intro="Repairs, replacements, new installs and free inspections. Shingle, tile, metal and commercial roofs across Denton and Collin Counties."
+        intro="Free inspections, repairs and replacements for shingle, tile and commercial roofs, plus gutters and skylights. Across Denton and Collin Counties."
       />
-      <Services prev="#042d58" />
+      <ServiceCatalog prev="#042d58" />
       <InfoSection eyebrow="Repair or replace?" title="Signs to look for" bg="cream" prev="#f3eedf">
         <div className="grid gap-6 md:grid-cols-2">
           {signs.map((s, i) => (

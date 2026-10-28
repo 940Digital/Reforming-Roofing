@@ -33,7 +33,7 @@ export function Header() {
 
         <nav aria-label="Primary" className="hidden xl:flex items-center gap-7">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} aria-current={pathname === l.href ? "page" : undefined} className="whitespace-nowrap font-display uppercase tracking-[0.12em] text-[0.95rem] text-white/90 hover:text-white hover:underline aria-[current=page]:underline decoration-red decoration-2 underline-offset-8">
+            <a key={l.href} href={l.href} aria-current={pathname === l.href || pathname.startsWith(`${l.href}/`) ? "page" : undefined} className="whitespace-nowrap font-display uppercase tracking-[0.12em] text-[0.95rem] text-white/90 hover:text-white hover:underline aria-[current=page]:underline decoration-red decoration-2 underline-offset-8">
               {l.label}
             </a>
           ))}
@@ -69,7 +69,7 @@ export function Header() {
         <ul className="flex flex-col">
           {navLinks.map((l) => (
             <li key={l.href} className="border-b border-white/15">
-              <a href={l.href} aria-current={pathname === l.href ? "page" : undefined} onClick={() => setOpen(false)} className="block py-4 font-display text-3xl uppercase tracking-wide">
+              <a href={l.href} aria-current={pathname === l.href || pathname.startsWith(`${l.href}/`) ? "page" : undefined} onClick={() => setOpen(false)} className="block py-4 font-display text-3xl uppercase tracking-wide">
                 {l.label}
               </a>
             </li>
