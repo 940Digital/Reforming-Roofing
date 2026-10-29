@@ -12,4 +12,5 @@ export const navLinks: NavLink[] = [
   },
   { href: "/reviews", label: "Reviews" },
   { href: "/service-area", label: "Service area" },
+  { href: "/contact", label: "Contact" },
 ];

@@ -58,6 +58,13 @@ export const staticPages: SitePage[] = [
     title: `Service Area: ${cities.length} Towns Near Denton, TX | ${brand}`,
     description: `Roofing Reformation serves ${cities.length} towns in Denton and Collin Counties and nearby, including Denton, Prosper, Celina, Flower Mound, Lewisville and Little Elm.`,
   },
+  {
+    path: "/contact",
+    name: "Contact",
+    title: `Contact Us | Free Roof Inspection | ${brand}`,
+    description:
+      "Call Roofing Reformation at (469) 321-5201 to schedule a free roof inspection and estimate in Denton and Collin Counties. Emergency roofing service available.",
+  },
 ];
 
 export const categoryPages: SitePage[] = serviceGroups.map((g) => ({

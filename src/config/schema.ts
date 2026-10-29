@@ -129,7 +129,7 @@ export function pageGraph({
   extra = [],
 }: {
   path: string;
-  type?: "WebPage" | "AboutPage" | "CollectionPage";
+  type?: "WebPage" | "AboutPage" | "CollectionPage" | "ContactPage";
   trail?: string[];
   faqs?: readonly (readonly [string, string])[];
   mainEntity?: object;

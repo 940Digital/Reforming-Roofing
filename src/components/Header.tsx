@@ -67,8 +67,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={business.phoneHref} className="hidden md:inline-flex btn btn-red !py-2.5 !text-base">
-            {business.phoneDisplay}
+          {/* plays on the company name; the phone number lives on /contact and in the footer */}
+          <a href="/contact" className="hidden md:inline-flex btn btn-red !py-2.5 !text-base">
+            Reform my roof
           </a>
           <button
             type="button"
@@ -114,7 +115,7 @@ export function Header() {
           ))}
         </ul>
         <div className="mt-8 flex flex-col gap-3">
-          <a href="#contact" onClick={() => setOpen(false)} className="btn btn-red">Get a free inspection</a>
+          <a href="/contact" onClick={() => setOpen(false)} className="btn btn-red">Get a free inspection</a>
           <a href={business.phoneHref} className="btn btn-line">Call {business.phoneDisplay}</a>
         </div>
       </div>

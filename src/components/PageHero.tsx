@@ -6,12 +6,15 @@ export function PageHero({
   title,
   intro,
   crumbs,
+  actions = true,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
   /** Links above the eyebrow, from the top level down to the parent page. */
   crumbs?: { href: string; label: string }[];
+  /** The inspection and call buttons. Off on the contact page itself. */
+  actions?: boolean;
 }) {
   return (
     <section className="dark-ground relative isolate overflow-hidden bg-navy text-white">
@@ -35,10 +38,12 @@ export function PageHero({
         <p className="eyebrow text-white [--marker:#b42335]">{eyebrow}</p>
         <h1 className="h-display mt-5 max-w-4xl text-5xl md:text-7xl">{title}</h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">{intro}</p>
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a href="#contact" className="btn btn-red">Get a free inspection</a>
-          <a href={business.phoneHref} className="btn btn-line">Call {business.phoneDisplay}</a>
-        </div>
+        {actions && (
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="/contact" className="btn btn-red">Get a free inspection</a>
+            <a href={business.phoneHref} className="btn btn-line">Call {business.phoneDisplay}</a>
+          </div>
+        )}
       </div>
     </section>
   );

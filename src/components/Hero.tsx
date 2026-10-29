@@ -55,7 +55,7 @@ export function Hero() {
         </p>
 
         <div className="hero-fade mt-9 flex flex-col gap-3 sm:flex-row" style={delay(0.7)}>
-          <a href="#contact" className="btn btn-red">Get a free inspection</a>
+          <a href="/contact" className="btn btn-red">Get a free inspection</a>
           <a href={business.phoneHref} className="btn btn-line">Call {business.phoneDisplay}</a>
         </div>
       </div>
