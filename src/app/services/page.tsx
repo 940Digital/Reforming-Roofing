@@ -37,7 +37,7 @@ const signs = [
 const faqs: [string, string][] = [
   ["Do you work on homes and businesses?", "Yes. We do residential roofing and commercial roofing systems for business and property owners."],
   ["What shingle brands do you install?", "Asphalt shingles from manufacturers including Atlas, GAF, Malarkey and CertainTeed."],
-  ["Do you do anything besides roofs?", "Yes. We also do siding, gutters and skylights."],
+  ["Do you do anything besides roofs?", "Yes. We also do siding, gutters and skylights, plus remodeling, home repairs and painting."],
   ["What if a storm damages my roof?", "Call us. We offer emergency roofing service."],
   ["What does an estimate cost?", "Nothing. The inspection and the estimate are free."],
   ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],
@@ -49,7 +49,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Roofing services for homes and businesses"
-        intro="Free inspections, repairs and replacements for shingle, tile and commercial roofs, plus gutters and skylights. Across Denton and Collin Counties."
+        intro="Free inspections, repairs and replacements for shingle, tile and commercial roofs, plus gutters, skylights, remodeling, repairs and painting. Across Denton and Collin Counties."
       />
       <ServiceCatalog prev="#042d58" />
       <InfoSection eyebrow="Repair or replace?" title="Signs to look for" bg="cream" prev="#f3eedf">

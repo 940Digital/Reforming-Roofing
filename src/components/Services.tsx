@@ -14,7 +14,7 @@ export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) 
           <p className="eyebrow text-red">Residential and commercial</p>
           <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">Roofing services in Denton and Collin Counties</h2>
           <p className="mt-5 text-lg leading-relaxed">
-            Roofing, gutters and skylights. Pick the one that fits and we will take it from there.
+            Roofing, gutters, skylights and general contracting. Pick the one that fits and we will take it from there.
           </p>
         </Reveal>
 
@@ -43,7 +43,7 @@ export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) 
             >
               <span className="font-display text-5xl leading-none text-[#ff9aa7]">{services.length}</span>
               <span className="mt-3 font-display text-2xl uppercase leading-tight tracking-wide">See all services &rarr;</span>
-              <span className="mt-2 leading-relaxed text-white/85">Including gutters and skylights.</span>
+              <span className="mt-2 leading-relaxed text-white/85">Including gutters, skylights, remodeling and painting.</span>
             </a>
           </Reveal>
         </ul>

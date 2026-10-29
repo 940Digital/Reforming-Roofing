@@ -51,6 +51,20 @@ export const serviceGroups = [
       ["Should I replace my skylight when I replace my roof?", "It is often a good time, since the area around the skylight is already being worked on."],
     ],
   },
+  {
+    id: "general-contracting",
+    name: "General contracting",
+    noun: "General contracting",
+    intro: "Remodeling, renovations, home repairs and painting, all managed by one contractor.",
+    title: "General contracting in Denton and Collin Counties",
+    lead: "Kitchen and bathroom remodels, renovations of any size, the repairs that pile up around the house, and interior and exterior painting. One contractor, clear communication and no runaround.",
+    meta: "Remodeling, kitchen and bathroom remodels, home renovations, home repairs and interior and exterior painting in Denton and Collin Counties from Roofing Reformation.",
+    faqs: [
+      ["Do you do more than roofing?", "Yes. We also remodel kitchens and bathrooms, renovate homes, handle home repairs and paint inside and out."],
+      ["Do I need a different contractor for each part of the job?", "No. Demo, framing, drywall, flooring, trim, fixtures and finishes are all managed by one contractor."],
+      ["Is my repair too small to call about?", "No job too small. Give us a call and check it off your list."],
+    ],
+  },
 ] as const;
 
 export type ServiceGroup = (typeof serviceGroups)[number]["id"];
@@ -529,6 +543,217 @@ export const services: Service[] = [
       ["Will you tell me if it just needs a small fix?", "Yes. You get an honest assessment."],
     ],
     related: ["skylight-replacement", "roof-damage-repair", "roof-inspection"],
+  },
+  // General contracting
+  {
+    slug: "remodeling",
+    name: "Remodeling",
+    group: "general-contracting",
+    card: "Kitchens, bathrooms, living spaces and more, with every step handled.",
+    summary:
+      "Remodeling services for kitchens, bathrooms, living spaces, and more. We handle every step, including demo, framing, drywall, flooring, trim, and finishes, so your project stays on track. Quality craftsmanship and honest communication from start to finish.",
+    signs: [
+      "A room no longer works for the way you live",
+      "Finishes, flooring or fixtures look dated",
+      "You want to change a layout, not just refresh it",
+      "Several rooms need work and you want one contractor for all of it",
+    ],
+    includes: [
+      "Demo",
+      "Framing",
+      "Drywall",
+      "Flooring",
+      "Trim and finishes",
+    ],
+    faqs: [
+      ["Which rooms do you remodel?", "Kitchens, bathrooms, living spaces and more."],
+      ["Do you handle the whole project?", "Yes. We handle every step, including demo, framing, drywall, flooring, trim and finishes, so your project stays on track."],
+    ],
+    related: ["kitchen-remodeling", "bathroom-remodeling", "home-renovations"],
+  },
+  {
+    slug: "kitchen-remodeling",
+    name: "Kitchen remodeling",
+    group: "general-contracting",
+    card: "A kitchen remodel built around how you live, from design to final cleanup.",
+    summary:
+      "Transform your kitchen with a remodel built around how you live. We install cabinets, countertops, backsplashes, flooring, lighting, and fixtures, and can open up layouts for better flow. One contractor managing the whole project from design to final cleanup.",
+    signs: [
+      "Not enough counter or cabinet space",
+      "A closed-off layout that makes the kitchen hard to work in",
+      "Worn countertops, cabinets or flooring",
+      "Lighting that leaves the work areas dark",
+    ],
+    includes: [
+      "Cabinets",
+      "Countertops",
+      "Backsplashes",
+      "Flooring",
+      "Lighting and fixtures",
+      "Opening up layouts for better flow",
+    ],
+    faqs: [
+      ["Can you change my kitchen layout?", "Yes. We can open up layouts for better flow."],
+      ["Who manages the project?", "One contractor manages the whole project, from design to final cleanup."],
+    ],
+    related: ["bathroom-remodeling", "remodeling", "interior-painting"],
+  },
+  {
+    slug: "bathroom-remodeling",
+    name: "Bathroom remodeling",
+    group: "general-contracting",
+    card: "Full bathroom remodels from demo to final walkthrough.",
+    summary:
+      "Full bathroom remodels from demo to final walkthrough. We handle showers, tubs, tile, vanities, fixtures, and lighting to give you a space that looks great and works better. From simple updates to complete gut jobs, we keep it clean, on schedule, and built to last.",
+    signs: [
+      "Cracked, stained or dated tile",
+      "A shower or tub that is worn out or hard to use",
+      "Not enough storage at the vanity",
+      "Fixtures or lighting that need replacing",
+    ],
+    includes: [
+      "Showers and tubs",
+      "Tile",
+      "Vanities",
+      "Fixtures",
+      "Lighting",
+    ],
+    faqs: [
+      ["Do you do small updates or only full remodels?", "Both, from simple updates to complete gut jobs."],
+      ["What does a bathroom remodel cover?", "Showers, tubs, tile, vanities, fixtures and lighting, from demo to final walkthrough."],
+    ],
+    related: ["kitchen-remodeling", "remodeling", "home-repairs"],
+  },
+  {
+    slug: "home-renovations",
+    name: "Home renovations",
+    group: "general-contracting",
+    card: "Renovations of any size, from a single room to a whole-house refresh.",
+    summary:
+      "Ready to update your home? We handle renovations of any size, from a single room to a whole-house refresh. Flooring, drywall, trim, fixtures, and layout changes, all managed by one contractor so you get quality work, clear communication, and no runaround.",
+    signs: [
+      "Your home feels dated from room to room",
+      "Worn flooring, trim or fixtures throughout",
+      "You want a different layout",
+      "You are getting a home ready to live in, sell or rent",
+    ],
+    includes: [
+      "Flooring",
+      "Drywall",
+      "Trim",
+      "Fixtures",
+      "Layout changes",
+    ],
+    faqs: [
+      ["How big a project do you take on?", "Renovations of any size, from a single room to a whole-house refresh."],
+      ["Do I need separate contractors for flooring, drywall and trim?", "No. Flooring, drywall, trim, fixtures and layout changes are all managed by one contractor."],
+    ],
+    related: ["remodeling", "home-repairs", "painting"],
+  },
+  {
+    slug: "home-repairs",
+    name: "Home repairs",
+    group: "general-contracting",
+    card: "Drywall, doors, rotted trim, leaks and fixtures. No job too small.",
+    summary:
+      "From drywall patches and door fixes to rotted trim, leaks, and fixtures that quit working, we take care of the repairs that pile up around the house. Reliable, honest service with quality workmanship. No job too small. Give us a call and check it off your list.",
+    signs: [
+      "Holes or cracks in the drywall",
+      "Doors that stick, sag or will not latch",
+      "Soft or rotted trim",
+      "A leak you have been meaning to deal with",
+      "Fixtures that quit working",
+    ],
+    includes: [
+      "Drywall patches",
+      "Door fixes",
+      "Rotted trim",
+      "Leaks",
+      "Fixtures that quit working",
+    ],
+    faqs: [
+      ["Is my repair too small?", "No job too small. Give us a call and check it off your list."],
+      ["Can you take care of several repairs at once?", "Yes. We take care of the repairs that pile up around the house."],
+    ],
+    related: ["home-renovations", "interior-painting", "roof-damage-repair"],
+  },
+  {
+    slug: "painting",
+    name: "Painting",
+    group: "general-contracting",
+    card: "Interior and exterior painting with proper prep and clean, sharp lines.",
+    summary:
+      "Interior and exterior painting done right. We focus on proper prep, quality materials, and clean, sharp lines that hold up for years. Whether it is one room, a full repaint, or a fresh look outside, we deliver a professional finish at a fair price.",
+    signs: [
+      "Faded, peeling or chipped paint",
+      "Scuffed walls and trim",
+      "A color that no longer suits the room or the house",
+      "You are getting ready to sell",
+    ],
+    includes: [
+      "Interior painting",
+      "Exterior painting",
+      "Proper prep",
+      "Quality materials",
+      "Clean, sharp lines",
+    ],
+    faqs: [
+      ["Do you paint inside and outside?", "Yes. Interior and exterior painting."],
+      ["Can you paint just one room?", "Yes. One room, a full repaint or a fresh look outside."],
+    ],
+    related: ["interior-painting", "exterior-painting", "home-renovations"],
+  },
+  {
+    slug: "interior-painting",
+    name: "Interior painting",
+    group: "general-contracting",
+    card: "Fresh paint for walls, ceilings, trim, doors and cabinets.",
+    summary:
+      "Fresh interior paint for walls, ceilings, trim, doors, and cabinets. We protect your floors and furniture, repair drywall imperfections, and deliver crisp lines with a smooth, even finish. Fast, tidy work that makes any room feel brand new.",
+    signs: [
+      "Scuffs, marks or faded walls",
+      "Dings and small holes in the drywall",
+      "Dated cabinets you would rather paint than replace",
+      "A room that needs a fresh look",
+    ],
+    includes: [
+      "Walls and ceilings",
+      "Trim and doors",
+      "Cabinets",
+      "Drywall repair",
+      "Floor and furniture protection",
+    ],
+    faqs: [
+      ["What about my floors and furniture?", "We protect your floors and furniture before we start."],
+      ["Do you fix drywall before painting?", "Yes. We repair drywall imperfections so the finish comes out smooth and even."],
+    ],
+    related: ["painting", "exterior-painting", "home-repairs"],
+  },
+  {
+    slug: "exterior-painting",
+    name: "Exterior painting",
+    group: "general-contracting",
+    card: "Siding, trim, doors and fences, prepped right and painted to last.",
+    summary:
+      "Protect your home and boost curb appeal with professional exterior painting. We pressure wash, scrape, caulk, and prime before applying quality paint to siding, trim, doors, and fences. Clean lines, durable finishes, and a crew that leaves your property spotless.",
+    signs: [
+      "Peeling, cracking or chalky paint",
+      "Bare wood showing on trim or siding",
+      "Faded color",
+      "Gaps along trim that need caulk",
+    ],
+    includes: [
+      "Pressure washing",
+      "Scraping and caulking",
+      "Priming",
+      "Siding and trim",
+      "Doors and fences",
+    ],
+    faqs: [
+      ["What prep do you do before painting?", "We pressure wash, scrape, caulk and prime before applying quality paint."],
+      ["What surfaces do you paint?", "Siding, trim, doors and fences."],
+    ],
+    related: ["painting", "interior-painting", "roof-inspection"],
   },
 ];
 

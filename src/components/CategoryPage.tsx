@@ -17,11 +17,14 @@ const reasons = [
   ["Honest answers", "We fix what is broken and tell you plainly what is not."],
 ];
 
+// Pick the column count that fills every row.
+const cols = (n: number) => (n % 3 !== 0 && n % 4 === 0 ? "lg:grid-cols-4" : "lg:grid-cols-3");
+
 const groupOf = (id: ServiceGroup) => serviceGroups.find((g) => g.id === id)!;
 
 export function categoryMeta(id: ServiceGroup) {
   const g = groupOf(id);
-  return pageMeta(categoryHref(id), `${g.noun} Services in Denton, TX | ${business.name}`, g.meta);
+  return pageMeta(categoryHref(id), `${g.noun.replace(/\b\w/g, (c) => c.toUpperCase())} Services in Denton, TX | ${business.name}`, g.meta);
 }
 
 /** Landing page for one service category, e.g. /services/roofing. */
@@ -42,9 +45,9 @@ export function CategoryPage({ id }: { id: ServiceGroup }) {
               {list.length} {g.noun.toLowerCase()} services
             </h2>
           </Reveal>
-          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className={`mt-10 grid gap-5 sm:grid-cols-2 ${cols(list.length)}`}>
             {list.map((s, i) => (
-              <Reveal as="li" key={s.slug} delay={(i % 3) * 0.06}>
+              <Reveal as="li" key={s.slug} delay={(i % 4) * 0.06}>
                 <ServiceCard service={s} />
               </Reveal>
             ))}
@@ -66,7 +69,7 @@ export function CategoryPage({ id }: { id: ServiceGroup }) {
       <Faq items={g.faqs.map(([q, a]) => [q, a])} bg="paper" prev="#fffdf2" />
 
       <InfoSection eyebrow="More services" title="We also do" bg="cream" prev="#f3eedf">
-        <ul className="grid gap-5 md:grid-cols-2">
+        <ul className="grid gap-5 md:grid-cols-3">
           {others.map((o, i) => (
             <Reveal as="li" key={o.id} delay={i * 0.06}>
               <a href={categoryHref(o.id)} className="group flex h-full flex-col bg-tint p-6 transition-colors duration-200 hover:bg-navy hover:text-white">
