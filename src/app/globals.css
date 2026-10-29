@@ -41,9 +41,19 @@ body {
   to { opacity: 1; transform: none; }
 }
 
+/* Homepage Roofing card: the text panel slides right to uncover the photo. */
+.slide-panel {
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1), background-color 0.2s;
+}
+.slide-photo {
+  transition: clip-path 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero-line, .hero-fade { animation: none; }
+  .slide-panel { transition: background-color 0.2s; transform: none !important; }
+  .slide-photo { transition: none; clip-path: none !important; }
 }
 
 @layer components {

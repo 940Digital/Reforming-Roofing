@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { Reveal, Wipe } from "./Reveal";
+import { Reveal } from "./Reveal";
+import { RoofingFeature } from "./RoofingFeature";
 import { MoreLink, type SectionProps } from "./MoreLink";
 import { categoryHref, serviceGroups } from "@/config/services";
 
 // Roofing leads at full width; the other categories sit in a row under it.
 // Each card links to its category page, which lists the individual services.
-const [roofing, ...others] = serviceGroups;
+const others = serviceGroups.slice(1);
 
 export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) {
   return (
@@ -19,30 +19,9 @@ export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) 
           </p>
         </Reveal>
 
-        <Reveal className="mt-12">
-          <a
-            href={categoryHref(roofing.id)}
-            className="dark-ground group grid bg-navy text-white transition-colors duration-200 hover:bg-blue lg:grid-cols-[1.2fr_1fr]"
-          >
-            <Wipe className="relative min-h-64 bg-blue md:min-h-80">
-              <Image
-                src="/assets/original/860db2_cf892d60ac384833bfd92f879f2f16af.png"
-                alt="Aerial view of a finished gray shingle roof on a single-story home with mature trees and a curved walkway"
-                fill
-                sizes="(min-width:1024px) 55vw, 100vw"
-                className="object-cover"
-              />
-            </Wipe>
-            <div className="flex flex-col justify-center p-7 md:p-12">
-              <p className="eyebrow text-white [--marker:#b42335]">Our main service</p>
-              <h3 className="h-display mt-3 text-5xl md:text-7xl">{roofing.name}</h3>
-              <p className="mt-4 max-w-md text-lg leading-relaxed text-white/90">{roofing.lead}</p>
-              <span className="mt-8 font-display text-lg uppercase tracking-[0.14em] text-[#ff9aa7]">
-                See roofing services <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
-              </span>
-            </div>
-          </a>
-        </Reveal>
+        <div className="mt-12">
+          <RoofingFeature />
+        </div>
 
         <ul className="mt-5 grid gap-5 md:grid-cols-3">
           {others.map((g, i) => (
