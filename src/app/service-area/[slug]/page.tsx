@@ -7,7 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
 import { cityNode, pageGraph } from "@/config/schema";
-import { categoryHref, serviceGroups } from "@/config/services";
+import { categoryHref, serviceGroups, serviceHref, servicesIn } from "@/config/services";
 import { builtLabels, censusSource, cities, cityBySlug, cityHref, denton, directionFrom, housingStats, milesBetween, nearestTo, type City } from "@/config/cities";
 
 export const dynamicParams = false;
@@ -57,6 +57,23 @@ function housingStory(c: City) {
   };
 }
 
+const chip =
+  "block bg-navy px-4 py-2 font-display text-lg uppercase tracking-[0.08em] text-white transition-colors [clip-path:polygon(10px_0,100%_0,100%_100%,0_100%,0_10px)] hover:bg-red";
+
+function ChipList({ items }: { items: { href: string; label: string; note?: string }[] }) {
+  return (
+    <ul className="mt-4 flex flex-wrap gap-2">
+      {items.map((i) => (
+        <li key={i.href}>
+          <a href={i.href} className={chip}>
+            {i.label} {i.note && <span className="text-white/70">{i.note}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export async function generateMetadata(props: Props) {
   const c = cityBySlug((await props.params).slug);
   if (!c) return {};
@@ -68,12 +85,9 @@ export default async function CityPage(props: Props) {
   if (!c) notFound();
 
   const miles = Math.round(milesBetween(denton, c));
-  const facts = [
-    { h: c.counties.length > 1 ? "Counties" : "County", p: countyLabel(c) },
-    { h: c.zips.length > 1 ? "ZIP codes" : "ZIP code", p: c.zips.join(", ") },
-    { h: "Population", p: `${c.population2020.toLocaleString("en-US")} (2020 census)` },
-    { h: "From Denton", p: c === denton ? "Center of our service area" : `About ${miles} miles ${directionFrom(denton, c)}` },
-  ];
+  // Visitors come to find out two things: do we work in their town, and what do we do there.
+  const intro = `Yes, we work in ${c.name}${c === denton ? ", the center of our service area" : `, about ${miles} miles ${directionFrom(denton, c)} of Denton`}. We inspect, repair and replace roofs here, and take on gutters, skylights, remodeling and home repairs too.`;
+  const otherGroups = serviceGroups.filter((g) => g.id !== "roofing");
   const nearby = nearestTo(c);
   const h = c.housing;
   const stats = housingStats(h);
@@ -95,10 +109,27 @@ export default async function CityPage(props: Props) {
         crumbs={[{ href: "/service-area", label: "Service area" }]}
         eyebrow={countyLabel(c)}
         title={`Roofing in ${c.name}, TX`}
-        intro={c.intro}
+        intro={intro}
       />
 
-      <InfoSection eyebrow={`Homes in ${c.name}`} title={story.title} bg="cream" prev="#042d58">
+      <InfoSection eyebrow="Services" title={`What we do in ${c.name}`} bg="cream" prev="#042d58">
+        <div className="space-y-10">
+          <Reveal>
+            <h3 className="font-display text-2xl uppercase tracking-wide text-navy">Roofing</h3>
+            <ChipList items={servicesIn("roofing").map((r) => ({ href: serviceHref(r.slug), label: r.name }))} />
+          </Reveal>
+          <Reveal>
+            <h3 className="font-display text-2xl uppercase tracking-wide text-navy">Around the house</h3>
+            <ChipList items={otherGroups.map((g) => ({ href: categoryHref(g.id), label: g.name }))} />
+          </Reveal>
+          <Reveal>
+            <h3 className="font-display text-2xl uppercase tracking-wide text-navy">Nearby towns we serve</h3>
+            <ChipList items={nearby.map((n) => ({ href: cityHref(n.slug), label: n.name, note: `${Math.round(milesBetween(c, n))} mi` }))} />
+          </Reveal>
+        </div>
+      </InfoSection>
+
+      <InfoSection eyebrow={`Homes in ${c.name}`} title={story.title} bg="paper" prev="#fffdf2">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
           <div>
             <Reveal className="max-w-2xl space-y-5 text-lg leading-relaxed md:text-xl">
@@ -106,7 +137,7 @@ export default async function CityPage(props: Props) {
             </Reveal>
             <ul className="mt-8 grid grid-cols-2 gap-4">
               {tiles.map((t, i) => (
-                <Reveal as="li" key={t.h} delay={i * 0.06} className="cut bg-paper p-5">
+                <Reveal as="li" key={t.h} delay={i * 0.06} className="cut bg-cream p-5">
                   <p className="font-display text-4xl text-navy md:text-5xl">{t.p}</p>
                   <h3 className="mt-1 font-display text-sm uppercase tracking-[0.14em] text-ink/70">{t.h}</h3>
                 </Reveal>
@@ -139,50 +170,7 @@ export default async function CityPage(props: Props) {
         </div>
       </InfoSection>
 
-      <InfoSection eyebrow="Local facts" title={`${c.name} at a glance`} bg="paper" prev="#fffdf2">
-        <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {facts.map((f, i) => (
-            <Reveal as="li" key={f.h} delay={i * 0.06} className="border-t-4 border-red pt-5">
-              <h3 className="font-display text-xl uppercase tracking-wide text-navy">{f.h}</h3>
-              <p className="mt-2 text-lg leading-relaxed">{f.p}</p>
-            </Reveal>
-          ))}
-        </ul>
-        <Reveal className="mt-12">
-          <h3 className="font-display text-2xl uppercase tracking-wide text-navy">Nearby towns we serve</h3>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {nearby.map((n) => (
-              <li key={n.slug}>
-                <a
-                  href={cityHref(n.slug)}
-                  className="block bg-navy px-4 py-2 font-display text-lg uppercase tracking-[0.08em] text-white transition-colors [clip-path:polygon(10px_0,100%_0,100%_100%,0_100%,0_10px)] hover:bg-red"
-                >
-                  {n.name} <span className="text-white/70">{Math.round(milesBetween(c, n))} mi</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </InfoSection>
-
-      <InfoSection eyebrow="Services" title={`What we do in ${c.name}`} bg="cream" prev="#f3eedf">
-        <Reveal>
-          <ul className="flex flex-wrap gap-2">
-            {serviceGroups.map((g) => (
-              <li key={g.id}>
-                <a
-                  href={categoryHref(g.id)}
-                  className="block bg-navy px-4 py-2 font-display text-lg uppercase tracking-[0.08em] text-white transition-colors [clip-path:polygon(10px_0,100%_0,100%_100%,0_100%,0_10px)] hover:bg-red"
-                >
-                  {g.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      </InfoSection>
-
-      <FinalCta prev="#fffdf2" />
+      <FinalCta prev="#f3eedf" />
     </PageShell>
   );
 }
