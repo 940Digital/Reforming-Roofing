@@ -26,8 +26,10 @@ export const business = {
   // available") but 24/7 is not, so no hours claim is made.
   hours: null as string | null,
 
-  // TODO(Rob): Facebook profile URL, if there is one.
-  social: { instagram: "https://www.instagram.com/roofingreformation/" as string | null, facebook: null as string | null },
+  social: {
+    instagram: "https://www.instagram.com/roofingreformation/" as string | null,
+    facebook: "https://www.facebook.com/roofingreformation/" as string | null,
+  },
 
   // Google Business Profile, as a stable Maps link built from the profile's CID (ludocid).
   googleBusinessUrl: "https://www.google.com/maps?cid=2917192926522942732",
