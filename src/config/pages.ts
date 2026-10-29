@@ -1,6 +1,6 @@
 import { business } from "./business";
 import { categoryHref, serviceGroups, serviceHref, services, type Service } from "./services";
-import { cities, cityHref, type City } from "./cities";
+import { cities, cityHref, housingStats, type City } from "./cities";
 
 /**
  * Every public page, with its search title and description.
@@ -87,12 +87,20 @@ const counties = (c: City) => `${c.counties.join(" and ")} ${c.counties.length >
 // Denton alone has ten ZIP codes, so long lists are cut to keep the description under ~160 characters.
 const zipList = (c: City) => (c.zips.length > 3 ? `${c.zips.slice(0, 3).join(", ")} and more` : c.zips.join(", "));
 
+// One line of the town's own housing data, so no two town descriptions read the same.
+const housingLine = (c: City) => {
+  const s = housingStats(c.housing);
+  return c.housing.medianYearBuilt < 2010
+    ? `Half its housing was built in ${c.housing.medianYearBuilt} or earlier.`
+    : `${s.since2010}% of its housing was built since 2010.`;
+};
+
 export const cityPage = (c: City): SitePage => ({
   path: cityHref(c.slug),
   name: c.name,
   title: fit(`Roofing in ${c.name}, TX`),
-  description: `Roofing, gutters, skylights, remodeling and painting in ${c.name}, TX (${zipList(c)}), ${counties(c)}. Free inspection and estimate.`,
-  noindex: !c.indexed,
+  description: `Roofing in ${c.name}, TX (${zipList(c)}), ${counties(c)}. ${housingLine(c)} Free roof inspection and estimate.`,
+  noindex: c.indexed === false,
 });
 
 export const allPages: SitePage[] = [...staticPages, ...categoryPages, ...services.map(servicePage), ...cities.map(cityPage)];

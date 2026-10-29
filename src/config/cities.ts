@@ -4,9 +4,13 @@
  * infobox, checked 2026-10-28. Each page must stay specific to its town: no copy that only swaps
  * the name, and no claims about jobs done there unless the client confirms them.
  *
- * Town pages are noindexed by default. On their own they are a few facts plus links, and a set of
- * thin pages that only differ by town name is what Google treats as doorway pages. Set `indexed`
- * once a town's page carries something only that town has: a finished job, a review or photos.
+ * `housing` is the Census Bureau's American Community Survey 5-year estimates for the town (tables
+ * B25034, B25035, B25003 and B25024), pulled from data.census.gov on 2026-10-29. Lewisville uses the
+ * 2019-2023 survey because the 2020-2024 release has no year-built figures for it.
+ *
+ * A set of pages that only differ by town name is what Google treats as doorway pages, so every
+ * section on a town page has to be built from that town's own data. Set `indexed: false` to pull a
+ * town out of search and the sitemap.
  */
 
 export type City = {
@@ -19,9 +23,46 @@ export type City = {
   lat: number;
   lng: number;
   intro: string;
-  /** Let search engines index this town's page. See the note above before turning it on. */
+  housing: Housing;
+  /** Set false to keep this town's page out of search results and the sitemap. */
   indexed?: boolean;
 };
+
+export type Housing = {
+  /** Last year of the 5-year survey, e.g. 2024 for 2020-2024. */
+  survey: number;
+  /** Census place GEOID, for the source link. */
+  place: string;
+  medianYearBuilt: number;
+  units: number;
+  /** Housing units by year built: 2020 or later, 2010s, 2000s, 1990s ... 1940s, 1939 or earlier. */
+  built: number[];
+  occupied: number;
+  ownerOccupied: number;
+  /** Detached single-family houses. */
+  singleFamily: number;
+};
+
+export const builtLabels = ["2020+", "2010s", "2000s", "1990s", "1980s", "1970s", "1960s", "1950s", "1940s", "Pre-1940"];
+
+/** Share of a town's housing, as a whole percent. */
+const pct = (n: number, of: number) => Math.round((n / of) * 100);
+
+export function housingStats(h: Housing) {
+  const sum = (from: number, to: number) => h.built.slice(from, to).reduce((a, b) => a + b, 0);
+  return {
+    since2010: pct(sum(0, 2), h.units),
+    since2020: pct(h.built[0], h.units),
+    before2000: pct(sum(3, 10), h.units),
+    owned: pct(h.ownerOccupied, h.occupied),
+    houses: pct(h.singleFamily, h.units),
+    /** Index into `built` of the decade with the most homes. */
+    peak: h.built.indexOf(Math.max(...h.built)),
+  };
+}
+
+export const censusSource = (h: Housing) =>
+  `https://data.census.gov/table/ACSDT5Y${h.survey}.B25034?g=160XX00US${h.place}`;
 
 const dms = (d: number, m: number, s: number) => d + m / 60 + s / 3600;
 
@@ -35,6 +76,7 @@ export const cities: City[] = [
     lat: dms(33, 12, 59),
     lng: -dms(97, 7, 45),
     intro: "Denton is the county seat of Denton County and the center of our service area.",
+    housing: { survey: 2024, place: "4819972", medianYearBuilt: 1997, units: 60531, built: [3618,  11555,  13217,  6752,  9119,  7514,  3886,  1889,  1567,  1414], occupied: 56664, ownerOccupied: 28332, singleFamily: 33962 },
   },
   {
     name: "Aubrey",
@@ -45,6 +87,7 @@ export const cities: City[] = [
     lat: dms(33, 18, 26),
     lng: -dms(96, 59, 2),
     intro: "Aubrey is a small city in northern Denton County, between Denton and Pilot Point.",
+    housing: { survey: 2024, place: "4804600", medianYearBuilt: 2013, units: 3176, built: [942,  922,  636,  150,  207,  63,  163,  0,  50,  43], occupied: 3091, ownerOccupied: 2350, singleFamily: 2758 },
   },
   {
     name: "Celina",
@@ -55,6 +98,7 @@ export const cities: City[] = [
     lat: dms(33, 19, 9),
     lng: -dms(96, 47, 44),
     intro: "Celina sits in both Collin and Denton Counties and has been ranked the fastest-growing city in the Dallas-Fort Worth area.",
+    housing: { survey: 2024, place: "4813684", medianYearBuilt: 2015, units: 11152, built: [3618,  3695,  1870,  528,  608,  179,  123,  0,  391,  140], occupied: 10324, ownerOccupied: 9570, singleFamily: 10805 },
   },
   {
     name: "Gunter",
@@ -65,6 +109,7 @@ export const cities: City[] = [
     lat: dms(33, 27, 5),
     lng: -dms(96, 46, 40),
     intro: "Gunter is in the southwest corner of Grayson County, just north of Celina.",
+    housing: { survey: 2024, place: "4831616", medianYearBuilt: 2004, units: 762, built: [88,  197,  168,  45,  107,  31,  33,  12,  30,  51], occupied: 706, ownerOccupied: 489, singleFamily: 668 },
   },
   {
     name: "Ponder",
@@ -75,6 +120,7 @@ export const cities: City[] = [
     lat: dms(33, 10, 42),
     lng: -dms(97, 17, 28),
     intro: "Ponder is a small town in western Denton County, west of Denton and north of Justin.",
+    housing: { survey: 2024, place: "4858664", medianYearBuilt: 2008, units: 887, built: [21,  356,  297,  30,  63,  27,  79,  6,  4,  4], occupied: 864, ownerOccupied: 756, singleFamily: 851 },
   },
   {
     name: "Corinth",
@@ -85,6 +131,7 @@ export const cities: City[] = [
     lat: dms(33, 8, 38),
     lng: -dms(97, 4, 20),
     intro: "Corinth is one of the four Lake Cities, just south of Denton along I-35E.",
+    housing: { survey: 2024, place: "4816696", medianYearBuilt: 1997, units: 8869, built: [133,  891,  2508,  3269,  1526,  346,  25,  81,  49,  41], occupied: 8540, ownerOccupied: 6550, singleFamily: 7528 },
   },
   {
     name: "Melissa",
@@ -95,6 +142,7 @@ export const cities: City[] = [
     lat: dms(33, 17, 5),
     lng: -dms(96, 33, 9),
     intro: "Melissa is in Collin County along US 75, north of McKinney and south of Anna.",
+    housing: { survey: 2024, place: "4847496", medianYearBuilt: 2015, units: 6266, built: [1821,  2768,  1135,  285,  46,  27,  143,  0,  41,  0], occupied: 6169, ownerOccupied: 5470, singleFamily: 5798 },
   },
   {
     name: "Prosper",
@@ -105,6 +153,7 @@ export const cities: City[] = [
     lat: dms(33, 14, 45),
     lng: -dms(96, 50, 27),
     intro: "Prosper straddles Collin and Denton Counties, north of Frisco and south of Celina.",
+    housing: { survey: 2024, place: "4859696", medianYearBuilt: 2014, units: 11921, built: [2393,  6204,  2494,  384,  284,  101,  21,  33,  7,  0], occupied: 11239, ownerOccupied: 9874, singleFamily: 10583 },
   },
   {
     name: "Anna",
@@ -115,6 +164,7 @@ export const cities: City[] = [
     lat: dms(33, 21, 20),
     lng: -dms(96, 33, 43),
     intro: "Anna is in northern Collin County along US 75, just north of Melissa.",
+    housing: { survey: 2024, place: "4803300", medianYearBuilt: 2012, units: 8111, built: [1955,  2730,  2676,  236,  95,  129,  103,  119,  29,  39], occupied: 7753, ownerOccupied: 6084, singleFamily: 7479 },
   },
   {
     name: "Krum",
@@ -125,6 +175,7 @@ export const cities: City[] = [
     lat: dms(33, 15, 26),
     lng: -dms(97, 13, 50),
     intro: "Krum is a small city just northwest of Denton, between Denton and Sanger.",
+    housing: { survey: 2024, place: "4839928", medianYearBuilt: 2005, units: 2035, built: [168,  469,  759,  143,  267,  183,  28,  0,  0,  18], occupied: 2014, ownerOccupied: 1527, singleFamily: 1878 },
   },
   {
     name: "Lewisville",
@@ -135,6 +186,7 @@ export const cities: City[] = [
     lat: dms(33, 2, 18),
     lng: -dms(97, 0, 22),
     intro: "Lewisville is in southern Denton County, with a portion in Dallas County, at the south end of Lewisville Lake.",
+    housing: { survey: 2023, place: "4842508", medianYearBuilt: 1996, units: 52909, built: [1261,  9981,  10146,  13192,  10708,  4649,  1505,  925,  221,  321], occupied: 50147, ownerOccupied: 23344, singleFamily: 23818 },
   },
   {
     name: "Little Elm",
@@ -145,6 +197,7 @@ export const cities: City[] = [
     lat: dms(33, 9, 50),
     lng: -dms(96, 55, 49),
     intro: "Little Elm sits on the east side of Lewisville Lake in Denton County.",
+    housing: { survey: 2024, place: "4843012", medianYearBuilt: 2011, units: 19778, built: [2681,  8249,  7194,  1089,  174,  166,  52,  58,  27,  88], occupied: 18883, ownerOccupied: 13238, singleFamily: 14715 },
   },
   {
     name: "Pilot Point",
@@ -155,6 +208,7 @@ export const cities: City[] = [
     lat: dms(33, 23, 47),
     lng: -dms(96, 57, 31),
     intro: "Pilot Point is in northeast Denton County, near Ray Roberts Lake.",
+    housing: { survey: 2024, place: "4857476", medianYearBuilt: 1997, units: 1931, built: [203,  329,  393,  118,  381,  214,  53,  128,  0,  112], occupied: 1813, ownerOccupied: 1358, singleFamily: 1660 },
   },
   {
     name: "Argyle",
@@ -165,6 +219,7 @@ export const cities: City[] = [
     lat: dms(33, 6, 59),
     lng: -dms(97, 11, 8),
     intro: "Argyle is in southwest Denton County, on the road between Denton and Fort Worth.",
+    housing: { survey: 2024, place: "4803768", medianYearBuilt: 2002, units: 1784, built: [296,  354,  316,  204,  362,  175,  77,  0,  0,  0], occupied: 1684, ownerOccupied: 1554, singleFamily: 1743 },
   },
   {
     name: "Flower Mound",
@@ -175,6 +230,7 @@ export const cities: City[] = [
     lat: dms(33, 2, 3),
     lng: -dms(97, 6, 50),
     intro: "Flower Mound is a town in southern Denton County, with a small part in Tarrant County, next to Grapevine Lake.",
+    housing: { survey: 2024, place: "4826232", medianYearBuilt: 1997, units: 28789, built: [854,  5051,  5445,  11597,  4381,  978,  299,  76,  99,  9], occupied: 28128, ownerOccupied: 23202, singleFamily: 24717 },
   },
   {
     name: "Justin",
@@ -185,6 +241,7 @@ export const cities: City[] = [
     lat: dms(33, 5, 18),
     lng: -dms(97, 18, 16),
     intro: "Justin is in southwest Denton County, south of Ponder and north of Fort Worth.",
+    housing: { survey: 2024, place: "4838332", medianYearBuilt: 2011, units: 1842, built: [416,  536,  426,  114,  119,  95,  36,  75,  0,  25], occupied: 1842, ownerOccupied: 1542, singleFamily: 1692 },
   },
   {
     name: "Sanger",
@@ -195,6 +252,7 @@ export const cities: City[] = [
     lat: dms(33, 21, 47),
     lng: -dms(97, 10, 34),
     intro: "Sanger is in northern Denton County along I-35, north of Krum and Denton.",
+    housing: { survey: 2024, place: "4865408", medianYearBuilt: 2001, units: 3856, built: [249,  993,  799,  417,  736,  243,  94,  146,  22,  157], occupied: 3632, ownerOccupied: 2678, singleFamily: 3066 },
   },
   {
     name: "Hickory Creek",
@@ -205,6 +263,7 @@ export const cities: City[] = [
     lat: dms(33, 6, 40),
     lng: -dms(97, 1, 50),
     intro: "Hickory Creek is one of the four Lake Cities, on Lewisville Lake in southern Denton County.",
+    housing: { survey: 2024, place: "4833476", medianYearBuilt: 2008, units: 2036, built: [193,  729,  616,  109,  126,  148,  74,  41,  0,  0], occupied: 1936, ownerOccupied: 1543, singleFamily: 1679 },
   },
   {
     name: "Lake Dallas",
@@ -215,6 +274,7 @@ export const cities: City[] = [
     lat: dms(33, 7, 28),
     lng: -dms(97, 1, 18),
     intro: "Lake Dallas is one of the four Lake Cities, on the shore of Lewisville Lake. The town is named for the lake's original name.",
+    housing: { survey: 2024, place: "4840516", medianYearBuilt: 1998, units: 3294, built: [15,  447,  1073,  646,  635,  399,  18,  21,  40,  0], occupied: 3112, ownerOccupied: 2154, singleFamily: 2188 },
   },
 ];
 

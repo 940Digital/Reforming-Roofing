@@ -17,13 +17,15 @@ export function Reveal({
 }) {
   const reduce = useReducedMotion();
   const M = motion[as];
+  // `initial` must match the server render, which cannot know the motion setting. Reduced motion
+  // skips the movement by making the reveal instant instead.
   return (
     <M
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.25 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay }}
+      transition={reduce ? { duration: 0 } : { duration: 0.6, ease: "easeOut", delay }}
     >
       {children}
     </M>
@@ -40,9 +42,9 @@ export function Wipe({ children, className, delay = 0 }: { children: ReactNode; 
     <div ref={ref} className={className}>
       <motion.div
         className="h-full w-full"
-        initial={reduce ? false : { clipPath: "inset(0 100% 0 0)" }}
+        initial={{ clipPath: "inset(0 100% 0 0)" }}
         animate={{ clipPath: reduce || inView ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)" }}
-        transition={{ duration: 0.75, ease: [0.65, 0, 0.35, 1], delay: inView ? delay : 0 }}
+        transition={reduce ? { duration: 0 } : { duration: 0.75, ease: [0.65, 0, 0.35, 1], delay: inView ? delay : 0 }}
       >
         {children}
       </motion.div>
