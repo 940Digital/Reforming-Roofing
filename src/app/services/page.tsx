@@ -1,6 +1,7 @@
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
 import { ServiceCatalog } from "@/components/ServiceCatalog";
+import { Process } from "@/components/Process";
 import { InfoSection } from "@/components/InfoSection";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
@@ -39,6 +40,7 @@ const faqs: [string, string][] = [
   ["Do you do anything besides roofs?", "Yes. We also do siding, gutters and skylights, plus remodeling, home repairs and painting."],
   ["What if a storm damages my roof?", "Call us. We offer emergency roofing service."],
   ["What does an estimate cost?", "Nothing. The inspection and the estimate are free."],
+  ["Do I have to decide on the spot?", "No. We explain what we found, your options and the price. Then you decide."],
   ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],
 ];
 
@@ -52,7 +54,8 @@ export default function ServicesPage() {
         intro="Free inspections, repairs and replacements for shingle, tile and commercial roofs, plus gutters, skylights, remodeling, repairs and painting. Across Denton and Collin Counties."
       />
       <ServiceCatalog prev="#042d58" />
-      <InfoSection eyebrow="Repair or replace?" title="Signs to look for" bg="cream" prev="#f3eedf">
+      <Process prev="#f3eedf" />
+      <InfoSection eyebrow="Repair or replace?" title="Signs to look for" bg="cream" prev="#042d58">
         <div className="grid gap-6 md:grid-cols-2">
           {signs.map((s, i) => (
             <Reveal key={s.h} delay={i * 0.08} className="border-t-4 border-red bg-tint p-6 md:p-8">

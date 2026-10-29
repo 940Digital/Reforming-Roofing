@@ -46,13 +46,6 @@ export const staticPages: SitePage[] = [
       "Roof inspection, repair and replacement, shingle, tile and commercial roofing, plus gutters, skylights, remodeling and painting in Denton and Collin Counties.",
   },
   {
-    path: "/how-it-works",
-    name: "How it works",
-    title: `How It Works | Free Roof Inspection | ${brand}`,
-    description:
-      "Free inspection, a plain-English plan, the work, then clean-up and warranty. Here is what to expect when you call Roofing Reformation.",
-  },
-  {
     path: "/reviews",
     name: "Reviews",
     title: `Reviews | ${brand}, Denton, TX`,

@@ -10,7 +10,6 @@ export const navLinks: NavLink[] = [
     label: "Services",
     children: serviceGroups.map((g) => ({ href: categoryHref(g.id), label: g.name })),
   },
-  { href: "/how-it-works", label: "How it works" },
   { href: "/reviews", label: "Reviews" },
   { href: "/service-area", label: "Service area" },
 ];

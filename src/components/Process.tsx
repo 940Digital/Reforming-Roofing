@@ -24,7 +24,7 @@ export function Process({ prev = "#f3eedf", more = false }: SectionProps = {}) {
               className="object-cover"
             />
           </Wipe>
-          {more && <MoreLink href="/how-it-works" label="More on how it works" dark />}
+          {more && <MoreLink href="/services#how-it-works" label="More on how it works" dark />}
         </div>
 
         <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2">

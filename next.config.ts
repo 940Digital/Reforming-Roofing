@@ -1,9 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // The team page was folded into About on 2026-10-29.
+  // Pages folded into others on 2026-10-29: Team into About, How it works into Services.
   async redirects() {
-    return [{ source: "/team", destination: "/about#team", permanent: true }];
+    return [
+      { source: "/team", destination: "/about#team", permanent: true },
+      { source: "/how-it-works", destination: "/services#how-it-works", permanent: true },
+    ];
   },
 };
 
