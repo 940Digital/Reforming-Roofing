@@ -1,3 +1,5 @@
+import { cities } from "./cities";
+
 /**
  * Single source of truth for business facts.
  * Anything marked TODO is unconfirmed. Do not hard-code these values anywhere else.
@@ -32,21 +34,7 @@ export const business = {
   // TODO(Rob): public Google review URL, used for a "Read more reviews" link when present.
   reviewsUrl: null as string | null,
 
-  serviceAreas: [
-    "Denton",
-    "McKinney",
-    "Frisco",
-    "Prosper",
-    "Aubrey",
-    "Flower Mound",
-    "Lewisville",
-    "Cross Roads",
-    "Corinth",
-    "Little Elm",
-    "The Colony",
-    "Southlake",
-    "Grapevine",
-    "Fort Worth",
-  ],
+  // Matches the Google Business Profile service area. Edit the list in cities.ts.
+  serviceAreas: cities.map((c) => c.name),
   counties: ["Denton County", "Collin County"],
 } as const;

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { MoreLink, type SectionProps } from "./MoreLink";
-import { business } from "@/config/business";
+import { cities, cityHref } from "@/config/cities";
 
 export function Area({ prev = "#042d58", more = false }: SectionProps = {}) {
   return (
@@ -17,9 +17,14 @@ export function Area({ prev = "#042d58", more = false }: SectionProps = {}) {
           </Reveal>
           <Reveal>
             <ul className="mt-8 flex flex-wrap gap-2">
-              {business.serviceAreas.map((c) => (
-                <li key={c} className="bg-navy px-4 py-2 font-display text-lg uppercase tracking-[0.08em] text-white [clip-path:polygon(10px_0,100%_0,100%_100%,0_100%,0_10px)]">
-                  {c}
+              {cities.map((c) => (
+                <li key={c.slug}>
+                  <a
+                    href={cityHref(c.slug)}
+                    className="block bg-navy px-4 py-2 font-display text-lg uppercase tracking-[0.08em] text-white transition-colors [clip-path:polygon(10px_0,100%_0,100%_100%,0_100%,0_10px)] hover:bg-red"
+                  >
+                    {c.name}
+                  </a>
                 </li>
               ))}
             </ul>
