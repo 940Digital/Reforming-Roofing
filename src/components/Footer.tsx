@@ -54,17 +54,21 @@ export function Footer() {
           </Column>
         </div>
 
-        <Column title="Call">
-          <a href={business.phoneHref} className="font-display text-3xl tracking-wide hover:underline decoration-red decoration-2 underline-offset-4">
+        <Column title="Text or call">
+          <a href={business.smsHref} className="font-display text-3xl tracking-wide hover:underline decoration-red decoration-2 underline-offset-4">
             {business.phoneDisplay}
           </a>
+          <p className="mt-2 flex gap-4">
+            <a href={business.smsHref} className={link}>Text us</a>
+            <a href={business.phoneHref} className={link}>Call</a>
+          </p>
           {business.email && <p className="mt-2"><a href={`mailto:${business.email}`} className={link}>{business.email}</a></p>}
           <p className="mt-4 leading-relaxed text-white/80">Free inspection and estimate. Financing available.</p>
           <a href="/service-area" className={`mt-3 inline-block ${link}`}>Serving Denton and Collin Counties</a>
         </Column>
       </div>
 
-      {/* extra bottom room on phones for the fixed call bar */}
+      {/* extra bottom room on phones for the fixed contact bar */}
       <div className="border-t border-white/15">
         <p className="mx-auto max-w-7xl px-5 pb-20 pt-5 text-sm text-white/65 md:px-8 md:pb-5">
           &copy; {new Date().getFullYear()} {business.name}. All rights reserved.

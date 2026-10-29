@@ -22,7 +22,7 @@ export function Header() {
     };
   }, [open]);
 
-  // The phone-only call bar waits until the hero (and its own call button) has scrolled away.
+  // The phone-only contact bar waits until the hero (and its own buttons) has scrolled away.
   useEffect(() => {
     const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.7);
     onScroll();
@@ -115,19 +115,23 @@ export function Header() {
           ))}
         </ul>
         <div className="mt-8 flex flex-col gap-3">
-          <a href="/contact" onClick={() => setOpen(false)} className="btn btn-red">Get a free inspection</a>
-          <a href={business.phoneHref} className="btn btn-line">Call {business.phoneDisplay}</a>
+          <a href={business.smsHref} className="btn btn-red">Text {business.phoneDisplay}</a>
+          <a href={business.phoneHref} className="btn btn-line">Call instead</a>
         </div>
       </div>
-      <a
-        href={business.phoneHref}
+      {/* phone-only contact bar: text first, call beside it */}
+      <div
         aria-hidden={!pastHero || open}
-        tabIndex={pastHero && !open ? undefined : -1}
-        className={`fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-3 border-t-4 border-red bg-navy py-3.5 font-display text-xl uppercase tracking-[0.1em] text-white transition-transform duration-300 md:hidden ${pastHero && !open ? "translate-y-0" : "translate-y-full"}`}
+        className={`fixed inset-x-0 bottom-0 z-40 flex border-t-4 border-red bg-navy font-display text-lg uppercase tracking-[0.08em] text-white transition-transform duration-300 md:hidden ${pastHero && !open ? "translate-y-0" : "translate-y-full"}`}
       >
-        <span className="h-2.5 w-2.5 rotate-45 bg-red" aria-hidden />
-        Call {business.phoneDisplay}
-      </a>
+        <a href={business.smsHref} tabIndex={pastHero && !open ? undefined : -1} className="flex flex-1 items-center justify-center gap-3 bg-red py-3.5">
+          <span className="h-2.5 w-2.5 rotate-45 bg-white" aria-hidden />
+          Text {business.phoneDisplay}
+        </a>
+        <a href={business.phoneHref} tabIndex={pastHero && !open ? undefined : -1} className="flex items-center px-5">
+          Call
+        </a>
+      </div>
     </>
   );
 }

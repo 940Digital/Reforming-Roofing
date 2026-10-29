@@ -37,7 +37,7 @@ const signs = [
 const faqs: [string, string][] = [
   ["What shingle brands do you install?", "Asphalt shingles from manufacturers including Atlas, GAF, Malarkey and CertainTeed."],
   ["Do you do anything besides roofs?", "Yes. We also do siding, gutters and skylights, plus remodeling, home repairs and painting."],
-  ["What if a storm damages my roof?", "Call us. We offer emergency roofing service."],
+  ["What if a storm damages my roof?", "Text or call us. We offer emergency roofing service."],
   ["What does an estimate cost?", "Nothing. The inspection and the estimate are free."],
   ["Do I have to decide on the spot?", "No. We explain what we found, your options and the price. Then you decide."],
   ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],

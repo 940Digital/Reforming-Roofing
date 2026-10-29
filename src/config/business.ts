@@ -13,6 +13,8 @@ export const business = {
   // Confirmed as the business line. The old site also listed 469-972-4501 and 469-236-2255; do not use those.
   phoneDisplay: "(469) 321-5201",
   phoneHref: "tel:+14693215201",
+  // Texting is the main way in (Owen, 2026-10-29); calling is the backup. The "?&body=" form prefills on iOS and Android.
+  smsHref: `sms:+14693215201?&body=${encodeURIComponent("Hi, I'd like a free roof inspection.")}`,
   phoneSchema: "+1-469-321-5201",
 
   // TODO(Rob): no email was found on the old site.

@@ -12,9 +12,9 @@ import { itemList, pageGraph } from "@/config/schema";
 export const metadata = metaFor("/service-area");
 
 const faqs: [string, string][] = [
-  ["My town is not listed. Can you still come out?", "Call and ask. We will tell you straight whether we can get to you."],
+  ["My town is not listed. Can you still come out?", "Text or call and ask. We will tell you straight whether we can get to you."],
   ["Which counties do you cover?", "Mostly Denton County and Collin County, plus Gunter in Grayson County. Every town we serve has its own page, linked above."],
-  ["What if a storm damages my roof?", "Call us. We offer emergency roofing service."],
+  ["What if a storm damages my roof?", "Text or call us. We offer emergency roofing service."],
 ];
 
 export default function ServiceAreaPage() {

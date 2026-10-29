@@ -63,7 +63,7 @@ export const staticPages: SitePage[] = [
     name: "Contact",
     title: `Contact Us | Free Roof Inspection | ${brand}`,
     description:
-      "Call Roofing Reformation at (469) 321-5201 to schedule a free roof inspection and estimate in Denton and Collin Counties. Emergency roofing service available.",
+      "Text or call Roofing Reformation at (469) 321-5201 to schedule a free roof inspection and estimate in Denton and Collin Counties. Emergency roofing service available.",
   },
 ];
 

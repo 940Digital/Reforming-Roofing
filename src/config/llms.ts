@@ -21,7 +21,7 @@ function header() {
     "",
     "## Key facts",
     "",
-    `- Phone: ${business.phoneDisplay}`,
+    `- Phone (text or call; texting preferred): ${business.phoneDisplay}`,
     `- Website: ${business.siteUrl}`,
     `- Service area: ${business.serviceAreas.length} towns in ${business.counties.join(" and ")}, Texas, and nearby: ${business.serviceAreas.join(", ")}. No street address; the team comes to you.`,
     "- Free roof inspection and estimate.",

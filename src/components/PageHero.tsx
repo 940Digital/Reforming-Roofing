@@ -13,7 +13,7 @@ export function PageHero({
   intro: string;
   /** Links above the eyebrow, from the top level down to the parent page. */
   crumbs?: { href: string; label: string }[];
-  /** The inspection and call buttons. Off on the contact page itself. */
+  /** The text and call buttons. Off on the contact page, which has its own. */
   actions?: boolean;
 }) {
   return (
@@ -40,8 +40,8 @@ export function PageHero({
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">{intro}</p>
         {actions && (
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a href="/contact" className="btn btn-red">Get a free inspection</a>
-            <a href={business.phoneHref} className="btn btn-line">Call {business.phoneDisplay}</a>
+            <a href={business.smsHref} className="btn btn-red">Text {business.phoneDisplay}</a>
+            <a href={business.phoneHref} className="btn btn-line">Call instead</a>
           </div>
         )}
       </div>

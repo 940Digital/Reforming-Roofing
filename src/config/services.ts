@@ -163,7 +163,7 @@ export const services: Service[] = [
     ],
     faqs: [
       ["Does insurance cover storm damage?", "Often, depending on your policy and deductible. Check with your insurance company. We document the damage so you have it for your claim."],
-      ["Do you offer emergency service?", "Yes. If a storm damages your roof, call us."],
+      ["Do you offer emergency service?", "Yes. If a storm damages your roof, text or call us."],
       ["Should I get on the roof to check?", "No. A storm-damaged roof can be slick and unstable. Look from the ground and in the attic, then call for an inspection."],
     ],
     related: ["roof-inspection", "roof-damage-repair", "roof-replacement"],

@@ -23,7 +23,7 @@ function County({ county, list, cols, callChip = false }: { county: string; list
         {/* fills the last cell of the grid on purpose */}
         {callChip && (
           <li className="col-span-2 sm:col-span-1">
-            <a href={business.phoneHref} className={`${chip} bg-red text-white hover:bg-[#8f1a2a]`}>Not listed? Call</a>
+            <a href={business.smsHref} className={`${chip} bg-red text-white hover:bg-[#8f1a2a]`}>Not listed? Text us</a>
           </li>
         )}
       </ul>
@@ -43,7 +43,7 @@ export function Area({ prev = "#042d58", more = false }: SectionProps = {}) {
             <p className="eyebrow text-red">Service area</p>
             <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">Proudly serving Denton and Collin Counties</h2>
             <p className="mt-5 text-lg leading-relaxed">
-              We work in these communities and the ones around them. If yours is not listed, call. We will tell you straight whether we can get to you.
+              We work in these communities and the ones around them. If yours is not listed, text or call. We will tell you straight whether we can get to you.
             </p>
           </Reveal>
           <Reveal>

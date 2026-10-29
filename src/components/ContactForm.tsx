@@ -59,11 +59,11 @@ export function ContactForm() {
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error("failed");
-      setStatus({ kind: "ok", text: "Thanks. We got your request and will call you to set up the inspection." });
+      setStatus({ kind: "ok", text: "Thanks. We got your request and will text or call you to set up the inspection." });
       f.reset();
       f.querySelectorAll<HTMLElement & { reset?: () => void }>("altcha-widget").forEach((w) => w.reset?.());
     } catch {
-      setStatus({ kind: "err", text: `Something went wrong sending your request. Please call us at ${business.phoneDisplay}.` });
+      setStatus({ kind: "err", text: `Something went wrong sending your request. Please text or call us at ${business.phoneDisplay}.` });
     }
   }
 

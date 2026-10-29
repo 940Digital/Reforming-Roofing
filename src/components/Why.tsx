@@ -7,7 +7,7 @@ const reasons = [
   { icon: icon("9a58ba_8960ce4be5f54d8690719781cb5c6cb2"), h: "Local and veteran-owned", p: "A proud, veteran-owned business serving its own community." },
   { icon: icon("9a58ba_256022f3317b46a4ae61f5b00fcd9419"), h: "A personalized approach", p: "Your roof is not one more job in a line. We take the time to understand what you need." },
   { icon: icon("9a58ba_962f198ac9cb464b806e7d7f4d44d57f"), h: "Insured and experienced", p: "You can have confidence in the team you call." },
-  { icon: icon("860db2_35e8da79c9b54c52bfd695c11d445bf6"), h: "Emergency service available", p: "When a storm does damage, call. We offer emergency roofing service." },
+  { icon: icon("860db2_35e8da79c9b54c52bfd695c11d445bf6"), h: "Emergency service available", p: "When a storm does damage, text or call. We offer emergency roofing service." },
 ];
 
 const promises = [
