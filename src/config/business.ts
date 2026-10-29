@@ -10,29 +10,31 @@ export const business = {
   siteUrl: "https://www.roofingreformation.com",
   foundedYear: 2019, // old site: "Since 2019"
 
-  // TODO(Rob): the old site lists three numbers: 469-321-5201 (header, footer, body copy on every page),
-  // 469-972-4501 and 469-236-2255. 469-321-5201 is used here only because it is the one the old site
-  // shows everywhere. Confirm which line is real, then set phoneConfirmed to true.
+  // Confirmed as the business line. The old site also listed 469-972-4501 and 469-236-2255; do not use those.
   phoneDisplay: "(469) 321-5201",
   phoneHref: "tel:+14693215201",
-  phoneConfirmed: false,
+  phoneSchema: "+1-469-321-5201",
 
   // TODO(Rob): no email was found on the old site.
   email: null as string | null,
 
-  // TODO(Rob): old site shows a likely mailbox (11450 US Hwy 380, Ste 130 #279, Cross Roads TX 76227)
-  // and a likely home address in Denton. No street address is shown on the site until confirmed.
+  // Deliberately null: the business is listed as a service-area business with no street address.
+  // The old site's Cross Roads address is a mailbox, which Google does not allow as a business address.
   address: null as null | { street: string; city: string; region: string; postalCode: string },
 
   // TODO(Rob): hours were not found. Emergency service is stated on the old site ("Emergency service
   // available") but 24/7 is not, so no hours claim is made.
   hours: null as string | null,
 
-  // TODO(Rob): old site social icons point at wix placeholder profiles. Real profile URLs needed.
-  social: { instagram: null as string | null, facebook: null as string | null },
+  // TODO(Rob): Facebook profile URL, if there is one.
+  social: { instagram: "https://www.instagram.com/roofingreformation/" as string | null, facebook: null as string | null },
 
-  // TODO(Rob): public Google review URL, used for a "Read more reviews" link when present.
-  reviewsUrl: null as string | null,
+  // Google Business Profile, as a stable Maps link built from the profile's CID (ludocid).
+  googleBusinessUrl: "https://www.google.com/maps?cid=2917192926522942732",
+  // Used for the "Read more reviews" button. The GBP link opens the profile, reviews included.
+  reviewsUrl: "https://www.google.com/maps?cid=2917192926522942732" as string | null,
+
+  founders: ["Rob Vaughan", "Jeremy Morphis"],
 
   // Matches the Google Business Profile service area. Edit the list in cities.ts.
   serviceAreas: cities.map((c) => c.name),

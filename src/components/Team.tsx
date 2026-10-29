@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { MoreLink, type SectionProps } from "./MoreLink";
 
-const people = [
+export const people = [
   {
     name: "Rob Vaughan",
     role: "Co-founder",

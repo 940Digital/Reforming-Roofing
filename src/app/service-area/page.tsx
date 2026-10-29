@@ -4,16 +4,14 @@ import { Area } from "@/components/Area";
 import { Neighborhood } from "@/components/Neighborhood";
 import { InfoSection } from "@/components/InfoSection";
 import { Reveal } from "@/components/Reveal";
-import { cityHref, citiesByCounty } from "@/config/cities";
+import { cities, cityHref, citiesByCounty } from "@/config/cities";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
-import { pageMeta } from "@/config/meta";
+import { metaFor } from "@/config/meta";
+import { JsonLd } from "@/components/JsonLd";
+import { itemList, pageGraph } from "@/config/schema";
 
-export const metadata = pageMeta(
-  "/service-area",
-  "Service Area | Roofer in Denton, Prosper, Celina & More | Roofing Reformation",
-  "Roofing Reformation serves 19 towns in Denton and Collin Counties and nearby, including Denton, Prosper, Celina, Flower Mound, Lewisville and Little Elm.",
-);
+export const metadata = metaFor("/service-area");
 
 const faqs: [string, string][] = [
   ["My town is not listed. Can you still come out?", "Call and ask. We will tell you straight whether we can get to you."],
@@ -24,6 +22,7 @@ const faqs: [string, string][] = [
 export default function ServiceAreaPage() {
   return (
     <PageShell>
+      <JsonLd graph={pageGraph({ path: "/service-area", type: "CollectionPage", trail: ["/service-area"], faqs, mainEntity: itemList("/service-area", cities.map((c) => ({ name: c.name, path: cityHref(c.slug) }))) })} />
       <PageHero
         eyebrow="Service area"
         title="Roofing in Denton and Collin Counties"

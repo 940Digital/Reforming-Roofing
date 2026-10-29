@@ -5,8 +5,9 @@ import { Faq } from "./Faq";
 import { FinalCta } from "./FinalCta";
 import { Reveal } from "./Reveal";
 import { ServiceCard } from "./ServiceCard";
-import { pageMeta } from "@/config/meta";
-import { business } from "@/config/business";
+import { metaFor } from "@/config/meta";
+import { JsonLd } from "./JsonLd";
+import { categoryServiceItems, itemList, pageGraph } from "@/config/schema";
 import { categoryHref, serviceGroups, servicesIn, type ServiceGroup } from "@/config/services";
 
 // Company-wide points, all stated elsewhere on the site.
@@ -22,10 +23,7 @@ const cols = (n: number) => (n % 3 !== 0 && n % 4 === 0 ? "lg:grid-cols-4" : "lg
 
 const groupOf = (id: ServiceGroup) => serviceGroups.find((g) => g.id === id)!;
 
-export function categoryMeta(id: ServiceGroup) {
-  const g = groupOf(id);
-  return pageMeta(categoryHref(id), `${g.noun.replace(/\b\w/g, (c) => c.toUpperCase())} Services in Denton, TX | ${business.name}`, g.meta);
-}
+export const categoryMeta = (id: ServiceGroup) => metaFor(categoryHref(id));
 
 /** Landing page for one service category, e.g. /services/roofing. */
 export function CategoryPage({ id }: { id: ServiceGroup }) {
@@ -35,6 +33,15 @@ export function CategoryPage({ id }: { id: ServiceGroup }) {
 
   return (
     <PageShell>
+      <JsonLd
+        graph={pageGraph({
+          path: categoryHref(id),
+          type: "CollectionPage",
+          trail: ["/services", categoryHref(id)],
+          faqs: g.faqs,
+          mainEntity: itemList(categoryHref(id), categoryServiceItems(id)),
+        })}
+      />
       <PageHero crumbs={[{ href: "/services", label: "Services" }]} eyebrow="Services" title={g.title} intro={g.lead} />
 
       <section className="slant slant-r bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: "#042d58" }}>

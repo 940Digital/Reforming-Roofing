@@ -4,8 +4,9 @@ import { PageHero } from "@/components/PageHero";
 import { InfoSection } from "@/components/InfoSection";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
-import { business } from "@/config/business";
-import { pageMeta } from "@/config/meta";
+import { metaFor } from "@/config/meta";
+import { JsonLd } from "@/components/JsonLd";
+import { cityNode, pageGraph } from "@/config/schema";
 import { categoryHref, serviceGroups } from "@/config/services";
 import { cities, cityBySlug, cityHref, denton, directionFrom, milesBetween, nearestTo, type City } from "@/config/cities";
 
@@ -22,11 +23,7 @@ const countyLabel = (c: City) => `${c.counties.join(" and ")} ${c.counties.lengt
 export async function generateMetadata(props: Props) {
   const c = cityBySlug((await props.params).slug);
   if (!c) return {};
-  return pageMeta(
-    cityHref(c.slug),
-    `Roofing in ${c.name}, TX | ${business.name}`,
-    `Roofing, gutters, skylights, remodeling, repairs and painting in ${c.name}, TX (${c.zips.join(", ")}), ${countyLabel(c)}. Free inspection and estimate.`,
-  );
+  return metaFor(cityHref(c.slug));
 }
 
 export default async function CityPage(props: Props) {
@@ -44,6 +41,7 @@ export default async function CityPage(props: Props) {
 
   return (
     <PageShell>
+      <JsonLd graph={pageGraph({ path: cityHref(c.slug), trail: ["/service-area", cityHref(c.slug)], about: [cityNode(c)] })} />
       <PageHero
         crumbs={[{ href: "/service-area", label: "Service area" }]}
         eyebrow={countyLabel(c)}

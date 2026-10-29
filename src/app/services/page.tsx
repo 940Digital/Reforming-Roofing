@@ -5,13 +5,12 @@ import { InfoSection } from "@/components/InfoSection";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
-import { pageMeta } from "@/config/meta";
+import { metaFor } from "@/config/meta";
+import { JsonLd } from "@/components/JsonLd";
+import { itemList, pageGraph, serviceItems } from "@/config/schema";
+import { services } from "@/config/services";
 
-export const metadata = pageMeta(
-  "/services",
-  "Roofing Services in Denton & Collin County | Roofing Reformation",
-  "Roof inspection, repair and replacement, storm damage repair, shingle, tile and commercial roofing, plus gutters and skylights in Denton and Collin Counties.",
-);
+export const metadata = metaFor("/services");
 
 const signs = [
   {
@@ -46,6 +45,7 @@ const faqs: [string, string][] = [
 export default function ServicesPage() {
   return (
     <PageShell>
+      <JsonLd graph={pageGraph({ path: "/services", type: "CollectionPage", trail: ["/services"], faqs, mainEntity: itemList("/services", serviceItems(services)) })} />
       <PageHero
         eyebrow="Services"
         title="Roofing services for homes and businesses"

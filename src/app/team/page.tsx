@@ -1,16 +1,14 @@
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
-import { Team } from "@/components/Team";
+import { Team, people } from "@/components/Team";
 import { InfoSection } from "@/components/InfoSection";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
-import { pageMeta } from "@/config/meta";
+import { metaFor } from "@/config/meta";
+import { JsonLd } from "@/components/JsonLd";
+import { abs, ids, pageGraph } from "@/config/schema";
 
-export const metadata = pageMeta(
-  "/team",
-  "Our Team | Roofing Reformation, Denton, TX",
-  "Meet Rob Vaughan, Jeremy Morphis and Robert Hines of Roofing Reformation. The owners oversee every project and speak with every client.",
-);
+export const metadata = metaFor("/team");
 
 const founders = [
   {
@@ -24,9 +22,21 @@ const founders = [
   },
 ];
 
+const personNodes = people.map((p) => ({
+  "@type": "Person",
+  "@id": ids.person(p.name),
+  name: p.name,
+  ...(p.role ? { jobTitle: p.role } : {}),
+  description: p.note,
+  image: abs(p.src),
+  worksFor: { "@id": ids.business },
+  url: abs("/team"),
+}));
+
 export default function TeamPage() {
   return (
     <PageShell>
+      <JsonLd graph={pageGraph({ path: "/team", type: "AboutPage", trail: ["/team"], extra: personNodes })} />
       <PageHero
         eyebrow="Our team"
         title="Meet the people behind your roof"

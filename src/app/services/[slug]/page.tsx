@@ -6,8 +6,9 @@ import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
 import { ServiceCard } from "@/components/ServiceCard";
-import { business } from "@/config/business";
-import { pageMeta } from "@/config/meta";
+import { metaFor } from "@/config/meta";
+import { JsonLd } from "@/components/JsonLd";
+import { pageGraph, serviceNode } from "@/config/schema";
 import { categoryHref, serviceBySlug, serviceGroups, serviceHref, services } from "@/config/services";
 
 export const dynamicParams = false;
@@ -21,11 +22,7 @@ export function generateStaticParams() {
 export async function generateMetadata(props: Props) {
   const s = serviceBySlug((await props.params).slug);
   if (!s) return {};
-  return pageMeta(
-    serviceHref(s.slug),
-    `${s.name} in Denton, TX | ${business.name}`,
-    `${s.card} Serving Denton and Collin Counties. Free inspection and estimate.`,
-  );
+  return metaFor(serviceHref(s.slug));
 }
 
 export default async function ServicePage(props: Props) {
@@ -34,15 +31,6 @@ export default async function ServicePage(props: Props) {
   const group = serviceGroups.find((g) => g.id === s.group)!;
   const related = s.related.map(serviceBySlug).filter((r) => r !== undefined);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: s.name,
-    description: s.summary,
-    url: `${business.siteUrl}${serviceHref(s.slug)}`,
-    provider: { "@type": "RoofingContractor", name: business.name, url: business.siteUrl },
-    areaServed: business.counties.map((c) => ({ "@type": "AdministrativeArea", name: `${c}, Texas` })),
-  };
 
   const lists = [
     { h: "Signs you need this", items: s.signs },
@@ -51,7 +39,14 @@ export default async function ServicePage(props: Props) {
 
   return (
     <PageShell>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <JsonLd
+        graph={pageGraph({
+          path: serviceHref(s.slug),
+          trail: ["/services", categoryHref(group.id), serviceHref(s.slug)],
+          faqs: s.faqs,
+          mainEntity: serviceNode(s),
+        })}
+      />
       <PageHero
         crumbs={[{ href: "/services", label: "Services" }, { href: categoryHref(group.id), label: group.name }]}
         eyebrow={`${group.noun} services`}

@@ -5,13 +5,11 @@ import { InfoSection } from "@/components/InfoSection";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
-import { pageMeta } from "@/config/meta";
+import { metaFor } from "@/config/meta";
+import { JsonLd } from "@/components/JsonLd";
+import { pageGraph } from "@/config/schema";
 
-export const metadata = pageMeta(
-  "/how-it-works",
-  "How It Works | Free Roof Inspection in Denton, TX | Roofing Reformation",
-  "Free inspection, a plain-English plan, the work, then clean-up and warranty. Here is what to expect when you call Roofing Reformation.",
-);
+export const metadata = metaFor("/how-it-works");
 
 const checks = [
   ["Shingles", "Missing, cracked, curling or worn down."],
@@ -34,6 +32,7 @@ const faqs: [string, string][] = [
 export default function HowItWorksPage() {
   return (
     <PageShell>
+      <JsonLd graph={pageGraph({ path: "/how-it-works", trail: ["/how-it-works"], faqs })} />
       <PageHero
         eyebrow="How it works"
         title="From first call to finished roof"

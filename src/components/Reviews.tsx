@@ -3,7 +3,7 @@ import { Reveal } from "./Reveal";
 import { MoreLink, type SectionProps } from "./MoreLink";
 import { business } from "@/config/business";
 
-const reviews = [
+export const reviews = [
   {
     title: "Impressive workmanship",
     quote:

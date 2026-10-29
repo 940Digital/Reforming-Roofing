@@ -1,16 +1,14 @@
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
-import { Reviews } from "@/components/Reviews";
+import { Reviews, reviews } from "@/components/Reviews";
 import { InfoSection } from "@/components/InfoSection";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
-import { pageMeta } from "@/config/meta";
+import { metaFor } from "@/config/meta";
+import { JsonLd } from "@/components/JsonLd";
+import { abs, ids, pageGraph } from "@/config/schema";
 
-export const metadata = pageMeta(
-  "/reviews",
-  "Reviews | Roofing Reformation, Denton, TX",
-  "What homeowners say about working with Roofing Reformation: plain-English explanations, the owners on the job, and a clean site.",
-);
+export const metadata = metaFor("/reviews");
 
 // Each point comes from the reviews shown above it.
 const themes = [
@@ -19,9 +17,20 @@ const themes = [
   ["A clean site", "We clean up after ourselves, and clients notice."],
 ];
 
+// Text reviews only: they carry no star rating, so none is claimed.
+const reviewNodes = reviews.map((r, i) => ({
+  "@type": "Review",
+  "@id": `${abs("/reviews")}#review-${i + 1}`,
+  itemReviewed: { "@id": ids.business },
+  author: { "@type": "Person", name: r.who },
+  name: r.title,
+  reviewBody: r.quote,
+}));
+
 export default function ReviewsPage() {
   return (
     <PageShell>
+      <JsonLd graph={pageGraph({ path: "/reviews", trail: ["/reviews"], extra: reviewNodes })} />
       <PageHero
         eyebrow="Reviews"
         title="What our clients say"

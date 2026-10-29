@@ -5,13 +5,11 @@ import { InfoSection } from "@/components/InfoSection";
 import { Why } from "@/components/Why";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
-import { pageMeta } from "@/config/meta";
+import { metaFor } from "@/config/meta";
+import { JsonLd } from "@/components/JsonLd";
+import { pageGraph } from "@/config/schema";
 
-export const metadata = pageMeta(
-  "/about",
-  "About Us | Veteran-Owned Roofer in Denton, TX | Roofing Reformation",
-  "Roofing Reformation is a local, veteran-owned roofing company serving Denton and Collin Counties since 2019. The owners oversee every project.",
-);
+export const metadata = metaFor("/about");
 
 const story = [
   "Rob Vaughan and Jeremy Morphis worked alongside each other for years before they started Roofing Reformation. Rob is a real estate broker and listing agent. Jeremy is an experienced roofer and project manager.",
@@ -22,6 +20,7 @@ const story = [
 export default function AboutPage() {
   return (
     <PageShell>
+      <JsonLd graph={pageGraph({ path: "/about", type: "AboutPage", trail: ["/about"] })} />
       <PageHero
         eyebrow="About us"
         title="A local, veteran-owned roofing company"
