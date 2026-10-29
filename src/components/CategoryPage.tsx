@@ -20,6 +20,8 @@ const reasons = [
 
 // Pick the column count that fills every row.
 const cols = (n: number) => (n % 3 !== 0 && n % 4 === 0 ? "lg:grid-cols-4" : "lg:grid-cols-3");
+// When three columns would leave two cards on the last row, the last card takes two columns.
+const span = (n: number, i: number) => (n > 3 && n % 3 === 2 && i === n - 1 ? "lg:col-span-2" : undefined);
 
 const groupOf = (id: ServiceGroup) => serviceGroups.find((g) => g.id === id)!;
 
@@ -54,7 +56,7 @@ export function CategoryPage({ id }: { id: ServiceGroup }) {
           </Reveal>
           <ul className={`mt-10 grid gap-5 sm:grid-cols-2 ${cols(list.length)}`}>
             {list.map((s, i) => (
-              <Reveal as="li" key={s.slug} delay={(i % 4) * 0.06}>
+              <Reveal as="li" key={s.slug} className={span(list.length, i)} delay={(i % 4) * 0.06}>
                 <ServiceCard service={s} />
               </Reveal>
             ))}

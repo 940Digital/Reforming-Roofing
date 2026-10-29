@@ -29,7 +29,6 @@ function header() {
     "- Emergency roofing service is available after storm damage.",
     "- Asphalt shingles from manufacturers including Atlas, GAF, Malarkey and CertainTeed.",
     `- Co-founders: Rob Vaughan (real estate broker and listing agent) and Jeremy Morphis (experienced roofer and project manager).`,
-    "- Also offers siding.",
     `- Tagline: "${business.tagline}" The company's guiding principle is Proverbs 22:1.`,
     ...profiles.map((p) => `- ${p}`),
   ];

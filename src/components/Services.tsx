@@ -18,9 +18,9 @@ export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) 
           </p>
         </Reveal>
 
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((s, i) => (
-            <Reveal as="li" key={s.slug} delay={(i % 4) * 0.06}>
+            <Reveal as="li" key={s.slug} delay={(i % 3) * 0.06}>
               <a
                 href={serviceHref(s.slug)}
                 className="group flex h-full flex-col bg-tint p-6 transition-colors duration-200 hover:bg-navy hover:text-white"
@@ -36,23 +36,18 @@ export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) 
               </a>
             </Reveal>
           ))}
-          <Reveal as="li" delay={(featured.length % 4) * 0.06}>
+          <Reveal as="li" delay={(featured.length % 3) * 0.06}>
             <a
               href="/services"
               className="dark-ground flex h-full min-h-56 flex-col justify-end bg-navy p-6 text-white transition-colors duration-200 hover:bg-blue"
             >
               <span className="font-display text-5xl leading-none text-[#ff9aa7]">{services.length}</span>
               <span className="mt-3 font-display text-2xl uppercase leading-tight tracking-wide">See all services &rarr;</span>
-              <span className="mt-2 leading-relaxed text-white/85">Including gutters, skylights, remodeling and painting.</span>
+              <span className="mt-2 leading-relaxed text-white/85">Including siding, gutters, skylights, remodeling and painting.</span>
             </a>
           </Reveal>
         </ul>
 
-        <Reveal className="mt-10">
-          <p className="text-lg">
-            <strong className="font-display uppercase tracking-wide text-navy">Also offered:</strong> siding.
-          </p>
-        </Reveal>
         {more && <MoreLink href="/services" label="See all services" />}
       </div>
     </section>

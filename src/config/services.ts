@@ -224,7 +224,7 @@ export const services: Service[] = [
       ["Why are asphalt shingles so common?", "They give strong weather protection and good value, and they come in a wide range of colors."],
       ["Can you replace just a few shingles?", "Yes, when the damage is limited. That is a repair, not a replacement."],
     ],
-    related: ["roof-replacement", "residential-roofing", "roof-damage-repair"],
+    related: ["roof-replacement", "residential-roof-replacement", "roof-damage-repair"],
   },
   {
     slug: "tile-roofing",
@@ -252,33 +252,6 @@ export const services: Service[] = [
       ["Do you do tile on commercial buildings?", "Yes. We install, repair and replace tile roofs for homes and businesses."],
     ],
     related: ["roof-damage-repair", "roof-replacement", "roof-inspection"],
-  },
-  {
-    slug: "residential-roofing",
-    name: "Residential roofing",
-    group: "roofing",
-    icon: ico("d3648d83c57c4c11ae489397ce15bff9"),
-    card: "Inspections, repairs and replacements for homeowners, start to finish.",
-    summary:
-      "Residential roofing for homeowners who want a roof they can trust. Inspections, repairs, and replacements handled with clear communication, quality materials, and careful workmanship from start to finish.",
-    signs: [
-      "You want to know what shape your roof is in",
-      "You have a leak or storm damage",
-      "Your roof is getting old",
-      "You are buying or selling a home",
-    ],
-    includes: [
-      "Free roof inspections",
-      "Roof repairs",
-      "Full roof replacements",
-      "Clear communication from start to finish",
-    ],
-    faqs: [
-      ["Who will I deal with?", "The owners oversee every project and speak with every client."],
-      ["Is the estimate free?", "Yes. The inspection and the estimate are free."],
-      ["Do you do gutters too?", "Yes. We install, replace and clean gutters."],
-    ],
-    related: ["residential-roof-repair", "residential-roof-replacement", "roof-inspection"],
   },
   {
     slug: "residential-roof-replacement",
@@ -333,33 +306,6 @@ export const services: Service[] = [
     related: ["roof-damage-repair", "residential-roof-replacement", "roof-inspection"],
   },
   {
-    slug: "commercial-roofing",
-    name: "Commercial roofing",
-    group: "roofing",
-    icon: ico("19a70e41a19a4956a4e7bc65928519c9"),
-    card: "Roofing systems for offices, retail centers, warehouses and other businesses.",
-    summary:
-      "Commercial roofing services for offices, retail centers, warehouses, and other businesses. We install, maintain, and repair roofing systems that protect your building, inventory, and operations with minimal disruption.",
-    signs: [
-      "Leaks over your workspace or inventory",
-      "Water pooling on a flat or low-slope roof",
-      "An aging roof you want to plan for",
-      "You manage a property and need a roofer you can count on",
-    ],
-    includes: [
-      "Installing roofing systems",
-      "Maintenance",
-      "Repairs",
-      "Work planned to keep disruption to your business low",
-    ],
-    faqs: [
-      ["What kinds of buildings do you work on?", "Offices, retail centers, warehouses and other businesses."],
-      ["Can you work while we stay open?", "We plan the work to keep disruption to your business as low as possible."],
-      ["Who oversees the job?", "The owners oversee every project from start to finish."],
-    ],
-    related: ["commercial-roof-repair", "commercial-roof-replacement", "roof-inspection"],
-  },
-  {
     slug: "commercial-roof-repair",
     name: "Commercial roof repair",
     group: "roofing",
@@ -384,7 +330,7 @@ export const services: Service[] = [
       ["Should we repair or replace?", "A timely repair can extend the life of your existing roof. If the roof is failing, we tell you plainly."],
       ["Do you offer emergency service?", "Yes. If a storm damages your roof, call us."],
     ],
-    related: ["commercial-roofing", "commercial-roof-replacement", "storm-damage-roof-repair"],
+    related: ["commercial-roof-replacement", "storm-damage-roof-repair", "roof-inspection"],
   },
   {
     slug: "commercial-roof-replacement",
@@ -410,7 +356,33 @@ export const services: Service[] = [
       ["Is the estimate free?", "Yes. The inspection and the estimate are free."],
       ["Who oversees the job?", "The owners oversee every project from start to finish."],
     ],
-    related: ["commercial-roofing", "commercial-roof-repair", "roof-inspection"],
+    related: ["commercial-roof-repair", "roof-replacement", "roof-inspection"],
+  },
+
+  {
+    slug: "siding",
+    name: "Siding",
+    group: "roofing",
+    card: "Damaged or worn siding repaired or replaced, alongside your roof.",
+    summary:
+      "Siding repair and replacement for homes. Siding is the outer wall of your house, and it keeps rain and wind out of the walls the same way your roof keeps them out from above. We can look at it when we inspect your roof.",
+    signs: [
+      "Cracked, loose or missing siding",
+      "Rot or soft spots near the ground or under the gutters",
+      "Water stains or peeling paint on inside walls",
+      "Storm damage on the walls as well as the roof",
+    ],
+    includes: [
+      "A look at your siding during the roof inspection",
+      "Siding repair",
+      "Siding replacement",
+    ],
+    faqs: [
+      ["Can you look at my siding and roof in the same visit?", "Yes. Tell us when you call and we will check both."],
+      ["Why does siding rot near the gutters?", "When gutters overflow or leak, water runs down the wall and soaks the siding and trim below. Fixing the gutters is often part of fixing the siding."],
+      ["Is the estimate free?", "Yes. The inspection and the estimate are free."],
+    ],
+    related: ["roof-damage-repair", "gutter-installation", "exterior-painting"],
   },
 
   // Gutters

@@ -4,6 +4,8 @@ import { categoryHref, serviceGroups, servicesIn } from "@/config/services";
 
 // Pick the column count that fills every row.
 const cols = (n: number) => (n % 3 !== 0 && n % 4 === 0 ? "lg:grid-cols-4" : "lg:grid-cols-3");
+// When three columns would leave two cards on the last row, the last card takes two columns.
+const span = (n: number, i: number) => (n > 3 && n % 3 === 2 && i === n - 1 ? "lg:col-span-2" : undefined);
 
 /** Every service, grouped. Used on /services. */
 export function ServiceCatalog({ prev }: { prev: string }) {
@@ -21,7 +23,7 @@ export function ServiceCatalog({ prev }: { prev: string }) {
             </Reveal>
             <ul className={`mt-8 grid gap-5 sm:grid-cols-2 ${cols(servicesIn(g.id).length)}`}>
               {servicesIn(g.id).map((s, i) => (
-                <Reveal as="li" key={s.slug} delay={(i % 3) * 0.06}>
+                <Reveal as="li" key={s.slug} className={span(servicesIn(g.id).length, i)} delay={(i % 3) * 0.06}>
                   <ServiceCard service={s} />
                 </Reveal>
               ))}
@@ -33,11 +35,6 @@ export function ServiceCatalog({ prev }: { prev: string }) {
             </Reveal>
           </div>
         ))}
-        <Reveal>
-          <p className="text-lg">
-            <strong className="font-display uppercase tracking-wide text-navy">Also offered:</strong> siding.
-          </p>
-        </Reveal>
       </div>
     </section>
   );
