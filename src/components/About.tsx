@@ -5,7 +5,7 @@ import { MoreLink, type SectionProps } from "./MoreLink";
 const ideas = [
   {
     h: "What we do",
-    p: "We repair, replace and install roofs on homes and commercial buildings: shingle, tile and commercial systems. We also do siding, gutters and skylights.",
+    p: "We repair, replace and install roofs on homes, in shingle and tile. We also do siding, gutters and skylights.",
   },
   {
     h: "Why us",
@@ -13,7 +13,7 @@ const ideas = [
   },
   {
     h: "Proof",
-    p: "Veteran-owned and serving homeowners and businesses since 2019. Our roofing work is warranty-backed, and clients mention Jeremy by name in their reviews.",
+    p: "Veteran-owned and serving homeowners since 2019. Our roofing work is warranty-backed, and clients mention Jeremy by name in their reviews.",
   },
 ];
 

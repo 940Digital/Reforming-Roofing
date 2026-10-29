@@ -17,7 +17,7 @@ function header() {
   return [
     `# ${business.name}`,
     "",
-    `> Veteran-owned residential and commercial roofing contractor serving ${business.counties.join(" and ")}, Texas, since ${business.foundedYear}. Roof inspections, repairs and replacements for shingle, tile and commercial roofs, plus gutters, skylights, remodeling, home repairs and painting. The owners oversee every project and speak with every client.`,
+    `> Veteran-owned residential roofing contractor serving ${business.counties.join(" and ")}, Texas, since ${business.foundedYear}. Roof inspections, repairs and replacements for shingle and tile roofs, plus gutters, skylights, remodeling, home repairs and painting. The owners oversee every project and speak with every client.`,
     "",
     "## Key facts",
     "",

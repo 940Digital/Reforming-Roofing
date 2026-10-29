@@ -12,13 +12,12 @@ export const serviceGroups = [
     name: "Roofing",
     /** Singular form, for "Roofing services", "Gutter services". */
     noun: "Roofing",
-    intro: "Residential and commercial roofing, from free inspections to full replacements.",
+    intro: "Residential roofing, from free inspections to full replacements.",
     title: "Roofing services in Denton and Collin Counties",
-    lead: "Inspections, repairs and full replacements for homes and businesses. Shingle, tile and commercial roofs, with the owners overseeing every job.",
-    meta: "Roof inspection, roof repair, storm damage repair and roof replacement for homes and businesses in Denton and Collin Counties. Shingle, tile and commercial roofing.",
+    lead: "Inspections, repairs and full replacements for homes. Shingle and tile roofs, with the owners overseeing every job.",
+    meta: "Roof inspection, roof repair, storm damage repair and roof replacement for homes in Denton and Collin Counties. Shingle and tile roofing.",
     faqs: [
-      ["Do you work on homes and businesses?", "Yes. We do residential roofing and commercial roofing for offices, retail centers, warehouses and other businesses."],
-      ["What roofing materials do you work with?", "Asphalt shingles from manufacturers including Atlas, GAF, Malarkey and CertainTeed, tile roofing and commercial roofing systems."],
+      ["What roofing materials do you work with?", "Asphalt shingles from manufacturers including Atlas, GAF, Malarkey and CertainTeed, and tile roofing."],
       ["How do I know if I need a repair or a new roof?", "The free inspection tells you. We explain what we found and what your options are. If a repair will do the job, we tell you."],
       ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],
     ],
@@ -197,7 +196,7 @@ export const services: Service[] = [
       ["Do I get to choose the materials?", "Yes. We walk you through materials, designs and budget before anything starts."],
       ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],
     ],
-    related: ["residential-roof-replacement", "commercial-roof-replacement", "shingle-roofing"],
+    related: ["residential-roof-replacement", "roof-inspection", "shingle-roofing"],
   },
   {
     slug: "shingle-roofing",
@@ -232,7 +231,7 @@ export const services: Service[] = [
     icon: ico("9572863c954a4054bd5adc4623d14c6d"),
     card: "Tile installed, repaired and replaced, including broken or slipped tile.",
     summary:
-      "Tile roofing installation, repair, and replacement for homes and businesses. Tile delivers a long lifespan, strong weather resistance, and a distinctive look. We handle underlayment, flashing, and broken or slipped tile with care.",
+      "Tile roofing installation, repair, and replacement for homes. Tile delivers a long lifespan, strong weather resistance, and a distinctive look. We handle underlayment, flashing, and broken or slipped tile with care.",
     signs: [
       "Cracked, broken or slipped tiles",
       "A leak under a tile roof",
@@ -248,7 +247,6 @@ export const services: Service[] = [
     faqs: [
       ["Why does my tile roof leak when the tiles look fine?", "Much of the waterproofing on a tile roof is the underlayment underneath. When it wears out, water can get through even if the tiles are whole."],
       ["Can I walk on my tile roof to check it?", "Better not. Tile can crack under foot traffic. Look from the ground and call for an inspection."],
-      ["Do you do tile on commercial buildings?", "Yes. We install, repair and replace tile roofs for homes and businesses."],
     ],
     related: ["roof-damage-repair", "roof-replacement", "roof-inspection"],
   },
@@ -304,60 +302,6 @@ export const services: Service[] = [
     ],
     related: ["roof-damage-repair", "residential-roof-replacement", "roof-inspection"],
   },
-  {
-    slug: "commercial-roof-repair",
-    name: "Commercial roof repair",
-    group: "roofing",
-    card: "Leaks, ponding water, flashing, seams and storm damage on commercial roofs.",
-    summary:
-      "Commercial roof repair for leaks, ponding water, damaged flashing, seams, and storm damage. Quick response keeps your business protected and helps extend the life of your existing roof before replacement is needed.",
-    signs: [
-      "Leaks or stained ceiling tiles",
-      "Water that sits on the roof after rain",
-      "Open or lifted seams",
-      "Damaged flashing at walls, curbs or edges",
-      "Storm damage",
-    ],
-    includes: [
-      "Leak repair",
-      "Fixing areas where water ponds",
-      "Flashing and seam repair",
-      "Storm damage repair",
-    ],
-    faqs: [
-      ["What is ponding water?", "Water that stays on a flat or low-slope roof after rain. Over time it wears the roof and finds its way in."],
-      ["Should we repair or replace?", "A timely repair can extend the life of your existing roof. If the roof is failing, we tell you plainly."],
-      ["Do you offer emergency service?", "Yes. If a storm damages your roof, call us."],
-    ],
-    related: ["commercial-roof-replacement", "storm-damage-roof-repair", "roof-inspection"],
-  },
-  {
-    slug: "commercial-roof-replacement",
-    name: "Commercial roof replacement",
-    group: "roofing",
-    card: "Aging or failing commercial roofs replaced, planned to limit downtime.",
-    summary:
-      "Commercial roof replacement for aging or failing roofs on businesses and properties. We tear off, prepare the deck, and install a durable new system, planned to limit downtime and protect your building for years.",
-    signs: [
-      "Leaks in several areas",
-      "Repairs that keep coming back",
-      "Ponding water across much of the roof",
-      "A roof near the end of its life",
-    ],
-    includes: [
-      "Tear-off of the old roof",
-      "Deck preparation",
-      "A durable new roofing system",
-      "A plan built to limit downtime",
-    ],
-    faqs: [
-      ["How do you limit downtime?", "We plan the job with you ahead of time, so the work fits around your business as much as possible."],
-      ["Is the estimate free?", "Yes. The inspection and the estimate are free."],
-      ["Who oversees the job?", "The owners oversee every project from start to finish."],
-    ],
-    related: ["commercial-roof-repair", "roof-replacement", "roof-inspection"],
-  },
-
   {
     slug: "siding",
     name: "Siding",

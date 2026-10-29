@@ -51,7 +51,7 @@ export function Hero() {
         </h1>
 
         <p className="hero-fade mt-6 max-w-xl text-lg leading-relaxed text-white md:text-xl" style={delay(0.55)}>
-          Residential and commercial roofing across Denton and Collin Counties. The owners oversee every project, so you deal with the people who answer for the work.
+          Residential roofing across Denton and Collin Counties. The owners oversee every project, so you deal with the people who answer for the work.
         </p>
 
         <div className="hero-fade mt-9 flex flex-col gap-3 sm:flex-row" style={delay(0.7)}>

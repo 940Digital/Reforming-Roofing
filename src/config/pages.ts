@@ -29,7 +29,7 @@ export const staticPages: SitePage[] = [
     name: "Home",
     title: `Roofing Contractor in Denton, TX | ${brand}`,
     description:
-      "Veteran-owned residential and commercial roofing in Denton and Collin Counties. Repair, replacement and free inspections. The owners oversee every job.",
+      "Veteran-owned residential roofing in Denton and Collin Counties. Repair, replacement and free inspections. The owners oversee every job.",
   },
   {
     path: "/about",
@@ -43,7 +43,7 @@ export const staticPages: SitePage[] = [
     name: "Services",
     title: `Roofing, Gutters, Skylights & Remodeling | ${brand}`,
     description:
-      "Roof inspection, repair and replacement, shingle, tile and commercial roofing, plus gutters, skylights, remodeling and painting in Denton and Collin Counties.",
+      "Roof inspection, repair and replacement, shingle and tile roofing, plus gutters, skylights, remodeling and painting in Denton and Collin Counties.",
   },
   {
     path: "/reviews",

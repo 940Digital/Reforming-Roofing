@@ -35,7 +35,6 @@ const signs = [
 ];
 
 const faqs: [string, string][] = [
-  ["Do you work on homes and businesses?", "Yes. We do residential roofing and commercial roofing systems for business and property owners."],
   ["What shingle brands do you install?", "Asphalt shingles from manufacturers including Atlas, GAF, Malarkey and CertainTeed."],
   ["Do you do anything besides roofs?", "Yes. We also do siding, gutters and skylights, plus remodeling, home repairs and painting."],
   ["What if a storm damages my roof?", "Call us. We offer emergency roofing service."],
@@ -50,8 +49,8 @@ export default function ServicesPage() {
       <JsonLd graph={pageGraph({ path: "/services", type: "CollectionPage", trail: ["/services"], faqs, mainEntity: itemList("/services", serviceItems(services)) })} />
       <PageHero
         eyebrow="Services"
-        title="Roofing services for homes and businesses"
-        intro="Free inspections, repairs and replacements for shingle, tile and commercial roofs, plus gutters, skylights, remodeling, repairs and painting. Across Denton and Collin Counties."
+        title="Roofing and home services"
+        intro="Free inspections, repairs and replacements for shingle and tile roofs, plus gutters, skylights, remodeling, repairs and painting. Across Denton and Collin Counties."
       />
       <ServiceCatalog prev="#042d58" />
       <Process prev="#f3eedf" />

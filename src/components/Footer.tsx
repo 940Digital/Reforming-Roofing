@@ -60,7 +60,7 @@ export function Footer() {
             <span className="font-display text-2xl uppercase leading-none tracking-[0.08em]">{business.name}</span>
           </a>
           <p className="mt-5 max-w-xs leading-relaxed text-white/80">
-            {business.tagline} Veteran-owned roofing for homes and businesses in Denton and Collin Counties.
+            {business.tagline} Veteran-owned roofing for homes in Denton and Collin Counties.
           </p>
           {socials.length > 0 && (
             <ul className="mt-6 flex gap-3">

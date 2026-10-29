@@ -15,7 +15,7 @@ export const metadata = metaFor("/about");
 const story = [
   "Rob Vaughan and Jeremy Morphis worked alongside each other for years before they started Roofing Reformation. Rob is a real estate broker and listing agent. Jeremy is an experienced roofer and project manager.",
   "They started the company to give people a better roofing experience: honest answers, plain English, and owners who stay involved.",
-  "Today we do residential and commercial roofing across Denton and Collin Counties. We also do siding, gutters and skylights.",
+  "Today we do residential roofing across Denton and Collin Counties. We also do siding, gutters and skylights.",
 ];
 
 const personNodes = people.map((p) => ({
@@ -36,7 +36,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About us"
         title="A local, veteran-owned roofing company"
-        intro="Roofing Reformation has served homeowners and businesses in Denton and Collin Counties since 2019. Here is who we are and how we work."
+        intro="Roofing Reformation has served homeowners in Denton and Collin Counties since 2019. Here is who we are and how we work."
       />
       <About prev="#042d58" />
       <InfoSection eyebrow="Our story" title="A broker and a roofer" bg="paper" prev="#fffdf2">
