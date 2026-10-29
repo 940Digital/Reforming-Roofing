@@ -116,7 +116,7 @@ export function Header() {
         </ul>
         <div className="mt-8 flex flex-col gap-3">
           <a href={business.smsHref} className="btn btn-red">Text {business.phoneDisplay}</a>
-          <a href={business.phoneHref} className="btn btn-line">Call instead</a>
+          <a href={business.phoneHref} className="btn btn-line">Call</a>
         </div>
       </div>
       {/* phone-only contact bar: text first, call beside it */}

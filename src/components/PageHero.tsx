@@ -41,7 +41,7 @@ export function PageHero({
         {actions && (
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a href={business.smsHref} className="btn btn-red">Text {business.phoneDisplay}</a>
-            <a href={business.phoneHref} className="btn btn-line">Call instead</a>
+            <a href={business.phoneHref} className="btn btn-line">Call</a>
           </div>
         )}
       </div>

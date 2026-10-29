@@ -50,7 +50,7 @@ export default function ContactPage() {
             <p className="mt-3 text-lg leading-relaxed text-white/90">Storm damage? Text or call. We offer emergency roofing service.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href={business.smsHref} className="btn btn-red">Text us now</a>
-              <a href={business.phoneHref} className="btn btn-line">Call instead</a>
+              <a href={business.phoneHref} className="btn btn-line">Call</a>
             </div>
             {business.email && (
               <p className="mt-6 text-lg">

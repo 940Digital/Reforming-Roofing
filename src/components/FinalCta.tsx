@@ -22,7 +22,7 @@ export function FinalCta({ prev = "#f3eedf" }: { prev?: string } = {}) {
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a href={business.smsHref} className="btn btn-red !px-10 !py-5 !text-2xl">Text {business.phoneDisplay}</a>
-            <a href={business.phoneHref} className="btn btn-line !px-8 !py-5 !text-xl">Call instead</a>
+            <a href={business.phoneHref} className="btn btn-line !px-8 !py-5 !text-xl">Call</a>
           </div>
         </Reveal>
       </div>
