@@ -11,3 +11,7 @@ src/app/api/inspection
 src/components/v2
 src/components/v3
 src/components/OptionSwitcher.tsx
+
+# Local secrets and Vercel CLI link
+.env*.local
+.vercel
