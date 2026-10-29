@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
-import { MoreLink, type SectionProps } from "./MoreLink";
+import type { SectionProps } from "./MoreLink";
 import { business } from "@/config/business";
 
 export const reviews = [
@@ -43,13 +43,14 @@ export function Reviews({ prev = "#fffdf2", more = false }: SectionProps = {}) {
           ))}
         </ul>
 
-        {business.reviewsUrl && (
-          <Reveal className="mt-8">
-            <a href={business.reviewsUrl} className="btn btn-navy">Read more reviews</a>
+        {(business.reviewsUrl || more) && (
+          <Reveal className="mt-10 flex flex-col gap-3 sm:flex-row">
+            {more && <a href="/reviews" className="btn btn-navy">More from our clients &rarr;</a>}
+            {business.reviewsUrl && (
+              <a href={business.reviewsUrl} target="_blank" rel="noopener" className="btn btn-red">Read our Google reviews</a>
+            )}
           </Reveal>
         )}
-
-        {more && <MoreLink href="/reviews" label="More from our clients" />}
         <Reveal className="mt-14 flex justify-center">
           <Image src="/assets/original/c72b01_46a448f2d9f347c19be6000df92bccdd.png" alt="" width={96} height={91} />
         </Reveal>

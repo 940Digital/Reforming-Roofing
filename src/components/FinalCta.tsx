@@ -18,7 +18,7 @@ export function FinalCta({ prev = "#f3eedf" }: { prev?: string } = {}) {
           <p className="eyebrow justify-center text-white [--marker:#b42335]">Free estimate and inspection</p>
           <h2 className="h-display mt-4 text-5xl md:text-7xl">Get your roof looked at</h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/95 md:text-xl">
-            Call, and we schedule the inspection. You get an honest assessment from the owners&apos; team and a clear estimate. Financing is available.
+            Call, and we schedule the inspection. You get an honest assessment and a clear estimate before you decide anything. Financing is available.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a href={business.phoneHref} className="btn btn-red !px-10 !py-5 !text-2xl">Call {business.phoneDisplay}</a>

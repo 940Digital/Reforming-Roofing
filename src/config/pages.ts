@@ -57,7 +57,7 @@ export const staticPages: SitePage[] = [
     name: "Reviews",
     title: `Reviews | ${brand}, Denton, TX`,
     description:
-      "What homeowners say about working with Roofing Reformation: plain-English explanations, the owners on the job, and a clean site.",
+      "What homeowners say about working with Roofing Reformation: plain-English explanations, owners who stay involved, and a clean site.",
   },
   {
     path: "/service-area",

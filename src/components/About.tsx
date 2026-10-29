@@ -5,7 +5,7 @@ import { MoreLink, type SectionProps } from "./MoreLink";
 const ideas = [
   {
     h: "What we do",
-    p: "We repair, replace and install roofs on homes and commercial buildings. Shingle, tile and commercial roofs, plus gutters and skylights. That includes residential roof replacement in Denton, TX and across Collin County.",
+    p: "We repair, replace and install roofs on homes and commercial buildings: shingle, tile and commercial systems. We also do siding, gutters and skylights.",
   },
   {
     h: "Why us",
@@ -13,14 +13,14 @@ const ideas = [
   },
   {
     h: "Proof",
-    p: "Veteran-owned and serving homeowners and businesses since 2019. Every job is warranty-backed. The reviews on this site are real, and so are the roofs.",
+    p: "Veteran-owned and serving homeowners and businesses since 2019. Our roofing work is warranty-backed, and clients mention Jeremy by name in their reviews.",
   },
 ];
 
 const stats = [
   { n: "2019", l: "Serving the area since" },
   { n: "Free", l: "Inspection and estimate" },
-  { n: "Owners", l: "On every project" },
+  { n: "Local", l: "Denton and Collin Counties" },
 ];
 
 export function About({ prev = "#042d58", more = false }: SectionProps = {}) {
@@ -30,7 +30,7 @@ export function About({ prev = "#042d58", more = false }: SectionProps = {}) {
         <div>
           <Reveal>
             <p className="eyebrow text-red">About Roofing Reformation</p>
-            <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">Two owners. Every roof.</h2>
+            <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">Owner-run. Veteran-owned.</h2>
           </Reveal>
 
           <ol className="mt-10 space-y-8">

@@ -8,6 +8,7 @@ import { navLinks } from "@/config/nav";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const pathname = usePathname();
   const inSection = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
@@ -20,6 +21,14 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  // The phone-only call bar waits until the hero (and its own call button) has scrolled away.
+  useEffect(() => {
+    const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.7);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
@@ -109,6 +118,15 @@ export function Header() {
           <a href={business.phoneHref} className="btn btn-line">Call {business.phoneDisplay}</a>
         </div>
       </div>
+      <a
+        href={business.phoneHref}
+        aria-hidden={!pastHero || open}
+        tabIndex={pastHero && !open ? undefined : -1}
+        className={`fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-3 border-t-4 border-red bg-navy py-3.5 font-display text-xl uppercase tracking-[0.1em] text-white transition-transform duration-300 md:hidden ${pastHero && !open ? "translate-y-0" : "translate-y-full"}`}
+      >
+        <span className="h-2.5 w-2.5 rotate-45 bg-red" aria-hidden />
+        Call {business.phoneDisplay}
+      </a>
     </>
   );
 }

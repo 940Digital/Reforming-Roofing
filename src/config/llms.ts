@@ -24,7 +24,7 @@ function header() {
     `- Phone: ${business.phoneDisplay}`,
     `- Website: ${business.siteUrl}`,
     `- Service area: ${business.serviceAreas.length} towns in ${business.counties.join(" and ")}, Texas, and nearby: ${business.serviceAreas.join(", ")}. No street address; the team comes to you.`,
-    "- Free roof inspection and estimate. An inspection takes about an hour.",
+    "- Free roof inspection and estimate.",
     "- Financing is available.",
     "- Emergency roofing service is available after storm damage.",
     "- Asphalt shingles from manufacturers including Atlas, GAF, Malarkey and CertainTeed.",

@@ -21,7 +21,6 @@ const checks = [
 ];
 
 const faqs: [string, string][] = [
-  ["How long does an inspection take?", "Plan on about an hour."],
   ["Does the inspection cost anything?", "No. The inspection and the estimate are free."],
   ["Do I have to decide on the spot?", "No. We explain what we found, what your options are and what it costs. Then you decide. No pressure."],
   ["Who runs the job?", "The owners oversee every project from start to finish."],

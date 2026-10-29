@@ -109,7 +109,6 @@ export const services: Service[] = [
     ],
     faqs: [
       ["Is the inspection free?", "Yes. The inspection and the estimate are free."],
-      ["How long does it take?", "Plan on about an hour."],
       ["Should I get one before buying a house?", "It is a good idea. An inspection tells you what condition the roof is in before you commit, so a problem does not surprise you after closing."],
     ],
     related: ["roof-damage-repair", "storm-damage-roof-repair", "roof-replacement"],

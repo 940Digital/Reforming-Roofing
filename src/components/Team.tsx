@@ -13,7 +13,7 @@ export const people = [
   {
     name: "Jeremy Morphis",
     role: "Co-founder",
-    note: "An experienced roofer and project manager. Clients name him in their reviews.",
+    note: "An experienced roofer and project manager. Reviews credit him with explaining each step in plain English.",
     src: "/assets/original/9a58ba_571439b725f64e328a6b02dd2e77ab2a.jpg",
     alt: "Portrait of Jeremy Morphis, co-founder of Roofing Reformation, smiling in a light shirt",
   },

@@ -13,7 +13,7 @@ export const metadata = metaFor("/about");
 
 const story = [
   "Rob Vaughan and Jeremy Morphis worked alongside each other for years before they started Roofing Reformation. Rob is a real estate broker and listing agent. Jeremy is an experienced roofer and project manager.",
-  "They started the company to give people a better roofing experience: honest answers, plain English, and the owners on the job.",
+  "They started the company to give people a better roofing experience: honest answers, plain English, and owners who stay involved.",
   "Today we do residential and commercial roofing across Denton and Collin Counties. We also do siding, gutters and skylights.",
 ];
 

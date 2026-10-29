@@ -13,7 +13,7 @@ import { categoryHref, serviceGroups, servicesIn, type ServiceGroup } from "@/co
 // Company-wide points, all stated elsewhere on the site.
 const reasons = [
   ["Free inspection and estimate", "We look first and tell you what we found before you decide anything."],
-  ["Owners on every job", "The owners oversee every project and speak with every client."],
+  ["Owner-led projects", "The owners oversee every project and speak with every client."],
   ["Local and veteran-owned", "Serving Denton and Collin Counties since 2019."],
   ["Honest answers", "We fix what is broken and tell you plainly what is not."],
 ];

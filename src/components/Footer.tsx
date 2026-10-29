@@ -35,9 +35,20 @@ export function Footer() {
           <p className="mt-4"><a href={business.phoneHref} className="font-display text-3xl tracking-wide hover:underline">{business.phoneDisplay}</a></p>
           {business.email && <p className="mt-2"><a href={`mailto:${business.email}`} className="hover:underline">{business.email}</a></p>}
           <p className="mt-4 text-white/80">Proudly serving Denton and Collin Counties.</p>
+          {(business.social.instagram || business.social.facebook) && (
+            <ul className="mt-6 flex gap-5">
+              {business.social.instagram && (
+                <li><a href={business.social.instagram} target="_blank" rel="noopener" className="font-display uppercase tracking-[0.12em] text-white/90 hover:underline">Instagram</a></li>
+              )}
+              {business.social.facebook && (
+                <li><a href={business.social.facebook} target="_blank" rel="noopener" className="font-display uppercase tracking-[0.12em] text-white/90 hover:underline">Facebook</a></li>
+              )}
+            </ul>
+          )}
         </div>
       </div>
-      <div className="border-t border-white/15 px-5 py-5 text-center text-sm text-white/70">
+      {/* extra bottom room on phones for the fixed call bar */}
+      <div className="border-t border-white/15 px-5 pb-20 pt-5 text-center text-sm text-white/70 md:pb-5">
         &copy; {new Date().getFullYear()} {business.name}. All rights reserved.
       </div>
     </footer>
