@@ -3,6 +3,7 @@ import { categoryHref, serviceGroups } from "./services";
 export type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
 
 export const navLinks: NavLink[] = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   {
     href: "/services",
@@ -12,5 +13,4 @@ export const navLinks: NavLink[] = [
   { href: "/how-it-works", label: "How it works" },
   { href: "/reviews", label: "Reviews" },
   { href: "/service-area", label: "Service area" },
-  { href: "/team", label: "Team" },
 ];

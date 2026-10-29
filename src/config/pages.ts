@@ -65,13 +65,6 @@ export const staticPages: SitePage[] = [
     title: `Service Area: ${cities.length} Towns Near Denton, TX | ${brand}`,
     description: `Roofing Reformation serves ${cities.length} towns in Denton and Collin Counties and nearby, including Denton, Prosper, Celina, Flower Mound, Lewisville and Little Elm.`,
   },
-  {
-    path: "/team",
-    name: "Team",
-    title: `Our Team | ${brand}, Denton, TX`,
-    description:
-      "Meet Rob Vaughan, Jeremy Morphis and Robert Hines of Roofing Reformation. The owners oversee every project and speak with every client.",
-  },
 ];
 
 export const categoryPages: SitePage[] = serviceGroups.map((g) => ({

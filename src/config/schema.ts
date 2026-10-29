@@ -17,7 +17,7 @@ export const ids = {
   business: `${site}/#business`,
   website: `${site}/#website`,
   logo: `${site}/#logo`,
-  person: (name: string) => `${site}/team#${name.toLowerCase().replace(/\s+/g, "-")}`,
+  person: (name: string) => `${site}/about#${name.toLowerCase().replace(/\s+/g, "-")}`,
   service: (s: Service) => `${abs(serviceHref(s.slug))}#service`,
 };
 

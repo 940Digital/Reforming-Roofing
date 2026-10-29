@@ -54,7 +54,7 @@ export function Team({ prev = "#fffdf2", more = false }: SectionProps = {}) {
             </Reveal>
           ))}
         </ul>
-        {more && <MoreLink href="/team" label="Meet the team" />}
+        {more && <MoreLink href="/about#team" label="Meet the team" />}
       </div>
     </section>
   );

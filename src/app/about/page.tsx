@@ -3,11 +3,12 @@ import { PageHero } from "@/components/PageHero";
 import { About } from "@/components/About";
 import { InfoSection } from "@/components/InfoSection";
 import { Why } from "@/components/Why";
+import { Team, people } from "@/components/Team";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
-import { pageGraph } from "@/config/schema";
+import { abs, ids, pageGraph } from "@/config/schema";
 
 export const metadata = metaFor("/about");
 
@@ -17,10 +18,21 @@ const story = [
   "Today we do residential and commercial roofing across Denton and Collin Counties. We also do siding, gutters and skylights.",
 ];
 
+const personNodes = people.map((p) => ({
+  "@type": "Person",
+  "@id": ids.person(p.name),
+  name: p.name,
+  ...(p.role ? { jobTitle: p.role } : {}),
+  description: p.note,
+  image: abs(p.src),
+  worksFor: { "@id": ids.business },
+  url: abs("/about#team"),
+}));
+
 export default function AboutPage() {
   return (
     <PageShell>
-      <JsonLd graph={pageGraph({ path: "/about", type: "AboutPage", trail: ["/about"] })} />
+      <JsonLd graph={pageGraph({ path: "/about", type: "AboutPage", trail: ["/about"], extra: personNodes })} />
       <PageHero
         eyebrow="About us"
         title="A local, veteran-owned roofing company"
@@ -37,7 +49,8 @@ export default function AboutPage() {
         </div>
       </InfoSection>
       <Why prev="#f3eedf" />
-      <FinalCta prev="#fffdf2" />
+      <Team prev="#fffdf2" />
+      <FinalCta />
     </PageShell>
   );
 }
