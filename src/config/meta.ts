@@ -15,10 +15,11 @@ export const ogImage = {
  * layout's instead of merging, so every page sets them in full.
  */
 export function metaFor(path: string): Metadata {
-  const { title, description } = pageAt(path);
+  const { title, description, noindex } = pageAt(path);
   return {
     title,
     description,
+    ...(noindex && { robots: { index: false, follow: true } }),
     alternates: { canonical: path },
     openGraph: {
       title,

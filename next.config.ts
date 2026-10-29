@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
       // Commercial roofing was dropped from the site on 2026-10-29.
       { source: "/services/commercial-roof-repair", destination: "/services/roof-damage-repair", permanent: true },
       { source: "/services/commercial-roof-replacement", destination: "/services/roof-replacement", permanent: true },
+      // Near-duplicate service pages merged into one page each on 2026-10-29.
+      { source: "/services/residential-roof-replacement", destination: "/services/roof-replacement", permanent: true },
+      { source: "/services/residential-roof-repair", destination: "/services/roof-damage-repair", permanent: true },
+      { source: "/services/home-renovations", destination: "/services/remodeling", permanent: true },
+      { source: "/services/painting", destination: "/services/general-contracting", permanent: true },
     ];
   },
 };

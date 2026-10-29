@@ -3,6 +3,10 @@
  * Facts (county, ZIP codes, 2020 census population, coordinates) come from each town's Wikipedia
  * infobox, checked 2026-10-28. Each page must stay specific to its town: no copy that only swaps
  * the name, and no claims about jobs done there unless the client confirms them.
+ *
+ * Town pages are noindexed by default. On their own they are a few facts plus links, and a set of
+ * thin pages that only differ by town name is what Google treats as doorway pages. Set `indexed`
+ * once a town's page carries something only that town has: a finished job, a review or photos.
  */
 
 export type City = {
@@ -15,6 +19,8 @@ export type City = {
   lat: number;
   lng: number;
   intro: string;
+  /** Let search engines index this town's page. See the note above before turning it on. */
+  indexed?: boolean;
 };
 
 const dms = (d: number, m: number, s: number) => d + m / 60 + s / 3600;

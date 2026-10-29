@@ -12,10 +12,12 @@ export type SitePage = {
   name: string;
   title: string;
   description: string;
+  /** Kept out of search results and the sitemap; visitors can still browse to it. */
+  noindex?: boolean;
 };
 
 /** Bump when page content changes. Used as the sitemap's lastmod. */
-export const SITE_UPDATED = "2026-10-28";
+export const SITE_UPDATED = "2026-10-29";
 
 const brand = business.name;
 
@@ -90,9 +92,13 @@ export const cityPage = (c: City): SitePage => ({
   name: c.name,
   title: fit(`Roofing in ${c.name}, TX`),
   description: `Roofing, gutters, skylights, remodeling and painting in ${c.name}, TX (${zipList(c)}), ${counties(c)}. Free inspection and estimate.`,
+  noindex: !c.indexed,
 });
 
 export const allPages: SitePage[] = [...staticPages, ...categoryPages, ...services.map(servicePage), ...cities.map(cityPage)];
+
+/** The pages meant to show in search, for the sitemap. */
+export const indexedPages = allPages.filter((p) => !p.noindex);
 
 export const pageAt = (path: string) => {
   const page = allPages.find((p) => p.path === path);

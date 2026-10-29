@@ -46,7 +46,7 @@ export default async function CityPage(props: Props) {
         crumbs={[{ href: "/service-area", label: "Service area" }]}
         eyebrow={countyLabel(c)}
         title={`Roofing in ${c.name}, TX`}
-        intro={`${c.intro} We do roofing, gutters, skylights, remodeling, repairs and painting here, starting with a free inspection and estimate.`}
+        intro={c.intro}
       />
 
       <InfoSection eyebrow="Local facts" title={`${c.name} at a glance`} bg="cream" prev="#042d58">

@@ -1,6 +1,6 @@
 import { business } from "./business";
 import { steps } from "./process";
-import { allPages, pageAt, staticPages } from "./pages";
+import { indexedPages, pageAt, staticPages } from "./pages";
 import { categoryHref, serviceGroups, serviceHref, servicesIn } from "./services";
 import { cityHref, citiesByCounty } from "./cities";
 
@@ -47,7 +47,7 @@ export function llmsTxt() {
   }
   lines.push("");
   lines.push("## Company", "", ...staticPages.map((p) => link(p.path)), "");
-  lines.push("## Optional", "", `- [Full details](${business.siteUrl}/llms-full.txt): every service with what it includes, signs you need it, and FAQs.`, `- [Sitemap](${business.siteUrl}/sitemap.xml): all ${allPages.length} pages.`, "");
+  lines.push("## Optional", "", `- [Full details](${business.siteUrl}/llms-full.txt): every service with what it includes, signs you need it, and FAQs.`, `- [Sitemap](${business.siteUrl}/sitemap.xml): all ${indexedPages.length} indexed pages.`, "");
   return lines.join("\n");
 }
 

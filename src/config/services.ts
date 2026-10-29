@@ -126,6 +126,7 @@ export const services: Service[] = [
       "Cracked or loose flashing",
       "Shingle granules collecting in gutters or at downspouts",
       "Worn spots on one part of the roof",
+      "A cracked vent or pipe boot",
     ],
     includes: [
       "Finding where water is actually getting in",
@@ -136,9 +137,9 @@ export const services: Service[] = [
     faqs: [
       ["Do I need a repair or a new roof?", "If the damage is limited and the rest of the roof is in good shape, a repair usually does the job. The free inspection tells you which, and we explain why."],
       ["Why is the stain not right under the damage?", "Water can run along the decking or rafters before it drips. The stain on your ceiling can be several feet from where water gets in."],
-      ["What does a repair estimate cost?", "Nothing. The inspection and the estimate are free."],
+      ["What is a pipe boot?", "The rubber seal around plumbing vent pipes that come through the roof. They crack with age and sun, and they are a common source of small leaks."],
     ],
-    related: ["roof-inspection", "storm-damage-roof-repair", "residential-roof-repair"],
+    related: ["roof-inspection", "storm-damage-roof-repair", "roof-replacement"],
   },
   {
     slug: "storm-damage-roof-repair",
@@ -188,15 +189,16 @@ export const services: Service[] = [
       "Repairing damaged decking",
       "New underlayment",
       "New flashing",
+      "Proper attic ventilation",
       "New roofing installed",
       "Careful cleanup",
     ],
     faqs: [
       ["How do I know if I need a new roof?", "Check the signs above. The free inspection gives you a straight answer, and if a repair will do, we tell you."],
       ["Do I get to choose the materials?", "Yes. We walk you through materials, designs and budget before anything starts."],
-      ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],
+      ["Why does ventilation matter?", "Attic ventilation lets heat and moisture out. Without it, both build up under the roof and can shorten the life of the shingles and decking."],
     ],
-    related: ["residential-roof-replacement", "roof-inspection", "shingle-roofing"],
+    related: ["roof-inspection", "shingle-roofing", "tile-roofing"],
   },
   {
     slug: "shingle-roofing",
@@ -222,7 +224,7 @@ export const services: Service[] = [
       ["Why are asphalt shingles so common?", "They give strong weather protection and good value, and they come in a wide range of colors."],
       ["Can you replace just a few shingles?", "Yes, when the damage is limited. That is a repair, not a replacement."],
     ],
-    related: ["roof-replacement", "residential-roof-replacement", "roof-damage-repair"],
+    related: ["roof-replacement", "tile-roofing", "roof-damage-repair"],
   },
   {
     slug: "tile-roofing",
@@ -251,58 +253,6 @@ export const services: Service[] = [
     related: ["roof-damage-repair", "roof-replacement", "roof-inspection"],
   },
   {
-    slug: "residential-roof-replacement",
-    name: "Residential roof replacement",
-    group: "roofing",
-    card: "Worn, leaking or storm-damaged home roofs replaced, tear-off to cleanup.",
-    summary:
-      "Residential roof replacement from tear-off to final cleanup. We replace worn, leaking, or storm-damaged roofs with quality materials, proper ventilation, and flashing to protect your home and boost curb appeal.",
-    signs: [
-      "Shingles curling or cracking across the roof",
-      "Leaks in more than one room",
-      "Storm damage across much of the roof",
-      "Repair bills keep adding up",
-    ],
-    includes: [
-      "Tear-off of the old roof",
-      "Quality materials",
-      "Proper attic ventilation",
-      "New flashing",
-      "Final cleanup",
-    ],
-    faqs: [
-      ["Why does ventilation matter?", "Attic ventilation lets heat and moisture out. Without it, both build up under the roof and can shorten the life of the shingles and decking."],
-      ["Do I get to choose the materials?", "Yes. We walk you through materials, designs and budget before anything starts."],
-      ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],
-    ],
-    related: ["roof-replacement", "shingle-roofing", "residential-roof-repair"],
-  },
-  {
-    slug: "residential-roof-repair",
-    name: "Residential roof repair",
-    group: "roofing",
-    card: "Leaks, damaged shingles, flashing and vents fixed, so a repair can save a replacement.",
-    summary:
-      "Residential roof repair for leaks, missing or damaged shingles, flashing, and vents. We find the cause, fix it properly, and help you avoid a full replacement when a repair will do the job.",
-    signs: [
-      "A leak or water stain inside",
-      "Missing or damaged shingles",
-      "Loose or cracked flashing",
-      "A cracked vent or pipe boot",
-    ],
-    includes: [
-      "Finding the cause of the leak",
-      "Repairing shingles, flashing and vents",
-      "A straight answer on whether a repair will do",
-    ],
-    faqs: [
-      ["Will a repair do, or do I need a new roof?", "If the damage is limited and the rest of the roof is sound, a repair usually does the job. We tell you when it will."],
-      ["What is a pipe boot?", "The rubber seal around plumbing vent pipes that come through the roof. They crack with age and sun, and they are a common source of small leaks."],
-      ["Is the estimate free?", "Yes. The inspection and the estimate are free."],
-    ],
-    related: ["roof-damage-repair", "residential-roof-replacement", "roof-inspection"],
-  },
-  {
     slug: "siding",
     name: "Siding",
     group: "roofing",
@@ -323,7 +273,6 @@ export const services: Service[] = [
     faqs: [
       ["Can you look at my siding and roof in the same visit?", "Yes. Tell us when you call and we will check both."],
       ["Why does siding rot near the gutters?", "When gutters overflow or leak, water runs down the wall and soaks the siding and trim below. Fixing the gutters is often part of fixing the siding."],
-      ["Is the estimate free?", "Yes. The inspection and the estimate are free."],
     ],
     related: ["roof-damage-repair", "gutter-installation", "exterior-painting"],
   },
@@ -350,7 +299,6 @@ export const services: Service[] = [
     faqs: [
       ["Why do gutters matter?", "They move rainwater away from your roof, siding and foundation. Without them, water can damage all three."],
       ["What does sloping a gutter mean?", "Each run is pitched slightly toward a downspout, so water flows out instead of sitting in the gutter."],
-      ["Can you do gutters along with a new roof?", "Yes. We have replaced roofs and gutters together."],
     ],
     related: ["gutter-replacement", "gutter-cleaning", "roof-replacement"],
   },
@@ -376,7 +324,6 @@ export const services: Service[] = [
     faqs: [
       ["Should I repair or replace my gutters?", "If they are sagging, rusted or pulling away in several places, replacement usually makes more sense than patching."],
       ["Why do gutters pull away from the house?", "Often from the weight of debris and standing water, or from fasteners working loose over time."],
-      ["Can you replace gutters along with a roof?", "Yes. We have replaced roofs and gutters together."],
     ],
     related: ["gutter-installation", "gutter-cleaning", "roof-damage-repair"],
   },
@@ -428,7 +375,6 @@ export const services: Service[] = [
     ],
     faqs: [
       ["Why is my skylight cloudy?", "When the seal between the panes fails, moisture gets in and fogs the glass. That usually cannot be cleaned, so the unit needs replacing."],
-      ["Should I replace it when I replace my roof?", "It is often a good time, since the area around the skylight is already being worked on."],
       ["Could a repair do instead?", "If the unit is in good shape and only the seal or flashing has failed, a repair may be enough. We tell you which."],
     ],
     related: ["skylight-repair", "roof-replacement", "roof-inspection"],
@@ -453,8 +399,7 @@ export const services: Service[] = [
       "Repairs to stop water damage",
     ],
     faqs: [
-      ["Why does my skylight leak?", "Often it is worn flashing or a failed seal around the unit, not the glass itself."],
-      ["Should I repair or replace it?", "If the unit is old, cloudy or cracked, replacement usually makes more sense. If not, a repair may be all it needs."],
+      ["How do you find where a skylight leak starts?", "We check the flashing, the seal around the unit and the glass, and look at the roof around it. A leak at a skylight is often the flashing or seal, not the glass itself."],
       ["Will you tell me if it just needs a small fix?", "Yes. You get an honest assessment."],
     ],
     related: ["skylight-replacement", "roof-damage-repair", "roof-inspection"],
@@ -466,25 +411,27 @@ export const services: Service[] = [
     group: "general-contracting",
     card: "Kitchens, bathrooms, living spaces and more, with every step handled.",
     summary:
-      "Remodeling services for kitchens, bathrooms, living spaces, and more. We handle every step, including demo, framing, drywall, flooring, trim, and finishes, so your project stays on track. Quality craftsmanship and honest communication from start to finish.",
+      "Remodeling and renovations of any size, from a single room to a whole-house refresh: kitchens, bathrooms, living spaces and more. We handle every step, including demo, framing, drywall, flooring, trim, fixtures and layout changes, so your project stays on track. Quality craftsmanship and honest communication from start to finish.",
     signs: [
       "A room no longer works for the way you live",
       "Finishes, flooring or fixtures look dated",
       "You want to change a layout, not just refresh it",
       "Several rooms need work and you want one contractor for all of it",
+      "You are getting a home ready to live in, sell or rent",
     ],
     includes: [
       "Demo",
       "Framing",
       "Drywall",
       "Flooring",
-      "Trim and finishes",
+      "Trim, fixtures and finishes",
+      "Layout changes",
     ],
     faqs: [
-      ["Which rooms do you remodel?", "Kitchens, bathrooms, living spaces and more."],
+      ["How big a project do you take on?", "Any size, from a single room to a whole-house refresh."],
       ["Do you handle the whole project?", "Yes. We handle every step, including demo, framing, drywall, flooring, trim and finishes, so your project stays on track."],
     ],
-    related: ["kitchen-remodeling", "bathroom-remodeling", "home-renovations"],
+    related: ["kitchen-remodeling", "bathroom-remodeling", "home-repairs"],
   },
   {
     slug: "kitchen-remodeling",
@@ -540,32 +487,6 @@ export const services: Service[] = [
     related: ["kitchen-remodeling", "remodeling", "home-repairs"],
   },
   {
-    slug: "home-renovations",
-    name: "Home renovations",
-    group: "general-contracting",
-    card: "Renovations of any size, from a single room to a whole-house refresh.",
-    summary:
-      "Ready to update your home? We handle renovations of any size, from a single room to a whole-house refresh. Flooring, drywall, trim, fixtures, and layout changes, all managed by one contractor so you get quality work, clear communication, and no runaround.",
-    signs: [
-      "Your home feels dated from room to room",
-      "Worn flooring, trim or fixtures throughout",
-      "You want a different layout",
-      "You are getting a home ready to live in, sell or rent",
-    ],
-    includes: [
-      "Flooring",
-      "Drywall",
-      "Trim",
-      "Fixtures",
-      "Layout changes",
-    ],
-    faqs: [
-      ["How big a project do you take on?", "Renovations of any size, from a single room to a whole-house refresh."],
-      ["Do I need separate contractors for flooring, drywall and trim?", "No. Flooring, drywall, trim, fixtures and layout changes are all managed by one contractor."],
-    ],
-    related: ["remodeling", "home-repairs", "painting"],
-  },
-  {
     slug: "home-repairs",
     name: "Home repairs",
     group: "general-contracting",
@@ -590,33 +511,7 @@ export const services: Service[] = [
       ["Is my repair too small?", "No job too small. Give us a call and check it off your list."],
       ["Can you take care of several repairs at once?", "Yes. We take care of the repairs that pile up around the house."],
     ],
-    related: ["home-renovations", "interior-painting", "roof-damage-repair"],
-  },
-  {
-    slug: "painting",
-    name: "Painting",
-    group: "general-contracting",
-    card: "Interior and exterior painting with proper prep and clean, sharp lines.",
-    summary:
-      "Interior and exterior painting done right. We focus on proper prep, quality materials, and clean, sharp lines that hold up for years. Whether it is one room, a full repaint, or a fresh look outside, we deliver a professional finish at a fair price.",
-    signs: [
-      "Faded, peeling or chipped paint",
-      "Scuffed walls and trim",
-      "A color that no longer suits the room or the house",
-      "You are getting ready to sell",
-    ],
-    includes: [
-      "Interior painting",
-      "Exterior painting",
-      "Proper prep",
-      "Quality materials",
-      "Clean, sharp lines",
-    ],
-    faqs: [
-      ["Do you paint inside and outside?", "Yes. Interior and exterior painting."],
-      ["Can you paint just one room?", "Yes. One room, a full repaint or a fresh look outside."],
-    ],
-    related: ["interior-painting", "exterior-painting", "home-renovations"],
+    related: ["remodeling", "interior-painting", "roof-damage-repair"],
   },
   {
     slug: "interior-painting",
@@ -642,7 +537,7 @@ export const services: Service[] = [
       ["What about my floors and furniture?", "We protect your floors and furniture before we start."],
       ["Do you fix drywall before painting?", "Yes. We repair drywall imperfections so the finish comes out smooth and even."],
     ],
-    related: ["painting", "exterior-painting", "home-repairs"],
+    related: ["exterior-painting", "home-repairs", "remodeling"],
   },
   {
     slug: "exterior-painting",
@@ -668,7 +563,7 @@ export const services: Service[] = [
       ["What prep do you do before painting?", "We pressure wash, scrape, caulk and prime before applying quality paint."],
       ["What surfaces do you paint?", "Siding, trim, doors and fences."],
     ],
-    related: ["painting", "interior-painting", "roof-inspection"],
+    related: ["interior-painting", "siding", "roof-inspection"],
   },
 ];
 
