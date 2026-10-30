@@ -79,7 +79,7 @@ export default async function ServicePage(props: Props) {
         </ul>
         <Reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a href={categoryHref(group.id)} className="btn btn-navy">All {group.noun.toLowerCase()} services &rarr;</a>
-          <a href="/services" className="btn btn-navy">All services &rarr;</a>
+          <a href="/services" className="btn btn-navy btn-end">All services &rarr;</a>
         </Reveal>
       </InfoSection>
 

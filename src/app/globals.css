@@ -121,6 +121,8 @@ body {
     background: linear-gradient(to bottom right, transparent calc(50% - 2.5px), rgba(255,255,255,.85) calc(50% - 2.5px), rgba(255,255,255,.85) 50%, transparent 50%);
   }
   .btn-navy { @apply bg-navy text-white hover:bg-blue; }
+  /* the second of two solid buttons: bottom-right cut, like .btn-line */
+  .btn-end { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%); }
   :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
   .dark-ground :focus-visible { outline-color: #fff; }
 }

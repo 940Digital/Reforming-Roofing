@@ -4,10 +4,22 @@ import { MoreLink, type SectionProps } from "./MoreLink";
 import { business } from "@/config/business";
 import { cityHref, citiesByCounty, type City } from "@/config/cities";
 
-// Town chips keep the old banner's clipped top-left corner.
-const chip = "flex h-full items-center whitespace-nowrap px-3 py-2.5 font-display text-[0.95rem] uppercase tracking-[0.04em] md:px-4 md:tracking-[0.08em] transition-colors [clip-path:polygon(10px_0,100%_0,100%_100%,0_100%,0_10px)] md:text-lg";
+const chip = "flex h-full items-center whitespace-nowrap px-3 py-2.5 font-display text-[0.95rem] uppercase tracking-[0.04em] md:px-4 md:tracking-[0.08em] transition-colors md:text-lg";
+
+// Each county's chips cut like a CTA pair: the first loses its top-left corner, the last its
+// bottom-right, and a county with one town gets both.
+const cut = (i: number, n: number) =>
+  n === 1
+    ? "[clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)]"
+    : i === 0
+      ? "[clip-path:polygon(10px_0,100%_0,100%_100%,0_100%,0_10px)]"
+      : i === n - 1
+        ? "[clip-path:polygon(0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%)]"
+        : "";
 
 function County({ county, list, cols, callChip = false }: { county: string; list: City[]; cols: string; callChip?: boolean }) {
+  // the "Not listed" chip counts as the last in the set
+  const n = list.length + (callChip ? 1 : 0);
   return (
     <div className="cut h-full bg-paper p-4 sm:p-6 md:p-7">
       <h3 className="eyebrow text-navy">
@@ -15,15 +27,15 @@ function County({ county, list, cols, callChip = false }: { county: string; list
         <span className="ml-auto text-sm tracking-[0.14em] text-ink/60">{list.length} {list.length === 1 ? "town" : "towns"}</span>
       </h3>
       <ul className={`mt-5 grid gap-2 ${cols}`}>
-        {list.map((c) => (
+        {list.map((c, i) => (
           <li key={c.slug}>
-            <a href={cityHref(c.slug)} className={`${chip} bg-navy text-white hover:bg-red`}>{c.name}</a>
+            <a href={cityHref(c.slug)} className={`${chip} ${cut(i, n)} bg-navy text-white hover:bg-red`}>{c.name}</a>
           </li>
         ))}
         {/* fills the last cell of the grid on purpose */}
         {callChip && (
           <li className="col-span-2 sm:col-span-1">
-            <a href={business.smsHref} className={`${chip} bg-red text-white hover:bg-[#8f1a2a]`}>Not listed? Text us</a>
+            <a href={business.smsHref} className={`${chip} ${cut(n - 1, n)} bg-red text-white hover:bg-[#8f1a2a]`}>Not listed? Text us</a>
           </li>
         )}
       </ul>

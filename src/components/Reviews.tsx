@@ -47,7 +47,7 @@ export function Reviews({ prev = "#fffdf2", more = false }: SectionProps = {}) {
           <Reveal className="mt-10 flex flex-col gap-3 sm:flex-row">
             {more && <a href="/reviews" className="btn btn-navy">More from our clients &rarr;</a>}
             {business.reviewsUrl && (
-              <a href={business.reviewsUrl} target="_blank" rel="noopener" className="btn btn-red">Read our Google reviews</a>
+              <a href={business.reviewsUrl} target="_blank" rel="noopener" className={`btn btn-red ${more ? "btn-end" : ""}`}>Read our Google reviews</a>
             )}
           </Reveal>
         )}
