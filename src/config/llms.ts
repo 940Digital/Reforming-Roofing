@@ -2,7 +2,7 @@ import { business } from "./business";
 import { steps } from "./process";
 import { indexedPages, pageAt, staticPages } from "./pages";
 import { categoryHref, serviceGroups, serviceHref, servicesIn } from "./services";
-import { cityHref, citiesByCounty } from "./cities";
+import { censusSource, cityHref, citiesByCounty, housingStats } from "./cities";
 
 /** llms.txt (https://llmstxt.org): a plain-text guide to the site for AI tools. */
 
@@ -64,6 +64,18 @@ export function llmsFullTxt() {
       lines.push(...s.includes.map((t) => `- ${t}`), "");
       for (const [q, a] of s.faqs) lines.push(`Q: ${q}`, `A: ${a}`, "");
     }
+  }
+  lines.push("## Service area", "", "Each town page confirms the company works there and shows the local housing figures below (Census Bureau American Community Survey 5-year estimates).", "");
+  for (const { county, list } of citiesByCounty()) {
+    lines.push(`### ${county} County`, "");
+    for (const c of list) {
+      const h = c.housing;
+      const st = housingStats(h);
+      lines.push(
+        `- [${c.name}](${url(cityHref(c.slug))}): ZIP ${c.zips.join(", ")}. Median home built ${h.medianYearBuilt}; ${st.before2000}% built before 2000; ${st.owned}% owner-occupied; ${st.houses}% detached houses. Source: ${censusSource(h)}`,
+      );
+    }
+    lines.push("");
   }
   return lines.join("\n");
 }

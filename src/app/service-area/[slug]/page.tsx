@@ -6,7 +6,7 @@ import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
-import { cityNode, pageGraph } from "@/config/schema";
+import { cityNode, pageGraph, townServiceNode } from "@/config/schema";
 import { categoryHref, serviceGroups, serviceHref, servicesIn } from "@/config/services";
 import { builtLabels, censusSource, cities, cityBySlug, cityHref, denton, directionFrom, housingStats, milesBetween, nearestTo, type City } from "@/config/cities";
 
@@ -104,7 +104,7 @@ export default async function CityPage(props: Props) {
 
   return (
     <PageShell>
-      <JsonLd graph={pageGraph({ path: cityHref(c.slug), trail: ["/service-area", cityHref(c.slug)], about: [cityNode(c)] })} />
+      <JsonLd graph={pageGraph({ path: cityHref(c.slug), trail: ["/service-area", cityHref(c.slug)], about: [cityNode(c)], mainEntity: townServiceNode(c) })} />
       <PageHero
         crumbs={[{ href: "/service-area", label: "Service area" }]}
         eyebrow={countyLabel(c)}

@@ -19,8 +19,9 @@ const aiCrawlers = [
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: "*", allow: "/" },
-      { userAgent: aiCrawlers, allow: "/" },
+      // /api/ only holds the contact form endpoints, which have nothing to index.
+      { userAgent: "*", allow: "/", disallow: "/api/" },
+      { userAgent: aiCrawlers, allow: "/", disallow: "/api/" },
     ],
     sitemap: `${business.siteUrl}/sitemap.xml`,
   };

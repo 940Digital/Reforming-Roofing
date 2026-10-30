@@ -1,5 +1,5 @@
 import { business } from "./business";
-import { cities, type City } from "./cities";
+import { cities, cityHref, type City } from "./cities";
 import { pageAt, SITE_UPDATED } from "./pages";
 import { ogImage } from "./meta";
 import { categoryHref, serviceGroups, serviceHref, services, servicesIn, type Service, type ServiceGroup } from "./services";
@@ -30,6 +30,7 @@ const areaServed = () => [...business.counties.map(county), ...cities.map(town)]
 export function cityNode(c: City) {
   return {
     "@type": "City",
+    "@id": `${abs(cityHref(c.slug))}#city`,
     name: `${c.name}, TX`,
     geo: { "@type": "GeoCoordinates", latitude: Number(c.lat.toFixed(5)), longitude: Number(c.lng.toFixed(5)) },
     containedInPlace: c.counties.map((n) => county(`${n} County`)),
@@ -99,6 +100,25 @@ export function serviceNode(s: Service) {
       const r = services.find((x) => x.slug === slug)!;
       return { "@type": "Service", "@id": ids.service(r), name: r.name };
     }),
+  };
+}
+
+/** What a town page is about: roofing work offered in that one town. */
+export function townServiceNode(c: City) {
+  const url = abs(cityHref(c.slug));
+  return {
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: `Roofing in ${c.name}, TX`,
+    serviceType: "Residential roofing",
+    url,
+    provider: ref(ids.business),
+    areaServed: ref(`${url}#city`),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `Roofing services in ${c.name}`,
+      itemListElement: servicesIn("roofing").map((s) => ({ "@type": "Offer", itemOffered: ref(ids.service(s)) })),
+    },
   };
 }
 
