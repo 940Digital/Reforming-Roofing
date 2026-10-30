@@ -32,12 +32,20 @@ const socials = ([
   { label: "Google", href: business.googleBusinessUrl, name: "Google Business Profile" },
 ] as Social[]).filter((s): s is Social & { href: string } => Boolean(s.href));
 
+// Cut corners match a CTA pair: the first button loses its top-left corner, the last its bottom-right.
+const cut = (i: number, n: number) =>
+  i === 0
+    ? "[clip-path:polygon(10px_0,100%_0,100%_100%,0_100%,0_10px)]"
+    : i === n - 1
+      ? "[clip-path:polygon(0_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%)]"
+      : "";
+
 /** Square icon buttons for every profile that has a URL in business.ts. `light` is for pale backgrounds. */
 export function SocialLinks({ className = "", light = false }: { className?: string; light?: boolean }) {
   if (socials.length === 0) return null;
   return (
     <ul className={`flex gap-3 ${className}`}>
-      {socials.map((s) => (
+      {socials.map((s, i) => (
         <li key={s.label}>
           <a
             href={s.href}
@@ -45,7 +53,7 @@ export function SocialLinks({ className = "", light = false }: { className?: str
             rel="noopener"
             aria-label={`${business.name} on ${s.name ?? s.label}`}
             title={s.name ?? s.label}
-            className={`grid h-11 w-11 place-items-center text-white transition-colors ${light ? "bg-navy" : "bg-white/10"} [clip-path:polygon(10px_0,100%_0,100%_100%,0_100%,0_10px)] hover:bg-red`}
+            className={`grid h-11 w-11 place-items-center text-white transition-colors ${light ? "bg-navy" : "bg-white/10"} ${cut(i, socials.length)} hover:bg-red`}
           >
             {icons[s.label]}
           </a>
