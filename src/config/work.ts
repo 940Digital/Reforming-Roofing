@@ -97,3 +97,41 @@ export const jobs: WorkJob[] = [
 export const featured: WorkPhoto[] = ["acreage", "woods-edge", "country-metal"].map(
   (id) => jobs.find((j) => j.id === id)!.photos[0],
 );
+
+/**
+ * Banner photo for each services page, keyed by path. Every page gets its own shot.
+ * There are no tile, skylight close-up or interior photos yet, so those pages use a general
+ * shot of a finished home until real ones come in.
+ */
+const heroByPath: Record<string, string> = {
+  "/services": "acreage-1",
+  "/services/roofing": "woods-edge-1",
+  "/services/gutters": "woods-edge-2",
+  "/services/skylights": "cul-de-sac-7",
+  "/services/general-contracting": "acreage-4",
+  "/services/roof-inspection": "pond-side-4",
+  "/services/roof-damage-repair": "cul-de-sac-3",
+  "/services/storm-damage-roof-repair": "cul-de-sac-1",
+  "/services/roof-replacement": "pond-side-1",
+  "/services/shingle-roofing": "woods-edge-4",
+  "/services/tile-roofing": "acreage-3",
+  "/services/siding": "country-metal-3",
+  "/services/gutter-installation": "pond-side-2",
+  "/services/gutter-replacement": "cul-de-sac-4",
+  "/services/gutter-cleaning": "pond-side-3",
+  "/services/skylight-replacement": "woods-edge-3",
+  "/services/skylight-repair": "acreage-2",
+  "/services/remodeling": "country-metal-1",
+  "/services/kitchen-remodeling": "open-land-1",
+  "/services/bathroom-remodeling": "open-land-2",
+  "/services/home-repairs": "country-metal-4",
+  "/services/interior-painting": "cul-de-sac-5",
+  "/services/exterior-painting": "cul-de-sac-6",
+};
+
+const allPhotos = jobs.flatMap((j) => j.photos);
+
+export const heroFor = (path: string): WorkPhoto | undefined => {
+  const name = heroByPath[path];
+  return name ? allPhotos.find((ph) => ph.src === `/assets/work/${name}.jpg`) : undefined;
+};

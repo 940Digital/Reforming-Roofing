@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { business } from "@/config/business";
+import type { WorkPhoto } from "@/config/work";
 
 /** Title banner at the top of every page except the homepage. */
 export function PageHero({
@@ -7,6 +9,7 @@ export function PageHero({
   intro,
   crumbs,
   actions = true,
+  image,
 }: {
   eyebrow: string;
   title: string;
@@ -15,13 +18,22 @@ export function PageHero({
   crumbs?: { href: string; label: string }[];
   /** The text and call buttons. Off on the contact page, which has its own. */
   actions?: boolean;
+  /** Full-bleed photo behind the banner, faded into navy on the text side like the homepage hero. */
+  image?: WorkPhoto;
 }) {
   return (
     <section className="dark-ground relative isolate overflow-hidden bg-navy text-white">
+      {image && (
+        <div className="absolute inset-0 -z-10">
+          <Image src={image.src} alt={image.alt} fill priority sizes="100vw" className="object-cover object-[65%_50%]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/30 md:via-navy/65 md:to-navy/5" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/50" />
+        </div>
+      )}
       {/* same corner cuts as the homepage hero */}
-      <div className="absolute left-0 top-0 -z-10 h-20 w-20 bg-red [clip-path:polygon(0_0,100%_0,0_100%)] md:h-32 md:w-32" />
-      <div className="absolute bottom-0 right-0 -z-10 h-20 w-20 bg-blue [clip-path:polygon(100%_0,100%_100%,0_100%)] md:h-36 md:w-36" />
-      <div className="mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pb-20 md:pt-44">
+      <div className="absolute left-0 top-0 h-20 w-20 bg-red [clip-path:polygon(0_0,100%_0,0_100%)] md:h-32 md:w-32" />
+      <div className="absolute bottom-0 right-0 h-20 w-20 bg-blue [clip-path:polygon(100%_0,100%_100%,0_100%)] md:h-36 md:w-36" />
+      <div className={`relative mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pb-20 md:pt-44 ${image ? "md:pb-28 md:pt-52 lg:min-h-[640px]" : ""}`}>
         {crumbs && (
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex flex-wrap items-center gap-2 text-sm uppercase tracking-[0.12em] text-white/75">

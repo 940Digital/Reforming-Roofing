@@ -9,6 +9,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
 import { pageGraph, serviceNode } from "@/config/schema";
+import { heroFor } from "@/config/work";
 import { categoryHref, serviceBySlug, serviceGroups, serviceHref, services } from "@/config/services";
 
 export const dynamicParams = false;
@@ -52,6 +53,7 @@ export default async function ServicePage(props: Props) {
         eyebrow={`${group.noun} services`}
         title={s.name}
         intro={s.summary}
+        image={heroFor(serviceHref(s.slug))}
       />
 
       <InfoSection eyebrow="What to know" title={`About ${s.name.toLowerCase()}`} bg="cream" prev="#042d58">

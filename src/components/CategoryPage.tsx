@@ -8,6 +8,7 @@ import { ServiceCard } from "./ServiceCard";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "./JsonLd";
 import { categoryServiceItems, itemList, pageGraph } from "@/config/schema";
+import { heroFor } from "@/config/work";
 import { categoryHref, serviceGroups, servicesIn, type ServiceGroup } from "@/config/services";
 
 // Company-wide points, all stated elsewhere on the site.
@@ -44,7 +45,7 @@ export function CategoryPage({ id }: { id: ServiceGroup }) {
           mainEntity: itemList(categoryHref(id), categoryServiceItems(id)),
         })}
       />
-      <PageHero crumbs={[{ href: "/services", label: "Services" }]} eyebrow="Services" title={g.title} intro={g.lead} />
+      <PageHero crumbs={[{ href: "/services", label: "Services" }]} eyebrow="Services" title={g.title} intro={g.lead} image={heroFor(categoryHref(id))} />
 
       <section className="slant slant-r bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: "#042d58" }}>
         <div className="mx-auto max-w-7xl px-5 md:px-8">

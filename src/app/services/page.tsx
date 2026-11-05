@@ -9,6 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
 import { itemList, pageGraph, serviceItems } from "@/config/schema";
+import { heroFor } from "@/config/work";
 import { services } from "@/config/services";
 
 export const metadata = metaFor("/services");
@@ -51,6 +52,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Roofing and home services"
         intro="Free inspections, repairs and replacements for shingle and tile roofs, plus gutters, skylights, remodeling, repairs and painting. Across Denton and Collin Counties."
+        image={heroFor("/services")}
       />
       <ServiceCatalog prev="#042d58" />
       <Process prev="#f3eedf" />
