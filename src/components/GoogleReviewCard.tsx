@@ -25,14 +25,15 @@ function Stars({ n }: { n: number }) {
   );
 }
 
-export function GoogleReviewCard({ r, profileUrl }: { r: GoogleReview; profileUrl: string }) {
+/** `compact` drops the Positive/Services lines, as Google's own review carousels do. */
+export function GoogleReviewCard({ r, profileUrl, compact = false }: { r: GoogleReview; profileUrl: string; compact?: boolean }) {
   const long = r.text.length > CUT;
   const [open, setOpen] = useState(false);
   const shown = long && !open ? r.text.slice(0, r.text.lastIndexOf(" ", CUT)) : r.text;
   const more = "font-medium text-[#1a73e8] hover:underline";
 
   return (
-    <article className={`${roboto.className} rounded-lg border border-[#dadce0] bg-white p-4 text-[#202124] shadow-[0_1px_2px_rgba(60,64,67,0.15)]`}>
+    <article className={`${roboto.className} h-full rounded-lg border border-[#dadce0] bg-white p-4 text-[#202124] shadow-[0_1px_2px_rgba(60,64,67,0.15)]`}>
       <header className="flex items-center gap-3">
         <span
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg text-white"
@@ -68,7 +69,7 @@ export function GoogleReviewCard({ r, profileUrl }: { r: GoogleReview; profileUr
         )}
       </p>
 
-      {(r.positive || r.services) && (!long || open) && (
+      {!compact && (r.positive || r.services) && (!long || open) && (
         <dl className="mt-3 space-y-2 text-sm leading-5">
           {r.positive && (
             <div>

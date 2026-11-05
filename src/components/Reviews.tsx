@@ -3,10 +3,10 @@ import { Reveal } from "./Reveal";
 import type { SectionProps } from "./MoreLink";
 import { googleProfile, googleReviews } from "@/config/googleReviews";
 import { GoogleRatingSummary, GoogleReviewCard } from "./GoogleReviewCard";
+import { ReviewSlider } from "./ReviewSlider";
 
-/** Google reviews in Google's own order. The homepage shows the first few; /reviews shows them all. */
+/** Google reviews in Google's own order: an auto-cycling slider on the homepage, the full list on /reviews. */
 export function Reviews({ prev = "#fffdf2", more = false }: SectionProps = {}) {
-  const list = more ? googleReviews.slice(0, 6) : googleReviews;
   return (
     <section id="reviews" className="slant bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -19,13 +19,19 @@ export function Reviews({ prev = "#fffdf2", more = false }: SectionProps = {}) {
           <GoogleRatingSummary rating={googleProfile.rating} count={googleProfile.count} url={googleProfile.url} />
         </Reveal>
 
-        <div className="mt-5 gap-4 sm:columns-2 lg:columns-3">
-          {list.map((r) => (
-            <div key={r.name} className="mb-4 break-inside-avoid">
-              <GoogleReviewCard r={r} profileUrl={googleProfile.url} />
-            </div>
-          ))}
-        </div>
+        {more ? (
+          <div className="mt-5">
+            <ReviewSlider reviews={googleReviews} profileUrl={googleProfile.url} />
+          </div>
+        ) : (
+          <div className="mt-5 gap-4 sm:columns-2 lg:columns-3">
+            {googleReviews.map((r) => (
+              <div key={r.name} className="mb-4 break-inside-avoid">
+                <GoogleReviewCard r={r} profileUrl={googleProfile.url} />
+              </div>
+            ))}
+          </div>
+        )}
 
         {more && (
           <Reveal className="mt-6">
