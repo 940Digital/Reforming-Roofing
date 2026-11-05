@@ -115,7 +115,7 @@ const heroByPath: Record<string, WorkPhoto> = {
   "/services/roof-damage-repair": own("cul-de-sac-3"),
   "/services/roof-replacement": own("pond-side-1"),
   "/services/shingle-roofing": own("woods-edge-4"),
-  "/services/storm-damage-roof-repair": stock("storm-damage", "A roofer pulling up damaged shingles on a house roof"),
+  "/services/storm-damage-roof-repair": stock("storm-worn-shingles", "Weathered roof shingles curling, split and lifting along a roofline"),
   "/services/tile-roofing": stock("tile-roofing", "Close view of terracotta clay roof tiles"),
   "/services/siding": stock("siding", "Two-story home with green lap siding, white trim and a front porch"),
   "/services/gutters": stock("gutters", "Brown gutter and white downspout along a roof edge"),
@@ -125,13 +125,13 @@ const heroByPath: Record<string, WorkPhoto> = {
   "/services/skylights": stock("skylights", "Open roof window looking up at a blue sky with clouds"),
   "/services/skylight-replacement": stock("skylight-replacement", "A roof window set into a clay tile roof"),
   "/services/skylight-repair": stock("skylight-repair", "Skylight letting daylight into a white room"),
-  "/services/general-contracting": stock("general-contracting", "Two contractors cutting trim with a miter saw inside a home"),
-  "/services/remodeling": stock("remodeling", "A contractor cutting lumber with a circular saw"),
+  "/services/general-contracting": stock("gc-tools", "A drill, hammer, paintbrush, screws and a board on a workbench"),
+  "/services/remodeling": stock("remodel-gutted-room", "A room stripped to the studs mid-remodel, with temporary support posts and debris"),
   "/services/kitchen-remodeling": stock("kitchen-remodeling", "Remodeled kitchen with white cabinets, a farmhouse sink and stainless appliances"),
   "/services/bathroom-remodeling": stock("bathroom-remodeling", "Remodeled bathroom with a glass shower, double vanity and wood floors"),
-  "/services/home-repairs": stock("home-repairs", "A repairman on a ladder working on a doorway inside a home"),
-  "/services/interior-painting": stock("interior-painting", "A painter rolling yellow paint onto an interior wall"),
-  "/services/exterior-painting": stock("exterior-painting", "A painter on a ladder painting the outside of a white two-story house"),
+  "/services/home-repairs": stock("repair-tools", "A square, tape measure, drill, pliers, wrench and hex keys laid out on a work surface"),
+  "/services/interior-painting": stock("paint-roller", "A paint roller laying blue paint over a white wall"),
+  "/services/exterior-painting": stock("painted-porch", "A freshly painted front porch with gray siding, white trim and a black front door"),
 };
 
 export const heroFor = (path: string): WorkPhoto | undefined => heroByPath[path];
