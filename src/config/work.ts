@@ -126,7 +126,7 @@ const heroByPath: Record<string, WorkPhoto> = {
   "/services/skylight-replacement": stock("skylight-replacement", "A roof window set into a clay tile roof"),
   "/services/skylight-repair": stock("skylight-repair", "Skylight letting daylight into a white room"),
   "/services/general-contracting": stock("gc-tools", "A drill, hammer, paintbrush, screws and a board on a workbench"),
-  "/services/remodeling": stock("remodel-gutted-room", "A room stripped to the studs mid-remodel, with temporary support posts and debris"),
+  "/services/remodeling": stock("remodel-open-living", "A remodeled open-plan living room and kitchen with wood floors, a leather sofa and a green accent wall"),
   "/services/kitchen-remodeling": stock("kitchen-remodeling", "Remodeled kitchen with white cabinets, a farmhouse sink and stainless appliances"),
   "/services/bathroom-remodeling": stock("bathroom-remodeling", "Remodeled bathroom with a glass shower, double vanity and wood floors"),
   "/services/home-repairs": stock("repair-tools", "A square, tape measure, drill, pliers, wrench and hex keys laid out on a work surface"),
