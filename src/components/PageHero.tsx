@@ -25,7 +25,7 @@ export function PageHero({
     <section className="dark-ground relative isolate overflow-hidden bg-navy text-white">
       {image && (
         <div className="absolute inset-0 -z-10">
-          <Image src={image.src} alt={image.alt} fill priority sizes="100vw" className="object-cover object-[65%_50%]" />
+          <Image src={image.src} alt={image.alt} fill priority sizes="100vw" className="object-cover object-center md:object-[65%_50%]" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/30 md:via-navy/65 md:to-navy/5" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-navy/50" />
         </div>

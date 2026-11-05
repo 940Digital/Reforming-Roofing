@@ -8,7 +8,7 @@ for (const [name,vp] of [['desk',{width:1440,height:900}],['mob',{width:390,heig
   page.on('console',m=>{if(m.type()==='error')errs.push(name+' '+page.url()+': '+m.text())});
   for (const r of all) {
     await page.goto('http://localhost:3111'+r,{waitUntil:'load'});
-    const ok=await page.evaluate(()=>{const i=document.querySelector('main section img');return !!(i&&i.src.includes('work')&&i.complete&&i.naturalWidth)});
+    const ok=await page.evaluate(()=>{const i=document.querySelector('main section img');return !!(i&&(i.src.includes('work')||i.src.includes('stock'))&&i.complete&&i.naturalWidth)});
     if(!ok) missing.push(name+' '+r);
     if(shots.includes(r)){await page.waitForTimeout(800);await page.screenshot({path:`${S}/hero-${name}-${r.split('/').pop()}.png`});}
   }

@@ -98,40 +98,40 @@ export const featured: WorkPhoto[] = ["acreage", "woods-edge", "country-metal"].
   (id) => jobs.find((j) => j.id === id)!.photos[0],
 );
 
-/**
- * Banner photo for each services page, keyed by path. Every page gets its own shot.
- * There are no tile, skylight close-up or interior photos yet, so those pages use a general
- * shot of a finished home until real ones come in.
- */
-const heroByPath: Record<string, string> = {
-  "/services": "acreage-1",
-  "/services/roofing": "woods-edge-1",
-  "/services/gutters": "woods-edge-2",
-  "/services/skylights": "cul-de-sac-7",
-  "/services/general-contracting": "acreage-4",
-  "/services/roof-inspection": "pond-side-4",
-  "/services/roof-damage-repair": "cul-de-sac-3",
-  "/services/storm-damage-roof-repair": "cul-de-sac-1",
-  "/services/roof-replacement": "pond-side-1",
-  "/services/shingle-roofing": "woods-edge-4",
-  "/services/tile-roofing": "acreage-3",
-  "/services/siding": "country-metal-3",
-  "/services/gutter-installation": "pond-side-2",
-  "/services/gutter-replacement": "cul-de-sac-4",
-  "/services/gutter-cleaning": "pond-side-3",
-  "/services/skylight-replacement": "woods-edge-3",
-  "/services/skylight-repair": "acreage-2",
-  "/services/remodeling": "country-metal-1",
-  "/services/kitchen-remodeling": "open-land-1",
-  "/services/bathroom-remodeling": "open-land-2",
-  "/services/home-repairs": "country-metal-4",
-  "/services/interior-painting": "cul-de-sac-5",
-  "/services/exterior-painting": "cul-de-sac-6",
-};
+/** Unsplash stock (free licence) for services the drone set doesn't show. Source ids in public/assets/stock-ids.json. */
+const stock = (name: string, alt: string): WorkPhoto => ({ src: `/assets/stock/${name}.jpg`, alt });
 
 const allPhotos = jobs.flatMap((j) => j.photos);
+const own = (name: string) => allPhotos.find((ph) => ph.src === `/assets/work/${name}.jpg`)!;
 
-export const heroFor = (path: string): WorkPhoto | undefined => {
-  const name = heroByPath[path];
-  return name ? allPhotos.find((ph) => ph.src === `/assets/work/${name}.jpg`) : undefined;
+/**
+ * Banner photo for each services page, keyed by path. Roofing pages use the client's own drone
+ * photos where one shows the service; everything else uses stock until real job photos come in.
+ */
+const heroByPath: Record<string, WorkPhoto> = {
+  "/services": own("acreage-1"),
+  "/services/roofing": own("woods-edge-1"),
+  "/services/roof-inspection": own("pond-side-4"),
+  "/services/roof-damage-repair": own("cul-de-sac-3"),
+  "/services/roof-replacement": own("pond-side-1"),
+  "/services/shingle-roofing": own("woods-edge-4"),
+  "/services/storm-damage-roof-repair": stock("storm-damage", "A roofer pulling up damaged shingles on a house roof"),
+  "/services/tile-roofing": stock("tile-roofing", "Close view of terracotta clay roof tiles"),
+  "/services/siding": stock("siding", "Two-story home with green lap siding, white trim and a front porch"),
+  "/services/gutters": stock("gutters", "Brown gutter and white downspout along a roof edge"),
+  "/services/gutter-installation": stock("gutter-installation", "New white gutter and downspout under a roof eave against a blue sky"),
+  "/services/gutter-replacement": stock("gutter-replacement", "Dark seamless gutter and downspout along the eave of a gabled house"),
+  "/services/gutter-cleaning": stock("gutter-cleaning", "Dry leaves packed into a gutter along a shingle roof"),
+  "/services/skylights": stock("skylights", "Open roof window looking up at a blue sky with clouds"),
+  "/services/skylight-replacement": stock("skylight-replacement", "A roof window set into a clay tile roof"),
+  "/services/skylight-repair": stock("skylight-repair", "Skylight letting daylight into a white room"),
+  "/services/general-contracting": stock("general-contracting", "Two contractors cutting trim with a miter saw inside a home"),
+  "/services/remodeling": stock("remodeling", "A contractor cutting lumber with a circular saw"),
+  "/services/kitchen-remodeling": stock("kitchen-remodeling", "Remodeled kitchen with white cabinets, a farmhouse sink and stainless appliances"),
+  "/services/bathroom-remodeling": stock("bathroom-remodeling", "Remodeled bathroom with a glass shower, double vanity and wood floors"),
+  "/services/home-repairs": stock("home-repairs", "A repairman on a ladder working on a doorway inside a home"),
+  "/services/interior-painting": stock("interior-painting", "A painter rolling yellow paint onto an interior wall"),
+  "/services/exterior-painting": stock("exterior-painting", "A painter on a ladder painting the outside of a white two-story house"),
 };
+
+export const heroFor = (path: string): WorkPhoto | undefined => heroByPath[path];
