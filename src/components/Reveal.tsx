@@ -33,7 +33,9 @@ export function Reveal({
 }
 
 /** Poster-print wipe: a frame that uncovers along a diagonal. Used on photos.
- *  The in-view check watches the unclipped outer box so the wipe can reverse and replay. */
+ *  The in-view check watches the unclipped outer box so the wipe can reverse and replay.
+ *  Keep backgrounds off the `className` box: it is never clipped, so a colour there shows as a
+ *  block the photo slides over (Owen wants a plain reveal). */
 export function Wipe({ children, className, delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
   const reduce = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);

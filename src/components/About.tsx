@@ -48,7 +48,7 @@ export function About({ prev = "#042d58", more = false }: SectionProps = {}) {
         </div>
 
         <div className="flex flex-col gap-6">
-          <Wipe className="relative aspect-square w-full bg-navy">
+          <Wipe className="relative aspect-square w-full">
             <Image
               src="/assets/original/860db2_ee80d5d1f27148bf8f8609523891c805.png"
               alt="Aerial view of a brick and stone home with a freshly finished gray shingle roof in a Texas neighborhood"
