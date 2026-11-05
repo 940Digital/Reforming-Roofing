@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Roboto } from "next/font/google";
 import { reviewAge, type GoogleReview } from "@/config/googleReviews";
 
-// Google's review UI is set in Roboto; the cards use it so they read like the real thing.
-const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500"], display: "swap" });
+// Google's review UI is set in Roboto (loaded in app/layout.tsx as --font-roboto).
+const roboto = { className: "font-[family-name:var(--font-roboto)]" };
 
 // Google gives reviewers without a photo a coloured initial; these are colours from that set.
 const avatarColors = ["#5e35b1", "#00897b", "#d81b60", "#f4511e", "#3949ab", "#7cb342", "#c2185b", "#0288d1", "#6d4c41", "#8e24aa"];
