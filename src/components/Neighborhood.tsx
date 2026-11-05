@@ -1,12 +1,8 @@
 import Image from "next/image";
 import { Reveal, Wipe } from "./Reveal";
 import { VideoPlayer } from "./VideoPlayer";
-
-const gallery = [
-  { src: "/assets/original/860db2_cf892d60ac384833bfd92f879f2f16af.png", alt: "Aerial view of a finished gray shingle roof on a single-story home with mature trees and a curved walkway" },
-  { src: "/assets/original/9a58ba_684d4706b8f445d4b19388bc2bb86d69.png", alt: "Aerial view from above of a two-story historic style home with a multi-gabled gray shingle roof and two chimneys" },
-  { src: "/assets/original/9a58ba_c7219f7c60f847f88647c1bb1cea2964.png", alt: "Close aerial view of a complex gabled roof with dormers and chimneys covered in charcoal shingles" },
-];
+import { MoreLink } from "./MoreLink";
+import { featured as gallery } from "@/config/work";
 
 export function Neighborhood({ prev = "#f3eedf" }: { prev?: string } = {}) {
   return (
@@ -38,12 +34,13 @@ export function Neighborhood({ prev = "#f3eedf" }: { prev?: string } = {}) {
         <ul className="mt-6 grid gap-4 sm:grid-cols-3">
           {gallery.map((g, i) => (
             <Reveal as="li" key={g.src} delay={i * 0.08}>
-              <div className="relative aspect-square bg-blue">
-                <Image src={g.src} alt={g.alt} fill sizes="(min-width:640px) 33vw, 100vw" className="object-cover" />
-              </div>
+              <a href="/our-work" className="group relative block aspect-[4/3] overflow-hidden bg-blue">
+                <Image src={g.src} alt={g.alt} fill sizes="(min-width:640px) 33vw, 100vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+              </a>
             </Reveal>
           ))}
         </ul>
+        <MoreLink href="/our-work" label="See more of our work" dark />
       </div>
     </section>
   );

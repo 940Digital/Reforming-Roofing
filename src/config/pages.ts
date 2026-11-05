@@ -17,7 +17,7 @@ export type SitePage = {
 };
 
 /** Bump when page content changes. Used as the sitemap's lastmod. */
-export const SITE_UPDATED = "2026-10-29";
+export const SITE_UPDATED = "2026-11-05";
 
 const brand = business.name;
 
@@ -46,6 +46,13 @@ export const staticPages: SitePage[] = [
     title: `Roofing, Gutters, Skylights & Remodeling | ${brand}`,
     description:
       "Roof inspection, repair and replacement, shingle and tile roofing, plus gutters, skylights, remodeling and painting in Denton and Collin Counties.",
+  },
+  {
+    path: "/our-work",
+    name: "Our work",
+    title: `Our Work: Roofing Project Photos | ${brand}`,
+    description:
+      "Drone photos of roofs Roofing Reformation has finished: shingle and metal roofs on homes, shops and barns. Tap any photo to see it full size.",
   },
   {
     path: "/reviews",
