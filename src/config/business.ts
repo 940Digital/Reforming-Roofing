@@ -38,8 +38,8 @@ export const business = {
 
   // Google Business Profile, as a stable Maps link built from the profile's CID (ludocid).
   googleBusinessUrl: "https://www.google.com/maps?cid=2917192926522942732",
-  // Used for the "Read more reviews" button. The GBP link opens the profile, reviews included.
-  reviewsUrl: "https://www.google.com/maps?cid=2917192926522942732" as string | null,
+  // The older profile holds the reviews (27 as of 2026-11-05); the Pilot Point one above has 1.
+  reviewsUrl: "https://www.google.com/maps?cid=6532997452404680633" as string | null,
 
   founders: ["Rob Vaughan", "Jeremy Morphis"],
 

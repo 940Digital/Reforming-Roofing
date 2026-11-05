@@ -1,24 +1,12 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import type { SectionProps } from "./MoreLink";
-import { business } from "@/config/business";
+import { googleProfile, googleReviews } from "@/config/googleReviews";
+import { GoogleRatingSummary, GoogleReviewCard } from "./GoogleReviewCard";
 
-export const reviews = [
-  {
-    title: "Impressive workmanship",
-    quote:
-      "Jeremy was so accommodating and explained everything in the easiest way (no roofing jargon). I highly recommend this roofing company over any other.",
-    who: "Elijah J.",
-  },
-  {
-    title: "They walked us through everything",
-    quote:
-      "Jeremy was there to walk us through the entire process of roof and gutter replacement. We cannot say enough about his attention to every detail. Roofing Reformation delivered a high-quality product, installation, and clean-up.",
-    who: "David P.",
-  },
-];
-
+/** Google reviews in Google's own order. The homepage shows the first few; /reviews shows them all. */
 export function Reviews({ prev = "#fffdf2", more = false }: SectionProps = {}) {
+  const list = more ? googleReviews.slice(0, 6) : googleReviews;
   return (
     <section id="reviews" className="slant bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
@@ -27,28 +15,21 @@ export function Reviews({ prev = "#fffdf2", more = false }: SectionProps = {}) {
           <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">Real reviews from real clients</h2>
         </Reveal>
 
-        <ul className="mt-12 grid gap-6 lg:grid-cols-2">
-          {reviews.map((r, i) => (
-            <Reveal as="li" key={r.who} delay={i * 0.08}>
-              <figure className="cut relative flex h-full flex-col bg-white p-8 md:p-10">
-                <span className="absolute right-6 top-2 font-display text-8xl leading-none text-red/20" aria-hidden>&rdquo;</span>
-                <figcaption className="font-display text-2xl uppercase tracking-wide text-navy md:text-3xl">{r.title}</figcaption>
-                <blockquote className="mt-4 flex-1 text-lg leading-relaxed md:text-xl">&ldquo;{r.quote}&rdquo;</blockquote>
-                <p className="mt-6 flex items-center gap-3 font-display uppercase tracking-[0.14em] text-red">
-                  <span className="h-[3px] w-8 bg-red" aria-hidden />
-                  {r.who}
-                </p>
-              </figure>
-            </Reveal>
-          ))}
-        </ul>
+        <Reveal className="mt-10">
+          <GoogleRatingSummary rating={googleProfile.rating} count={googleProfile.count} url={googleProfile.url} />
+        </Reveal>
 
-        {(business.reviewsUrl || more) && (
-          <Reveal className="mt-10 flex flex-col gap-3 sm:flex-row">
-            {more && <a href="/reviews" className="btn btn-navy">More from our clients &rarr;</a>}
-            {business.reviewsUrl && (
-              <a href={business.reviewsUrl} target="_blank" rel="noopener" className={`btn btn-red ${more ? "btn-end" : ""}`}>Read our Google reviews</a>
-            )}
+        <div className="mt-5 gap-4 sm:columns-2 lg:columns-3">
+          {list.map((r) => (
+            <div key={r.name} className="mb-4 break-inside-avoid">
+              <GoogleReviewCard r={r} profileUrl={googleProfile.url} />
+            </div>
+          ))}
+        </div>
+
+        {more && (
+          <Reveal className="mt-6">
+            <a href="/reviews" className="btn btn-navy">More reviews &rarr;</a>
           </Reveal>
         )}
         <Reveal className="mt-14 flex justify-center">
