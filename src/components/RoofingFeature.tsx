@@ -8,7 +8,9 @@ import { categoryHref, serviceGroups } from "@/config/services";
 const roofing = serviceGroups[0];
 
 /** Homepage Roofing card. On desktop the text panel starts over the photo, on the left,
- *  and slides right into place to reveal it. Replays on scroll like the other reveals. */
+ *  and slides right into place to reveal it. Replays on scroll like the other reveals.
+ *  Hover zooms the photo and lifts the link. The panel keeps its navy on hover, so it never
+ *  tints the photo while it is still sliding across it. */
 export function RoofingFeature() {
   const ref = useRef<HTMLAnchorElement>(null);
   const shown = useInView(ref, { once: false, amount: 0.35 });
@@ -26,19 +28,19 @@ export function RoofingFeature() {
           alt="Aerial view of a finished gray shingle roof on a single-story home with mature trees and a curved walkway"
           fill
           sizes="(min-width:1024px) 55vw, 100vw"
-          className="object-cover"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
         />
       </div>
       {/* 120% = the photo column's width (1.2fr against 1fr), so the panel starts flush left */}
       <div
-        className={`slide-panel relative z-10 flex flex-col justify-center bg-navy p-7 group-hover:bg-blue md:p-12 ${
+        className={`slide-panel relative z-10 flex flex-col justify-center bg-navy p-7 md:p-12 ${
           shown ? "" : "lg:-translate-x-[120%]"
         }`}
       >
         <p className="eyebrow text-white [--marker:#b42335]">Our main service</p>
         <h3 className="h-display mt-3 text-5xl md:text-7xl">{roofing.name}</h3>
         <p className="mt-4 max-w-md text-lg leading-relaxed text-white/90">{roofing.lead}</p>
-        <span className="mt-8 font-display text-lg uppercase tracking-[0.14em] text-[#ff9aa7]">
+        <span className="mt-8 font-display text-lg uppercase tracking-[0.14em] text-[#ff9aa7] transition-colors group-hover:text-white">
           See roofing services <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
         </span>
       </div>
