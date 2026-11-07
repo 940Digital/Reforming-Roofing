@@ -174,3 +174,36 @@ body {
   top: var(--tri-y, -0.06em);
 }
 .tri-left { transform: scaleX(-1); }
+
+/* Header "Reform my roof": a small pop and a sheen sweep every 7s, after a 2s wait.
+   Off on /contact (class not applied), on hover, and for reduced motion. */
+.cta-shine {
+  animation: cta-pop 7s ease-in-out 2s infinite;
+}
+.cta-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.55) 50%, transparent 65%);
+  transform: translateX(-120%);
+  animation: cta-sheen 7s ease-in-out 2s infinite;
+}
+.cta-shine:hover,
+.cta-shine:hover::after,
+.cta-shine:focus-visible,
+.cta-shine:focus-visible::after {
+  animation: none;
+}
+@keyframes cta-pop {
+  0%, 9%, 100% { transform: scale(1); }
+  3% { transform: scale(1.07); }
+  6% { transform: scale(0.98); }
+}
+@keyframes cta-sheen {
+  0%, 2% { transform: translateX(-120%); }
+  14%, 100% { transform: translateX(120%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-shine, .cta-shine::after { animation: none; }
+}

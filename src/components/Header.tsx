@@ -68,7 +68,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           {/* plays on the company name; the phone number lives on /contact and in the footer */}
-          <a href="/contact" className="hidden md:inline-flex btn btn-red !py-2.5 !text-base">
+          <a href="/contact" className={`hidden md:inline-flex btn btn-red !py-2.5 !text-base ${pathname === "/contact" ? "" : "cta-shine"}`}>
             Reform my roof
           </a>
           <button
