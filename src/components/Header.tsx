@@ -119,15 +119,23 @@ export function Header() {
           <a href={business.phoneHref} className="btn btn-line">Call</a>
         </div>
       </div>
-      {/* phone-only contact bar: text first, call beside it */}
+      {/* phone-only bar: the header's "Reform my roof" CTA (to /contact), call beside it.
+          On /contact itself it texts instead, since the page is already open. */}
       <div
         aria-hidden={!pastHero || open}
         className={`fixed inset-x-0 bottom-0 z-40 flex border-t-4 border-red bg-navy font-display text-lg uppercase tracking-[0.08em] text-white transition-transform duration-300 md:hidden ${pastHero && !open ? "translate-y-0" : "translate-y-full"}`}
       >
-        <a href={business.smsHref} tabIndex={pastHero && !open ? undefined : -1} className="flex flex-1 items-center justify-center gap-3 bg-red py-3.5">
-          <span className="h-2.5 w-2.5 rotate-45 bg-white" aria-hidden />
-          Text {business.phoneDisplay}
-        </a>
+        {pathname === "/contact" ? (
+          <a href={business.smsHref} tabIndex={pastHero && !open ? undefined : -1} className="flex flex-1 items-center justify-center gap-3 bg-red py-3.5">
+            <span className="h-2.5 w-2.5 rotate-45 bg-white" aria-hidden />
+            Text {business.phoneDisplay}
+          </a>
+        ) : (
+          <a href="/contact" tabIndex={pastHero && !open ? undefined : -1} className="cta-shine cta-flat relative flex flex-1 items-center justify-center gap-3 overflow-hidden bg-red py-3.5">
+            <span className="h-2.5 w-2.5 rotate-45 bg-white" aria-hidden />
+            Reform my roof
+          </a>
+        )}
         <a href={business.phoneHref} tabIndex={pastHero && !open ? undefined : -1} className="flex items-center px-5">
           Call
         </a>
