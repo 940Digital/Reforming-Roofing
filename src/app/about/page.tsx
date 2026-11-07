@@ -5,7 +5,7 @@ import { people } from "@/components/Team";
 import { FinalCta } from "@/components/FinalCta";
 import { Reveal } from "@/components/Reveal";
 import { metaFor } from "@/config/meta";
-import { featured } from "@/config/work";
+import { heroFor } from "@/config/work";
 import { JsonLd } from "@/components/JsonLd";
 import { abs, ids, pageGraph } from "@/config/schema";
 
@@ -76,7 +76,7 @@ export default function AboutPage() {
         eyebrow="About"
         title="Why homeowners hire us"
         intro="Six things you can count on when you call us, each one in a client's own words."
-        image={featured[0]}
+        image={heroFor("/about")}
       />
 
       <section className="slant bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: "#042d58" }}>

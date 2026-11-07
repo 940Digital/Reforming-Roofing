@@ -7,6 +7,7 @@ import { Reveal } from "@/components/Reveal";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
 import { pageGraph } from "@/config/schema";
+import { heroFor } from "@/config/work";
 
 export const metadata = metaFor("/reviews");
 
@@ -25,6 +26,7 @@ export default function ReviewsPage() {
         eyebrow="Reviews"
         title="What our clients say"
         intro="Reviews from homeowners we have worked with, as they were posted on Google."
+        image={heroFor("/reviews")}
       />
       <Reviews prev="#042d58" />
       <InfoSection eyebrow="Themes" title="The same three things" bg="cream" prev="#f3eedf">

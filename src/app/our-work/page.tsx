@@ -5,7 +5,7 @@ import { FinalCta } from "@/components/FinalCta";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
 import { abs, ids, pageGraph } from "@/config/schema";
-import { jobs } from "@/config/work";
+import { heroFor, jobs } from "@/config/work";
 
 export const metadata = metaFor("/our-work");
 
@@ -27,6 +27,7 @@ export default function OurWorkPage() {
         eyebrow="Our work"
         title="Roofs we have finished"
         intro="Drone photos from our jobs. Tap any photo to see it full size."
+        image={heroFor("/our-work")}
       />
       <section className="slant bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: "#042d58" }}>
         <div className="mx-auto max-w-7xl px-5 md:px-8">

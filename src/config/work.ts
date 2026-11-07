@@ -109,6 +109,13 @@ const own = (name: string) => allPhotos.find((ph) => ph.src === `/assets/work/${
  * photos where one shows the service; everything else uses stock until real job photos come in.
  */
 const heroByPath: Record<string, WorkPhoto> = {
+  // Pages outside /services. Every page gets a banner photo (Owen, 2026-11-07).
+  "/about": own("country-metal-1"),
+  "/contact": own("woods-edge-2"),
+  "/reviews": own("cul-de-sac-1"),
+  "/our-work": own("acreage-4"),
+  "/service-area": own("cul-de-sac-6"),
+  "/404": own("woods-edge-3"),
   "/services": own("acreage-1"),
   "/services/roofing": own("woods-edge-1"),
   "/services/roof-inspection": own("pond-side-4"),
@@ -135,3 +142,13 @@ const heroByPath: Record<string, WorkPhoto> = {
 };
 
 export const heroFor = (path: string): WorkPhoto | undefined => heroByPath[path];
+
+/**
+ * Town pages rotate through wide drone shots in list order, so neighbouring towns differ.
+ * The alt text never names a town: a banner is not a claim that the job was in that town.
+ */
+const townPool = [
+  "pond-side-2", "open-land-1", "acreage-2", "cul-de-sac-2", "woods-edge-5", "country-metal-3",
+  "pond-side-3", "cul-de-sac-4", "acreage-3", "cul-de-sac-7", "cul-de-sac-5", "open-land-2",
+].map(own);
+export const townHero = (index: number): WorkPhoto => townPool[index % townPool.length];

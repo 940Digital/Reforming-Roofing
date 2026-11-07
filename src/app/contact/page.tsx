@@ -10,6 +10,7 @@ import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
 import { pageGraph } from "@/config/schema";
 import { business } from "@/config/business";
+import { heroFor } from "@/config/work";
 
 export const metadata = metaFor("/contact");
 
@@ -33,6 +34,7 @@ export default function ContactPage() {
         title="Let's talk about your roof"
         intro="Text us and we will set up a free inspection. You get an honest look at your roof and a clear estimate, with no pressure to decide."
         actions={false}
+        image={heroFor("/contact")}
       />
 
       <section className="slant bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: "#042d58" }}>

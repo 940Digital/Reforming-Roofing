@@ -8,6 +8,7 @@ import { FinalCta } from "@/components/FinalCta";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
 import { itemList, pageGraph } from "@/config/schema";
+import { heroFor } from "@/config/work";
 
 export const metadata = metaFor("/service-area");
 
@@ -25,6 +26,7 @@ export default function ServiceAreaPage() {
         eyebrow="Service area"
         title="Roofing in Denton and Collin Counties"
         intro="We are a local company. These are the communities we work in most."
+        image={heroFor("/service-area")}
       />
       <Area prev="#042d58" />
       <Neighborhood prev="#fffdf2" />

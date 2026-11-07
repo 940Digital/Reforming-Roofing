@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { cityNode, pageGraph, townServiceNode } from "@/config/schema";
 import { categoryHref, serviceGroups, serviceHref, servicesIn } from "@/config/services";
 import { builtLabels, censusSource, cities, cityBySlug, cityHref, denton, directionFrom, housingStats, milesBetween, nearestTo, type City } from "@/config/cities";
+import { townHero } from "@/config/work";
 
 export const dynamicParams = false;
 
@@ -110,6 +111,7 @@ export default async function CityPage(props: Props) {
         eyebrow={countyLabel(c)}
         title={`Roofing in ${c.name}, TX`}
         intro={intro}
+        image={townHero(cities.indexOf(c))}
       />
 
       <InfoSection eyebrow="Services" title={`What we do in ${c.name}`} bg="cream" prev="#042d58">
