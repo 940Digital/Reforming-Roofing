@@ -20,7 +20,7 @@ export function InfoSection({
   return (
     <section className={`slant ${bgClass[bg]} pb-20 md:pb-28`} style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <Reveal className="max-w-3xl">
+        <Reveal>
           <p className="eyebrow text-red">{eyebrow}</p>
           <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">{title}</h2>
         </Reveal>

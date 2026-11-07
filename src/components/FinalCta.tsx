@@ -15,7 +15,7 @@ export function FinalCta({ prev = "#f3eedf" }: { prev?: string } = {}) {
       <div className="absolute inset-0 -z-10 bg-navy/70" />
       <div className="mx-auto max-w-4xl px-5 text-center md:px-8">
         <Reveal>
-          <p className="eyebrow justify-center text-white [--marker:#b42335]">Free estimate and inspection</p>
+          <p className="eyebrow justify-center text-white [--marker:#b42335]">Free estimate</p>
           <h2 className="h-display mt-4 text-5xl md:text-7xl">Get your roof looked at</h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/95 md:text-xl">
             Text us, and we schedule the inspection. You get an honest assessment and a clear estimate before you decide anything. Financing is available.

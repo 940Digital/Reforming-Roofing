@@ -20,10 +20,10 @@ export function Why({ prev = "#042d58" }: { prev?: string } = {}) {
   return (
     <section id="why-us" className="slant slant-r bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <Reveal className="max-w-3xl">
-          <p className="eyebrow text-red">Why Roofing Reformation</p>
+        <Reveal>
+          <p className="eyebrow text-red">Why us</p>
           <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">A good name is the whole business</h2>
-          <p className="mt-5 text-lg leading-relaxed">
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed">
             Faith and integrity run the company. The principle behind how we work is Proverbs 22:1. It shapes how we treat clients, other businesses and insurance adjusters.
           </p>
         </Reveal>

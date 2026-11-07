@@ -10,8 +10,8 @@ export function Reviews({ prev = "#fffdf2", more = false }: SectionProps = {}) {
   return (
     <section id="reviews" className="slant bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <Reveal className="max-w-3xl">
-          <p className="eyebrow text-red">Proof</p>
+        <Reveal>
+          <p className="eyebrow text-red">Reviews</p>
           <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">Real reviews from real clients</h2>
         </Reveal>
 

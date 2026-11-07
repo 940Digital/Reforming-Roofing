@@ -29,7 +29,7 @@ export function About({ prev = "#042d58", more = false }: SectionProps = {}) {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
         <div>
           <Reveal>
-            <p className="eyebrow text-red">About Roofing Reformation</p>
+            <p className="eyebrow text-red">About</p>
             <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">Owner-run. Veteran-owned.</h2>
           </Reveal>
 

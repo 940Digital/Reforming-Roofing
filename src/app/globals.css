@@ -59,6 +59,7 @@ body {
 @layer components {
   .h-display {
     @apply font-display uppercase tracking-wide leading-[1.02];
+    text-wrap: balance;
   }
   /* Recurrence 2: diagonal corner cut, from the old banners */
   .cut {

@@ -50,7 +50,7 @@ export function Area({ prev = "#042d58", more = false }: SectionProps = {}) {
   return (
     <section id="service-area" className="slant slant-r bg-cream pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-end lg:gap-16">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-16">
           <Reveal>
             <p className="eyebrow text-red">Service area</p>
             <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">Proudly serving Denton and Collin Counties</h2>

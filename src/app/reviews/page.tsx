@@ -27,7 +27,7 @@ export default function ReviewsPage() {
         intro="Reviews from homeowners we have worked with, as they were posted on Google."
       />
       <Reviews prev="#042d58" />
-      <InfoSection eyebrow="What clients bring up" title="The same three things" bg="cream" prev="#f3eedf">
+      <InfoSection eyebrow="Themes" title="The same three things" bg="cream" prev="#f3eedf">
         <ul className="grid gap-8 md:grid-cols-3">
           {themes.map(([h, p], i) => (
             <Reveal as="li" key={h} delay={i * 0.07} className="border-t-4 border-red pt-5">

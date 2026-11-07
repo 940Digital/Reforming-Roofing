@@ -21,13 +21,13 @@ export default function Home() {
       <main>
         <Hero />
         <About more />
+        <Reviews more />
+        <Why prev="#f3eedf" />
         <Services more />
         <Process more />
-        <Why />
-        <Reviews more />
-        <Neighborhood />
         <Area more />
-        <Team more />
+        <Neighborhood prev="#fffdf2" />
+        <Team more prev="#042d58" />
         <FinalCta />
       </main>
       <Footer />

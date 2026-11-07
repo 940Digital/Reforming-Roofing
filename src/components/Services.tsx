@@ -11,10 +11,10 @@ export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) 
   return (
     <section id="services" className="slant slant-r bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <Reveal className="max-w-3xl">
-          <p className="eyebrow text-red">What we do</p>
+        <Reveal>
+          <p className="eyebrow text-red">Services</p>
           <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">Roofing services in Denton and Collin Counties</h2>
-          <p className="mt-5 text-lg leading-relaxed">
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed">
             Roofing first, plus gutters, skylights and general contracting. Pick the one that fits and we will take it from there.
           </p>
         </Reveal>

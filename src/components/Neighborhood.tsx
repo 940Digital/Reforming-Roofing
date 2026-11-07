@@ -15,10 +15,10 @@ export function Neighborhood({ prev = "#f3eedf" }: { prev?: string } = {}) {
         className="object-cover object-top opacity-25"
       />
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
-        <Reveal className="max-w-3xl">
-          <p className="eyebrow text-white [--marker:#b42335]">Finished work</p>
+        <Reveal>
+          <p className="eyebrow text-white [--marker:#b42335]">Our work</p>
           <h2 className="h-display mt-4 text-4xl md:text-6xl">See our roofs in your neighborhood</h2>
-          <p className="mt-5 text-lg leading-relaxed text-white/90">
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed text-white/90">
             Drone footage of our roofs across Denton and Collin Counties. Look closely at the lines and the edges.
           </p>
         </Reveal>

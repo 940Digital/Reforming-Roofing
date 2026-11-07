@@ -56,7 +56,7 @@ export default async function ServicePage(props: Props) {
         image={heroFor(serviceHref(s.slug))}
       />
 
-      <InfoSection eyebrow="What to know" title={`About ${s.name.toLowerCase()}`} bg="cream" prev="#042d58">
+      <InfoSection eyebrow="Overview" title={`About ${s.name.toLowerCase()}`} bg="cream" prev="#042d58">
         <div className="grid gap-6 md:grid-cols-2">
           {lists.map((l, i) => (
             <Reveal key={l.h} delay={i * 0.08} className="border-t-4 border-red bg-tint p-6 md:p-8">
@@ -71,7 +71,7 @@ export default async function ServicePage(props: Props) {
 
       <Faq items={s.faqs} bg="paper" prev="#fffdf2" />
 
-      <InfoSection eyebrow="Related services" title="You might also need" bg="cream" prev="#f3eedf">
+      <InfoSection eyebrow="Related" title="You might also need" bg="cream" prev="#f3eedf">
         <ul className="grid gap-5 md:grid-cols-3">
           {related.map((r, i) => (
             <Reveal as="li" key={r.slug} delay={i * 0.06}>

@@ -37,7 +37,7 @@ export function RoofingFeature() {
           shown ? "" : "lg:-translate-x-[120%]"
         }`}
       >
-        <p className="eyebrow text-white [--marker:#b42335]">Our main service</p>
+        <p className="eyebrow text-white [--marker:#b42335]">Roofing</p>
         <h3 className="h-display mt-3 text-5xl md:text-7xl">{roofing.name}</h3>
         <p className="mt-4 max-w-md text-lg leading-relaxed text-white/90">{roofing.lead}</p>
         <span className="mt-8 font-display text-lg uppercase tracking-[0.14em] text-[#ff9aa7] transition-colors group-hover:text-white">

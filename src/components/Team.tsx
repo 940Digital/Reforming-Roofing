@@ -30,10 +30,10 @@ export function Team({ prev = "#fffdf2", more = false }: SectionProps = {}) {
   return (
     <section id="team" className="slant bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: prev }}>
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <Reveal className="max-w-3xl">
-          <p className="eyebrow text-red">The team</p>
+        <Reveal>
+          <p className="eyebrow text-red">Team</p>
           <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">The people who answer for your roof</h2>
-          <p className="mt-5 text-lg leading-relaxed">
+          <p className="mt-5 max-w-3xl text-lg leading-relaxed">
             Three people form the foundation of the company. Clients are treated as part of the Roofing Reformation family.
           </p>
         </Reveal>

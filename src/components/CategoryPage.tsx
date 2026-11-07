@@ -49,7 +49,7 @@ export function CategoryPage({ id }: { id: ServiceGroup }) {
 
       <section className="slant slant-r bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: "#042d58" }}>
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <Reveal className="max-w-3xl">
+          <Reveal>
             <p className="eyebrow text-red">{g.name}</p>
             <h2 className="h-display mt-4 text-4xl text-navy md:text-6xl">
               {list.length} {g.noun.toLowerCase()} services
@@ -65,7 +65,7 @@ export function CategoryPage({ id }: { id: ServiceGroup }) {
         </div>
       </section>
 
-      <InfoSection eyebrow="Why call us" title="What you can count on" bg="cream" prev="#f3eedf">
+      <InfoSection eyebrow="Why us" title="What you can count on" bg="cream" prev="#f3eedf">
         <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {reasons.map(([h, p], i) => (
             <Reveal as="li" key={h} delay={i * 0.06} className="border-t-4 border-red pt-5">
