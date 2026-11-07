@@ -22,7 +22,8 @@ const faqs: [string, string][] = [
   ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],
 ];
 
-// The form only shows once both secrets are set in Vercel, so the page never offers a form that cannot send.
+// Without both secrets in Vercel the form runs as a mock (pre-launch review): it shows, but sends nothing
+// and its thank-you says so. Adding the keys and redeploying turns it into the real form.
 const formReady = Boolean(process.env.RESEND_API_KEY && process.env.ALTCHA_HMAC_KEY);
 
 export default function ContactPage() {
@@ -79,8 +80,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {formReady && (
-        <section className="slant slant-r bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: "#fffdf2" }}>
+      <section className="slant slant-r bg-paper pb-20 md:pb-28" style={{ ["--prev" as string]: "#fffdf2" }}>
           <div className="mx-auto max-w-7xl px-5 md:px-8">
             <Reveal className="max-w-3xl">
               <p className="eyebrow text-red">Prefer a form?</p>
@@ -90,13 +90,12 @@ export default function ContactPage() {
               </p>
             </Reveal>
             <Reveal className="cut mt-10 max-w-4xl bg-cream p-6 md:p-10">
-              <ContactForm />
+              <ContactForm mock={!formReady} />
             </Reveal>
           </div>
         </section>
-      )}
 
-      <Process prev={formReady ? "#f3eedf" : "#fffdf2"} />
+      <Process prev="#f3eedf" />
       <Faq items={faqs} bg="paper" prev="#042d58" />
     </PageShell>
   );

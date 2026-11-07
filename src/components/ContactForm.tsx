@@ -37,7 +37,12 @@ const label = "font-display text-sm uppercase tracking-[0.14em] text-navy";
 
 type Status = { kind: "idle" | "sending" | "ok" | "err"; text?: string };
 
-export function ContactForm() {
+/**
+ * `mock`: shown while the Resend/ALTCHA keys are not set in Vercel (pre-launch review). Same fields and
+ * flow, but no verification widget and nothing is sent. The thank-you says so and gives the text number,
+ * so a real visitor who finds the preview is never left thinking a request went through.
+ */
+export function ContactForm({ mock = false }: { mock?: boolean }) {
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
@@ -45,6 +50,17 @@ export function ContactForm() {
     e.preventDefault();
     const f = e.currentTarget;
     const data = Object.fromEntries(new FormData(f)) as Record<string, string>;
+
+    if (mock) {
+      setStatus({ kind: "sending" });
+      await new Promise((r) => setTimeout(r, 700));
+      setStatus({
+        kind: "ok",
+        text: `Thanks, ${data.name.split(" ")[0]}. This form is a preview and is not connected yet, so nothing was sent. Text us at ${business.phoneDisplay} to set up your inspection.`,
+      });
+      f.reset();
+      return;
+    }
 
     if (!data.altcha) {
       setStatus({ kind: "err", text: "Please wait for the verification to finish, then try again." });
@@ -69,8 +85,12 @@ export function ContactForm() {
 
   return (
     <>
-      <Script src="/js/altcha.min.js" type="module" strategy="lazyOnload" />
-      <link rel="stylesheet" href="/altcha.css" />
+      {!mock && (
+        <>
+          <Script src="/js/altcha.min.js" type="module" strategy="lazyOnload" />
+          <link rel="stylesheet" href="/altcha.css" />
+        </>
+      )}
 
       <form ref={form} onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
         <label className="block">
@@ -111,12 +131,12 @@ export function ContactForm() {
           </label>
         </div>
 
-        <div className="sm:col-span-2 [&_altcha-widget]:[--altcha-border-radius:0] [&_altcha-widget]:[--altcha-color-border:rgba(4,45,88,0.2)] [&_altcha-widget]:[--altcha-color-border-focus:#095798] [&_altcha-widget]:[--altcha-max-width:100%]">
+        {!mock && <div className="sm:col-span-2 [&_altcha-widget]:[--altcha-border-radius:0] [&_altcha-widget]:[--altcha-color-border:rgba(4,45,88,0.2)] [&_altcha-widget]:[--altcha-color-border-focus:#095798] [&_altcha-widget]:[--altcha-max-width:100%]">
           <altcha-widget challenge="/api/altcha-challenge" name="altcha" hidelogo />
-        </div>
+        </div>}
 
         <div className="flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:items-center">
-          <button type="submit" disabled={status.kind === "sending"} className="btn btn-red disabled:opacity-60">
+          <button type="submit" disabled={status.kind === "sending"} className="btn btn-red shrink-0 whitespace-nowrap disabled:opacity-60">
             {status.kind === "sending" ? "Sending..." : "Request my free inspection"}
           </button>
           {status.text && (
