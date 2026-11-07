@@ -287,7 +287,8 @@ export function nearestTo(city: City, n = 4) {
     .slice(0, n);
 }
 
-export const denton = cities[0];
+/** Home base (Owen, 2026-11-07): distances and directions on town pages are measured from here. */
+export const home = cities.find((c) => c.slug === "pilot-point")!;
 
 /** Towns grouped by the county most of each one sits in. */
 export function citiesByCounty() {

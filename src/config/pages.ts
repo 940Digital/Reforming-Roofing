@@ -17,7 +17,7 @@ export type SitePage = {
 };
 
 /** Bump when page content changes. Used as the sitemap's lastmod. */
-export const SITE_UPDATED = "2026-11-05";
+export const SITE_UPDATED = "2026-11-07";
 
 const brand = business.name;
 
@@ -29,9 +29,9 @@ export const staticPages: SitePage[] = [
   {
     path: "/",
     name: "Home",
-    title: `Roofing Contractor in Denton, TX | ${brand}`,
+    title: fit("Roofing Contractor in Pilot Point, TX"),
     description:
-      "Veteran-owned residential roofing in Denton and Collin Counties. Repair, replacement and free inspections. The owners oversee every job.",
+      "Veteran-owned roofing from Pilot Point, serving Denton and Collin Counties. Repair, replacement and free inspections. The owners oversee every job.",
   },
   {
     path: "/about",
@@ -57,15 +57,15 @@ export const staticPages: SitePage[] = [
   {
     path: "/reviews",
     name: "Reviews",
-    title: `Reviews | ${brand}, Denton, TX`,
+    title: `Reviews | ${brand}, Pilot Point, TX`,
     description:
       "What homeowners say about working with Roofing Reformation: plain-English explanations, owners who stay involved, and a clean site.",
   },
   {
     path: "/service-area",
     name: "Service area",
-    title: `Service Area: ${cities.length} Towns Near Denton, TX | ${brand}`,
-    description: `Roofing Reformation serves ${cities.length} towns in Denton and Collin Counties and nearby, including Denton, Prosper, Celina, Flower Mound, Lewisville and Little Elm.`,
+    title: fit(`Service Area: ${cities.length} Towns Near Pilot Point, TX`),
+    description: `Roofing Reformation serves ${cities.length} towns around Pilot Point in Denton and Collin Counties, including Denton, Prosper, Celina, Aubrey and Little Elm.`,
   },
   {
     path: "/contact",
@@ -79,14 +79,14 @@ export const staticPages: SitePage[] = [
 export const categoryPages: SitePage[] = serviceGroups.map((g) => ({
   path: categoryHref(g.id),
   name: g.name,
-  title: fit(`${titleCase(g.noun)} Services in Denton, TX`),
+  title: fit(`${titleCase(g.noun)} Services in Pilot Point, TX`),
   description: g.meta,
 }));
 
 export const servicePage = (s: Service): SitePage => ({
   path: serviceHref(s.slug),
   name: s.name,
-  title: fit(`${s.name} in Denton, TX`),
+  title: fit(`${s.name} in Pilot Point, TX`),
   description: `${s.card} Serving Denton and Collin Counties. Free inspection and estimate.`,
 });
 

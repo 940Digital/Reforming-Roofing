@@ -8,7 +8,7 @@ import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
 import { cityNode, pageGraph, townServiceNode } from "@/config/schema";
 import { categoryHref, serviceGroups, serviceHref, servicesIn } from "@/config/services";
-import { builtLabels, censusSource, cities, cityBySlug, cityHref, denton, directionFrom, housingStats, milesBetween, nearestTo, type City } from "@/config/cities";
+import { builtLabels, censusSource, cities, cityBySlug, cityHref, directionFrom, home, housingStats, milesBetween, nearestTo, type City } from "@/config/cities";
 import { townHero } from "@/config/work";
 
 export const dynamicParams = false;
@@ -85,9 +85,9 @@ export default async function CityPage(props: Props) {
   const c = cityBySlug((await props.params).slug);
   if (!c) notFound();
 
-  const miles = Math.round(milesBetween(denton, c));
+  const miles = Math.round(milesBetween(home, c));
   // Visitors come to find out two things: do we work in their town, and what do we do there.
-  const intro = `Yes, we work in ${c.name}${c === denton ? ", the center of our service area" : `, about ${miles} miles ${directionFrom(denton, c)} of Denton`}. We inspect, repair and replace roofs here, and take on gutters, skylights, remodeling and home repairs too.`;
+  const intro = `Yes, we work in ${c.name}${c === home ? ", our home base" : `, about ${miles} miles ${directionFrom(home, c)} of Pilot Point`}. We inspect, repair and replace roofs here, and take on gutters, skylights, remodeling and home repairs too.`;
   const otherGroups = serviceGroups.filter((g) => g.id !== "roofing");
   const nearby = nearestTo(c);
   const h = c.housing;
