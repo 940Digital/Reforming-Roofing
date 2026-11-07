@@ -33,11 +33,12 @@ export function Header() {
   return (
     <>
     <header className="dark-ground fixed inset-x-0 top-0 z-50 bg-navy/95 backdrop-blur text-white border-b-4 border-red">
-      <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-5 md:px-8">
-        <a href="/" className="flex items-center gap-3" aria-label={`${business.name}, home`}>
-          <Image src="/assets/original/c72b01_46a448f2d9f347c19be6000df92bccdd.png" alt="" width={44} height={42} priority />
-          <span className="font-display text-xl uppercase tracking-[0.08em] leading-none">
-            Roofing Reformation
+      <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-5 md:px-8">
+        <a href="/" className="flex shrink-0 items-center gap-2 sm:gap-3" aria-label={`${business.name}, home`}>
+          <Image src="/assets/original/c72b01_46a448f2d9f347c19be6000df92bccdd.png" alt="" width={44} height={42} priority className="h-9 w-auto sm:h-[42px]" />
+          {/* stacks onto two lines on phones so the CTA fits beside it */}
+          <span className="font-display text-[0.95rem] uppercase leading-[1.05] tracking-[0.06em] sm:text-xl sm:leading-none sm:tracking-[0.08em]">
+            Roofing<br className="sm:hidden" /> Reformation
           </span>
         </a>
 
@@ -66,9 +67,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           {/* plays on the company name; the phone number lives on /contact and in the footer */}
-          <a href="/contact" className={`hidden md:inline-flex btn btn-red !py-2.5 !text-base ${pathname === "/contact" ? "" : "cta-shine"}`}>
+          <a href="/contact" className={`btn btn-red whitespace-nowrap !px-3.5 !py-2 !text-[0.85rem] sm:!px-7 sm:!py-2.5 sm:!text-base ${pathname === "/contact" ? "" : "cta-shine"}`}>
             Reform my roof
           </a>
           <button
