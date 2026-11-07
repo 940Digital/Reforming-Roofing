@@ -1,4 +1,5 @@
 "use client";
+import { Arrow } from "@/components/Arrow";
 
 import Image from "next/image";
 import { useInView } from "framer-motion";
@@ -41,7 +42,7 @@ export function RoofingFeature() {
         <h3 className="h-display mt-3 text-5xl md:text-7xl">{roofing.name}</h3>
         <p className="mt-4 max-w-md text-lg leading-relaxed text-white/90">{roofing.lead}</p>
         <span className="mt-8 font-display text-lg uppercase tracking-[0.14em] text-[#ff9aa7] transition-colors group-hover:text-white">
-          See roofing services <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+          See roofing services <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1"><Arrow /></span>
         </span>
       </div>
     </a>

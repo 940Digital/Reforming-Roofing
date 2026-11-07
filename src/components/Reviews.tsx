@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/Arrow";
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import type { SectionProps } from "./MoreLink";
@@ -35,7 +36,7 @@ export function Reviews({ prev = "#fffdf2", more = false }: SectionProps = {}) {
 
         {more && (
           <Reveal className="mt-6">
-            <a href="/reviews" className="btn btn-navy">More reviews &rarr;</a>
+            <a href="/reviews" className="btn btn-navy">More reviews <Arrow /></a>
           </Reveal>
         )}
         <Reveal className="mt-14 flex justify-center">

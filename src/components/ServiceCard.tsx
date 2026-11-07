@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/Arrow";
 import { serviceHref, type Service } from "@/config/services";
 
 export function ServiceCard({ service }: { service: Service }) {
@@ -9,7 +10,7 @@ export function ServiceCard({ service }: { service: Service }) {
       <h3 className="font-display text-2xl uppercase leading-tight tracking-wide">{service.name}</h3>
       <p className="mt-3 flex-1 leading-relaxed">{service.card}</p>
       <span className="mt-5 font-display text-sm uppercase tracking-[0.14em] text-red group-hover:text-[#ff9aa7]">
-        See this service &rarr;
+        See this service <Arrow />
       </span>
     </a>
   );

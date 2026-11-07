@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/Arrow";
 import { Reveal } from "./Reveal";
 import { ServiceCard } from "./ServiceCard";
 import { categoryHref, serviceGroups, servicesIn } from "@/config/services";
@@ -30,7 +31,7 @@ export function ServiceCatalog({ prev }: { prev: string }) {
             </ul>
             <Reveal className="mt-6">
               <a href={categoryHref(g.id)} className="font-display uppercase tracking-[0.14em] text-red hover:underline">
-                More about {g.name.toLowerCase()} &rarr;
+                More about {g.name.toLowerCase()} <Arrow />
               </a>
             </Reveal>
           </div>

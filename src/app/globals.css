@@ -161,3 +161,16 @@ body {
   .sbtn-ghost-dark { @apply text-navy ring-1 ring-inset ring-navy/40 hover:bg-navy hover:text-cream; }
   .link { @apply text-blue underline decoration-1 underline-offset-4 hover:text-navy; }
 }
+
+/* Triangle pointer (Arrow.tsx), centred on the caps of the display face */
+.tri {
+  display: inline-block;
+  flex: none;
+  width: 0.5em;
+  height: 0.6em;
+  fill: currentColor;
+  vertical-align: middle;
+  position: relative;
+  top: var(--tri-y, -0.06em);
+}
+.tri-left { transform: scaleX(-1); }

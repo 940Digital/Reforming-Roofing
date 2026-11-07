@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/Arrow";
 import { Reveal } from "./Reveal";
 
 /** Props shared by homepage sections that also appear on their own page. */
@@ -12,7 +13,7 @@ export function MoreLink({ href, label, dark = false }: { href: string; label: s
   return (
     <Reveal className="mt-10">
       <a href={href} className={`btn ${dark ? "btn-red" : "btn-navy"}`}>
-        {label} &rarr;
+        {label} <Arrow />
       </a>
     </Reveal>
   );

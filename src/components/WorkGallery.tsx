@@ -1,4 +1,5 @@
 "use client";
+import { Arrow } from "@/components/Arrow";
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -149,8 +150,8 @@ export function WorkGallery({ jobs }: { jobs: WorkJob[] }) {
             <div className="fixed right-3 top-3 flex gap-2 md:right-6 md:top-6">
               {current.photos.length > 1 && (
                 <>
-                  <button type="button" onClick={() => step(-1)} className="btn btn-line !px-4" aria-label="Previous photo">&larr;</button>
-                  <button type="button" onClick={() => step(1)} className="btn btn-line !px-4" aria-label="Next photo">&rarr;</button>
+                  <button type="button" onClick={() => step(-1)} className="btn btn-line !px-4" aria-label="Previous photo"><Arrow dir="left" className="[--tri-y:0px]" /></button>
+                  <button type="button" onClick={() => step(1)} className="btn btn-line !px-4" aria-label="Next photo"><Arrow className="[--tri-y:0px]" /></button>
                 </>
               )}
               <button type="button" onClick={() => dialog.current?.close()} className="btn btn-red !px-4" aria-label="Close">

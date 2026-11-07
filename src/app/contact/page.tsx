@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/Arrow";
 import { PageShell } from "@/components/PageShell";
 import { PageHero } from "@/components/PageHero";
 import { Process } from "@/components/Process";
@@ -64,7 +65,7 @@ export default function ContactPage() {
               <h3 className="eyebrow text-navy">Where we work</h3>
               <p className="mt-3 text-lg leading-relaxed">Denton and Collin Counties, plus Gunter in Grayson County.</p>
               <a href="/service-area" className="mt-4 inline-block font-display uppercase tracking-[0.14em] text-red hover:underline">
-                See the towns we serve &rarr;
+                See the towns we serve <Arrow />
               </a>
             </Reveal>
             <Reveal delay={0.12} className="cut bg-paper p-6 md:p-8">

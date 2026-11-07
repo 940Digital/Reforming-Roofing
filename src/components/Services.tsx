@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/Arrow";
 import { Reveal } from "./Reveal";
 import { RoofingFeature } from "./RoofingFeature";
 import { MoreLink, type SectionProps } from "./MoreLink";
@@ -33,7 +34,7 @@ export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) 
                 <h3 className="font-display text-3xl uppercase tracking-wide text-navy group-hover:text-white">{g.name}</h3>
                 <p className="mt-3 flex-1 leading-relaxed">{g.intro}</p>
                 <span className="mt-6 font-display text-sm uppercase tracking-[0.14em] text-red group-hover:text-[#ff9aa7]">
-                  See {g.noun.toLowerCase()} services <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
+                  See {g.noun.toLowerCase()} services <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1"><Arrow /></span>
                 </span>
               </a>
             </Reveal>

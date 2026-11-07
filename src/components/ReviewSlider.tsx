@@ -1,4 +1,5 @@
 "use client";
+import { Arrow } from "@/components/Arrow";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { GoogleReviewCard } from "./GoogleReviewCard";
@@ -111,8 +112,8 @@ export function ReviewSlider({ reviews, profileUrl }: { reviews: GoogleReview[];
       </div>
 
       <div className="mt-5 flex items-center gap-4">
-        <button type="button" className={`${btn} cut`} onClick={() => go(index - 1)} aria-label="Previous reviews">&larr;</button>
-        <button type="button" className={`${btn} cut-br`} onClick={() => go(index + 1)} aria-label="Next reviews">&rarr;</button>
+        <button type="button" className={`${btn} cut`} onClick={() => go(index - 1)} aria-label="Previous reviews"><Arrow dir="left" className="text-[1.4rem] [--tri-y:0px]" /></button>
+        <button type="button" className={`${btn} cut-br`} onClick={() => go(index + 1)} aria-label="Next reviews"><Arrow className="text-[1.4rem] [--tri-y:0px]" /></button>
         <div className="ml-2 flex items-center gap-3">
           <div className="relative h-1.5 w-28 bg-navy/15 sm:w-40" aria-hidden>
             <div

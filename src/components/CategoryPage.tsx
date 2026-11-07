@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/Arrow";
 import { PageShell } from "./PageShell";
 import { PageHero } from "./PageHero";
 import { InfoSection } from "./InfoSection";
@@ -86,7 +87,7 @@ export function CategoryPage({ id }: { id: ServiceGroup }) {
                 <h3 className="font-display text-2xl uppercase leading-tight tracking-wide">{o.name}</h3>
                 <p className="mt-3 flex-1 leading-relaxed">{o.intro}</p>
                 <span className="mt-5 font-display text-sm uppercase tracking-[0.14em] text-red group-hover:text-[#ff9aa7]">
-                  See {o.noun.toLowerCase()} services &rarr;
+                  See {o.noun.toLowerCase()} services <Arrow />
                 </span>
               </a>
             </Reveal>
