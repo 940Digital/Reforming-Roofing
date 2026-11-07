@@ -38,7 +38,7 @@ export const staticPages: SitePage[] = [
     name: "About",
     title: `About Us | Veteran-Owned Roofer | ${brand}`,
     description:
-      "Roofing Reformation is a local, veteran-owned roofing company serving Denton and Collin Counties since 2019. The owners oversee every project.",
+      "Why homeowners hire Roofing Reformation: straight answers, plain English, storm damage help and owners who oversee every project. Veteran-owned since 2019.",
   },
   {
     path: "/services",
