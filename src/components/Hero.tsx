@@ -46,7 +46,8 @@ export function Hero() {
           <span className="block overflow-hidden">
             <span className="hero-line block" style={delay(0.29)}>
               {/* All white: Rob didn't like pink, and red was tried next (2026-11-09). */}
-              in <span className="whitespace-nowrap">Pilot Point,</span> TX
+              {/* paired so phones break as "in Denton / County, TX", never leaving "in" or "TX" alone */}
+              <span className="whitespace-nowrap">in Denton</span> <span className="whitespace-nowrap">County, TX</span>
             </span>
           </span>
         </h1>
