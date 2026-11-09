@@ -20,8 +20,8 @@ export const business = {
   // TODO(Rob): no email was found on the old site.
   email: null as string | null,
 
-  // Where contact form leads are emailed. TODO(Rob): swap in his inbox; until then 940Digital forwards them.
-  leadsTo: "940digital@gmail.com",
+  // Where contact form leads are emailed (Rob's inbox, confirmed by Owen 2026-11-09).
+  leadsTo: "rob@roofingreformation.com",
 
   // Deliberately null: the business is listed as a service-area business with no street address.
   // The old site's Cross Roads address is a mailbox, which Google does not allow as a business address.
