@@ -7,9 +7,6 @@ import { altchaKey, resendKey } from "@/lib/formKeys";
 type ContactBody = {
   name?: string;
   phone?: string;
-  email?: string;
-  town?: string;
-  need?: string;
   message?: string;
   website?: string;
   altcha?: string;
@@ -27,7 +24,7 @@ export async function POST(req: Request) {
   } catch {
     return json({ error: "bad request" }, 400);
   }
-  const { name, phone, email, town, need, message, website, altcha } = body;
+  const { name, phone, message, website, altcha } = body;
 
   // Honeypot: real visitors never see or fill this field.
   if (website) return json({ error: "submission rejected" }, 400);
@@ -45,9 +42,6 @@ export async function POST(req: Request) {
   const rows: [string, string | undefined][] = [
     ["Name", name],
     ["Phone", phone],
-    ["Email", email],
-    ["Town", town],
-    ["Needs", need],
   ];
   const html = `
     ${rows.map(([k, v]) => `<p><strong>${k}:</strong> ${escapeHtml(v?.trim() || "-")}</p>`).join("")}
@@ -61,8 +55,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         from: `"${business.name} Website" <forms@940digital.com>`,
         to: [business.leadsTo],
-        ...(email?.trim() ? { reply_to: email.trim() } : {}),
-        subject: `New inspection request from ${name.trim()}${need ? ` (${need})` : ""}`,
+        subject: `New inspection request from ${name.trim()}`,
         html,
       }),
     });

@@ -3,7 +3,6 @@
 import Script from "next/script";
 import { useRef, useState, type FormEvent } from "react";
 import { business } from "@/config/business";
-import { cities } from "@/config/cities";
 
 // The ALTCHA widget is a custom element loaded from /js/altcha.min.js.
 declare module "react" {
@@ -18,19 +17,6 @@ declare module "react" {
     }
   }
 }
-
-const needs = [
-  "Roof inspection",
-  "Roof repair",
-  "Storm damage",
-  "Roof replacement",
-  "Siding",
-  "Gutters",
-  "Skylights",
-  "Remodeling or home repairs",
-  "Painting",
-  "Something else",
-];
 
 const field = "mt-2 block w-full border-2 border-navy/20 bg-white px-4 py-3 text-lg text-ink placeholder:text-ink/40 focus:border-blue focus:outline-none";
 const label = "font-display text-sm uppercase tracking-[0.14em] text-navy";
@@ -93,34 +79,19 @@ export function ContactForm({ mock = false }: { mock?: boolean }) {
       )}
 
       <form ref={form} onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
+        {/* Two required fields and one optional box: every extra field costs leads. Town, email and the job
+            type come out on the follow-up text or call. */}
         <label className="block">
-          <span className={label}>Name *</span>
+          <span className={label}>Name</span>
           <input name="name" required autoComplete="name" className={field} />
         </label>
         <label className="block">
-          <span className={label}>Phone *</span>
-          <input name="phone" type="tel" required autoComplete="tel" className={field} />
-        </label>
-        <label className="block">
-          <span className={label}>Email</span>
-          <input name="email" type="email" autoComplete="email" className={field} />
-        </label>
-        <label className="block">
-          <span className={label}>Town</span>
-          <input name="town" list="towns" autoComplete="address-level2" className={field} />
-          <datalist id="towns">
-            {cities.map((c) => <option key={c.slug} value={c.name} />)}
-          </datalist>
+          <span className={label}>Phone</span>
+          <input name="phone" type="tel" required autoComplete="tel" inputMode="tel" className={field} />
         </label>
         <label className="block sm:col-span-2">
-          <span className={label}>What do you need?</span>
-          <select name="need" defaultValue="Roof inspection" className={field}>
-            {needs.map((n) => <option key={n}>{n}</option>)}
-          </select>
-        </label>
-        <label className="block sm:col-span-2">
-          <span className={label}>Anything we should know?</span>
-          <textarea name="message" rows={4} placeholder="Leaks, storm damage, the age of the roof, a good time to call..." className={field} />
+          <span className={label}>What&rsquo;s going on? <span className="normal-case tracking-normal text-ink/60">(optional)</span></span>
+          <textarea name="message" rows={2} placeholder="A leak, storm damage, an old roof..." className={field} />
         </label>
 
         {/* honeypot: hidden from people, filled by bots */}

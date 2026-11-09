@@ -42,8 +42,8 @@ export default function ContactPage() {
           <div id="request" className="cut bg-paper p-6 shadow-2xl md:p-10">
             <p className="eyebrow text-red">Send a request</p>
             <h2 className="h-display mt-4 text-4xl text-navy md:text-5xl">Get your free inspection</h2>
-            <p className="mt-4 text-lg leading-relaxed">
-              Leave a few details and we will text or call you to set a time. Fields marked * are required.
+            <p className="mt-4 text-balance text-lg leading-relaxed">
+              Just your name and number. We will text or call you to set a time.
             </p>
             <div className="mt-8">
               <ContactForm mock={!formReady} />
