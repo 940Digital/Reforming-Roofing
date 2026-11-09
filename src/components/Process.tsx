@@ -30,7 +30,7 @@ export function Process({ prev = "#f3eedf", more = false }: SectionProps = {}) {
         <ol className="grid gap-x-8 gap-y-10 sm:grid-cols-2">
           {steps.map((s, i) => (
             <Reveal as="li" key={s.h} delay={(i % 2) * 0.08} className="border-t-4 border-red pt-5">
-              <span className="font-display text-6xl leading-none text-[#ff9aa7]" aria-hidden>{i + 1}</span>
+              <span className="font-display text-6xl leading-none text-white" aria-hidden>{i + 1}</span>
               <h3 className="mt-3 font-display text-2xl uppercase tracking-wide">{s.h}</h3>
               <p className="mt-2 text-lg leading-relaxed text-white/90">{s.p}</p>
             </Reveal>

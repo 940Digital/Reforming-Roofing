@@ -45,7 +45,7 @@ export default function ContactPage() {
             <div className="absolute bottom-0 right-0 -z-10 h-24 w-24 bg-blue [clip-path:polygon(100%_0,100%_100%,0_100%)] md:h-32 md:w-32" />
             <p className="eyebrow text-white [--marker:#b42335]">Text us</p>
             <h2 className="h-display mt-4 text-4xl md:text-5xl">The fastest way to your free inspection</h2>
-            <a href={business.smsHref} className="mt-6 block whitespace-nowrap font-display text-[2.6rem] tracking-wide text-[#ff9aa7] hover:underline decoration-2 underline-offset-8 sm:text-5xl md:text-7xl">
+            <a href={business.smsHref} className="mt-6 block whitespace-nowrap font-display text-[2.6rem] tracking-wide text-white hover:underline decoration-2 underline-offset-8 sm:text-5xl md:text-7xl">
               {business.phoneDisplay}
             </a>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/90">
@@ -58,7 +58,7 @@ export default function ContactPage() {
             </div>
             {business.email && (
               <p className="mt-6 text-lg">
-                Or email <a href={`mailto:${business.email}`} className="underline underline-offset-4 hover:text-[#ff9aa7]">{business.email}</a>
+                Or email <a href={`mailto:${business.email}`} className="underline underline-offset-4 hover:decoration-2">{business.email}</a>
               </p>
             )}
           </Reveal>

@@ -83,10 +83,10 @@ export function CategoryPage({ id }: { id: ServiceGroup }) {
         <ul className="grid gap-5 md:grid-cols-3">
           {others.map((o, i) => (
             <Reveal as="li" key={o.id} delay={i * 0.06}>
-              <a href={categoryHref(o.id)} className="group flex h-full flex-col bg-tint p-6 transition-colors duration-200 hover:bg-navy hover:text-white">
+              <a href={categoryHref(o.id)} className="group flex h-full flex-col bg-tint p-6 hover:bg-navy hover:text-white">
                 <h3 className="font-display text-2xl uppercase leading-tight tracking-wide">{o.name}</h3>
                 <p className="mt-3 flex-1 leading-relaxed">{o.intro}</p>
-                <span className="mt-5 font-display text-sm uppercase tracking-[0.14em] text-red group-hover:text-[#ff9aa7]">
+                <span className="mt-5 font-display text-sm uppercase tracking-[0.14em] text-red group-hover:text-white">
                   See {o.noun.toLowerCase()} services <Arrow />
                 </span>
               </a>

@@ -29,11 +29,11 @@ export function Services({ prev = "#fffdf2", more = false }: SectionProps = {}) 
             <Reveal as="li" key={g.id} delay={i * 0.06}>
               <a
                 href={categoryHref(g.id)}
-                className="group flex h-full flex-col bg-tint p-7 transition-colors duration-200 hover:bg-navy hover:text-white"
+                className="group flex h-full flex-col bg-tint p-7 hover:bg-navy hover:text-white"
               >
                 <h3 className="font-display text-3xl uppercase tracking-wide text-navy group-hover:text-white">{g.name}</h3>
                 <p className="mt-3 flex-1 leading-relaxed">{g.intro}</p>
-                <span className="mt-6 font-display text-sm uppercase tracking-[0.14em] text-red group-hover:text-[#ff9aa7]">
+                <span className="mt-6 font-display text-sm uppercase tracking-[0.14em] text-red group-hover:text-white">
                   See {g.noun.toLowerCase()} services <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1"><Arrow /></span>
                 </span>
               </a>
