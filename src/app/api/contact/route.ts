@@ -39,14 +39,32 @@ export async function POST(req: Request) {
   }
   if (!verified) return json({ error: "verification failed" }, 400);
 
-  const rows: [string, string | undefined][] = [
-    ["Name", name],
-    ["Phone", phone],
-  ];
-  const html = `
-    ${rows.map(([k, v]) => `<p><strong>${k}:</strong> ${escapeHtml(v?.trim() || "-")}</p>`).join("")}
-    <p><strong>Message:</strong><br>${escapeHtml(message?.trim() || "-").replace(/\n/g, "<br>")}</p>
-  `;
+  // Kept plain on purpose so spam filters (Rob's inbox is Zoho) have nothing to score: a full HTML document
+  // with a matching plain-text part, no links, no images, no tracking. Sender auth (DKIM/SPF/DMARC on
+  // 940digital.com via Resend) was checked passing on 2026-11-09.
+  const lead = {
+    name: name.trim().slice(0, 120),
+    phone: phone.trim().slice(0, 40),
+    message: (message?.trim() || "").slice(0, 3000),
+  };
+  const text = [
+    `New inspection request from the ${business.name} website.`,
+    "",
+    `Name: ${lead.name}`,
+    `Phone: ${lead.phone}`,
+    "",
+    `What's going on: ${lead.message || "(left blank)"}`,
+    "",
+    "Text or call them back to set up the inspection.",
+  ].join("\n");
+  const html = `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>New inspection request</title></head>
+<body style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.5;color:#1a1a1a">
+<p>New inspection request from the ${escapeHtml(business.name)} website.</p>
+<p><strong>Name:</strong> ${escapeHtml(lead.name)}<br><strong>Phone:</strong> ${escapeHtml(lead.phone)}</p>
+<p><strong>What's going on:</strong><br>${lead.message ? escapeHtml(lead.message).replace(/\n/g, "<br>") : "(left blank)"}</p>
+<p>Text or call them back to set up the inspection.</p>
+</body></html>`;
 
   try {
     const res = await fetch("https://api.resend.com/emails", {
@@ -55,8 +73,9 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         from: `"${business.name} Website" <forms@940digital.com>`,
         to: [business.leadsTo],
-        subject: `New inspection request from ${name.trim()}`,
+        subject: `New inspection request from ${lead.name}`,
         html,
+        text,
       }),
     });
     if (!res.ok) {
