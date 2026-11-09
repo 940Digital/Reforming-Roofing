@@ -45,8 +45,8 @@ export function Hero() {
           </span>
           <span className="block overflow-hidden">
             <span className="hero-line block" style={delay(0.29)}>
-              {/* Rob asked for red, not pink. A brighter tint of the brand red (#b42335 is only 2.1:1 on navy; this is 3.4:1) */}
-              in <span className="text-[#e8394a]"><span className="whitespace-nowrap">Pilot Point,</span> TX</span>
+              {/* All white: Rob didn't like pink, and red was tried next (2026-11-09). */}
+              in <span className="whitespace-nowrap">Pilot Point,</span> TX
             </span>
           </span>
         </h1>
