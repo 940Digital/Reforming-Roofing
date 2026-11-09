@@ -11,6 +11,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { pageGraph } from "@/config/schema";
 import { business } from "@/config/business";
 import { heroFor } from "@/config/work";
+import { formReady as keysReady } from "@/lib/formKeys";
 
 export const metadata = metaFor("/contact");
 
@@ -22,9 +23,9 @@ const faqs: [string, string][] = [
   ["Can I pay over time?", "Financing is available. Ask about it when we go over your estimate."],
 ];
 
-// Without both secrets in Vercel the form runs as a mock (pre-launch review): it shows, but sends nothing
+// Without the Resend key in Vercel (RESEND_API_KEY_RR) the form runs as a mock (pre-launch review): it shows, but sends nothing
 // and its thank-you says so. Adding the keys and redeploying turns it into the real form.
-const formReady = Boolean(process.env.RESEND_API_KEY && process.env.ALTCHA_HMAC_KEY);
+const formReady = keysReady();
 
 export default function ContactPage() {
   return (

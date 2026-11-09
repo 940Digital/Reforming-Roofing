@@ -1,12 +1,13 @@
 // Self-hosted CAPTCHA challenge (ALTCHA proof-of-work), same setup as 940digital.com.
 import { createChallenge } from "altcha-lib/v1";
+import { altchaKey } from "@/lib/formKeys";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
     const challenge = await createChallenge({
-      hmacKey: process.env.ALTCHA_HMAC_KEY as string,
+      hmacKey: altchaKey(),
       maxNumber: 100000,
       expires: new Date(Date.now() + 5 * 60 * 1000),
     });

@@ -2,6 +2,7 @@
 // Same pipeline as 940digital.com's live contact form.
 import { verifySolution } from "altcha-lib/v1";
 import { business } from "@/config/business";
+import { altchaKey, resendKey } from "@/lib/formKeys";
 
 type ContactBody = {
   name?: string;
@@ -35,7 +36,7 @@ export async function POST(req: Request) {
 
   let verified = false;
   try {
-    verified = await verifySolution(altcha, process.env.ALTCHA_HMAC_KEY as string, true);
+    verified = await verifySolution(altcha, altchaKey(), true);
   } catch {
     verified = false;
   }
@@ -56,7 +57,7 @@ export async function POST(req: Request) {
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+      headers: { Authorization: `Bearer ${resendKey()}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         from: `"${business.name} Website" <forms@940digital.com>`,
         to: [business.leadsTo],
