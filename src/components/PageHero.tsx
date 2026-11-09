@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { business } from "@/config/business";
 import type { WorkPhoto } from "@/config/work";
 
@@ -10,6 +11,7 @@ export function PageHero({
   crumbs,
   actions = true,
   image,
+  aside,
 }: {
   eyebrow: string;
   title: string;
@@ -20,6 +22,8 @@ export function PageHero({
   actions?: boolean;
   /** Full-bleed photo behind the banner, faded into navy on the text side like the homepage hero. */
   image?: WorkPhoto;
+  /** Shown beside the text on large screens and under it on small ones (the contact form on /contact). */
+  aside?: ReactNode;
 }) {
   return (
     <section className="dark-ground relative isolate overflow-hidden bg-navy text-white">
@@ -33,7 +37,12 @@ export function PageHero({
       {/* same corner cuts as the homepage hero */}
       <div className="absolute left-0 top-0 h-20 w-20 bg-red [clip-path:polygon(0_0,100%_0,0_100%)] md:h-32 md:w-32" />
       <div className="absolute bottom-0 right-0 h-20 w-20 bg-blue [clip-path:polygon(100%_0,100%_100%,0_100%)] md:h-36 md:w-36" />
-      <div className={`relative mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pb-20 md:pt-44 ${image ? "md:pb-28 md:pt-52 lg:min-h-[640px]" : ""}`}>
+      <div
+        className={`relative mx-auto max-w-7xl px-5 pb-16 pt-36 md:px-8 md:pb-20 md:pt-44 ${image && !aside ? "md:pb-28 md:pt-52 lg:min-h-[640px]" : ""} ${
+          aside ? "grid items-center gap-10 lg:grid-cols-[1fr_minmax(0,600px)] lg:gap-14" : ""
+        }`}
+      >
+        <div>
         {crumbs && (
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex flex-wrap items-center gap-2 text-sm uppercase tracking-[0.12em] text-white/75">
@@ -56,6 +65,8 @@ export function PageHero({
             <a href={business.phoneHref} className="btn btn-line">Call</a>
           </div>
         )}
+        </div>
+        {aside && <div className="text-ink">{aside}</div>}
       </div>
     </section>
   );
