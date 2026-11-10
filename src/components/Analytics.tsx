@@ -10,9 +10,9 @@ const SITE_ID = "8fed7b58-2bdd-433e-8214-957ce8b83cea";
 const GOOGLE_PROFILE = /^https?:\/\/(www\.)?(google\.[a-z.]+\/maps|maps\.google\.|maps\.app\.goo\.gl|g\.page|share\.google)/i;
 
 /**
- * Loads the tracker, which records phone taps (lead_submit / phone_click), Instagram and Facebook
- * (social_click) and the form (form_start, lead_submit) by itself. It does not know sms: links or
- * Google profile links, so those two are picked up here, for every link on the site.
+ * Loads the tracker, which records calls and texts (lead_submit / phone_click, sms_click), Instagram
+ * and Facebook (social_click) and the form (form_start, lead_submit) by itself. It does not know
+ * Google profile links, so those are picked up here, for every link on the site.
  * Production only, so local work never lands in Rob's numbers.
  */
 export function Analytics() {
@@ -23,8 +23,7 @@ export function Analytics() {
     const onClick = (e: MouseEvent) => {
       const link = (e.target as Element | null)?.closest?.("a[href]") as HTMLAnchorElement | null;
       if (!link) return;
-      if (link.href.startsWith("sms:")) track("text_click");
-      else if (GOOGLE_PROFILE.test(link.href)) track("google_profile_click");
+      if (GOOGLE_PROFILE.test(link.href)) track("google_profile_click");
     };
     document.addEventListener("click", onClick, true);
     return () => document.removeEventListener("click", onClick, true);
