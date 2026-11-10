@@ -4,6 +4,7 @@ import "./globals.css";
 import { business } from "@/config/business";
 import { metaFor } from "@/config/meta";
 import { JsonLd } from "@/components/JsonLd";
+import { Analytics } from "@/components/Analytics";
 import { businessNode, websiteNode } from "@/config/schema";
 
 const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton", display: "swap" });
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <JsonLd graph={[businessNode(), websiteNode()]} />
         {children}
+        <Analytics />
       </body>
     </html>
   );

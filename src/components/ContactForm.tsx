@@ -3,6 +3,7 @@
 import Script from "next/script";
 import { useRef, useState, type FormEvent } from "react";
 import { business } from "@/config/business";
+import { track } from "@/lib/analytics";
 
 // The ALTCHA widget is a custom element loaded from /js/altcha.min.js.
 declare module "react" {
@@ -61,6 +62,7 @@ export function ContactForm({ mock = false }: { mock?: boolean }) {
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error("failed");
+      track("form_sent"); // the tracker's lead_submit fires on the attempt; this one means it actually went through
       setStatus({ kind: "ok", text: "Thanks. We got your request and will text or call you to set up the inspection." });
       f.reset();
       f.querySelectorAll<HTMLElement & { reset?: () => void }>("altcha-widget").forEach((w) => w.reset?.());
@@ -78,7 +80,7 @@ export function ContactForm({ mock = false }: { mock?: boolean }) {
         </>
       )}
 
-      <form ref={form} onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
+      <form ref={form} id="inspection-request" onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
         {/* Two required fields and one optional box: every extra field costs leads. Town, email and the job
             type come out on the follow-up text or call. */}
         <label className="block">
