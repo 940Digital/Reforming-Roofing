@@ -70,9 +70,12 @@ export function Footer() {
 
       {/* extra bottom room on phones for the fixed contact bar */}
       <div className="border-t border-white/15">
-        <p className="mx-auto max-w-7xl px-5 pb-20 pt-5 text-sm text-white/65 md:px-8 md:pb-5">
-          &copy; {new Date().getFullYear()} {business.name}. All rights reserved.
-        </p>
+        <div className="mx-auto flex max-w-7xl flex-col gap-1 px-5 pb-20 pt-5 text-sm text-white/65 sm:flex-row sm:items-center sm:justify-between sm:gap-6 md:px-8 md:pb-5">
+          <p>&copy; {new Date().getFullYear()} {business.name}. All rights reserved.</p>
+          <a href="https://www.940digital.com" target="_blank" rel="noopener" className="inline-block self-start py-1 text-white/85 hover:text-white hover:underline decoration-red decoration-2 underline-offset-4 sm:self-auto">
+            Design by 940Digital
+          </a>
+        </div>
       </div>
     </footer>
   );
