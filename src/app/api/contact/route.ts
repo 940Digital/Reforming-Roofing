@@ -3,6 +3,7 @@
 import { verifySolution } from "altcha-lib/v1";
 import { business } from "@/config/business";
 import { altchaKey, resendKey } from "@/lib/formKeys";
+import { recordFormSend } from "@/lib/recordFormSend";
 
 type ContactBody = {
   name?: string;
@@ -10,6 +11,7 @@ type ContactBody = {
   message?: string;
   website?: string;
   altcha?: string;
+  t940_session?: string | null;
 };
 
 const json = (body: unknown, status: number) => Response.json(body, { status });
@@ -24,7 +26,7 @@ export async function POST(req: Request) {
   } catch {
     return json({ error: "bad request" }, 400);
   }
-  const { name, phone, message, website, altcha } = body;
+  const { name, phone, message, website, altcha, t940_session } = body;
 
   // Honeypot: real visitors never see or fill this field.
   if (website) return json({ error: "submission rejected" }, 400);
@@ -82,6 +84,8 @@ export async function POST(req: Request) {
       console.error("Resend error:", res.status, await res.text());
       return json({ error: "delivery failed" }, 502);
     }
+    // Delivered: record it as a lead before answering (a serverless function may stop once it has replied).
+    await recordFormSend({ sessionId: t940_session, form: "inspection-request", path: "/contact" });
     return json({ ok: true }, 200);
   } catch (err) {
     console.error("Contact form error:", err);

@@ -3,7 +3,7 @@
 import Script from "next/script";
 import { useRef, useState, type FormEvent } from "react";
 import { business } from "@/config/business";
-import { track } from "@/lib/analytics";
+import { track, trackerSessionId } from "@/lib/analytics";
 
 // The ALTCHA widget is a custom element loaded from /js/altcha.min.js.
 declare module "react" {
@@ -59,7 +59,8 @@ export function ContactForm({ mock = false }: { mock?: boolean }) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        // The visit id lets the server's record of this send link to the visit; null if the tracker is blocked.
+        body: JSON.stringify({ ...data, t940_session: trackerSessionId() }),
       });
       if (!res.ok) throw new Error("failed");
       track("form_sent"); // the tracker's lead_submit fires on the attempt; this one means it actually went through

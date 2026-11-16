@@ -2,10 +2,8 @@
 
 import Script from "next/script";
 import { useEffect } from "react";
+import { TRACKER_SITE_ID as SITE_ID } from "@/config/analytics";
 import { track } from "@/lib/analytics";
-
-// public.sites row for this website in the 940Digital tracker. Public by design: it ships in the page.
-const SITE_ID = "8fed7b58-2bdd-433e-8214-957ce8b83cea";
 
 const GOOGLE_PROFILE = /^https?:\/\/(www\.)?(google\.[a-z.]+\/maps|maps\.google\.|maps\.app\.goo\.gl|g\.page|share\.google)/i;
 
